@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>商家详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-card-height {
+				width: auto;
+				height: 100px;
+			}
+            .card img{
+                height: 9.0rem;
+                width: 100%;
+                margin:0;
+                display: block;
+            }
+            .aui-card-list-header-h{
+            	min-height: 3.0rem;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="aui-content">
+			<div class="card"><img src="../image/shouye/banner-1.9.png" />
+			</div>
+		</div>
+		 
+		<section class="aui-content aui-margin-t-10 aui-margin-b-10" style="text-align: left;">
+			<p class="aui-font-size-16 aui-margin-l-10 aui-text-black">苏果满68元返50积分</p>
+			<p class="aui-font-size-14 aui-margin-l-10">活动时间：2016.9.30-2016.10.08</p>
+			<p class="aui-font-size-12 aui-margin-l-10">参与次数：一天一次</p>
+			<p class="aui-font-size-12 aui-margin-l-10">参与方式：苏果超市购物满68元，上传购物小票，可获得50积分。</p>
+		</section>
+		<footer class="aui-bar aui-bar-tab aui-bg-white" id="aui-footer">
+			<div class="aui-bar-tab-item aui-bg-FF9800" tapmode onclick="uploadsjxp()">
+				上传小票
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+	    var imageFilter,uiMediaScanner = null;
+		apiready = function() {
+			api.parseTapmode();
+			// 引入多选模块
+            uiMediaScanner = api.require('UIMediaScanner');
+		    // 引入过滤压缩模块
+            imageFilter = api.require("imageFilter");
+		}
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+		function uploadsjxp(){
+		    api.actionSheet({
+	                title : '选择图片来源',
+	                buttons : ['拍照上传', '浏览相册']
+	        }, function(ret, err) {
+	              var index = ret.buttonIndex;
+                  switch(index) {
+	              		 case 1:
+	                    // 打开拍照
+	                    api.getPicture({
+                            sourceType : "camera",
+                            encodingType : "jpg/jpeg",
+                            destinationType : "url",
+                            mediaValue : "pic",
+                            quality : 50,
+                            saveToPhotoAlbum : false
+	                    }, function(ret, err) {
+	                            if (ret && ret.data) {
+	                                api.toast({
+                                        msg : '上传成功！'
+                                    });
+	                            } else {
+                                    api.toast({
+                                        msg : '没有选择，或者选择出错'
+                                    });
+	                            }
+	                            //$("#aui-footer").css('display','block');
+	                    });
+	                    break;
+	                    case 2:
+	                    uiMediaScanner.open({
+	                            type : 'picture',
+	                            column : 4,
+	                            classify : true,
+	                            max : 1,
+	                            sort : {
+	                                    key : 'time',
+	                                    order : 'desc'
+	                            },
+	                            texts : {
+	                                    stateText : '已选*项',
+	                                    cancelText : '取消',
+	                                    finishText : '完成'
+	                            },
+	                            styles : {
+	                                    bg : '#fff',
+	                                    mark : {
+	                                            icon : '',
+	                                            position : 'bottom_left',
+	                                            size : 20
+	                                    },
+	                                    nav : {
+	                                            bg : '#b23e4b',
+	                                            stateColor : '#fff',
+	                                            stateSize : 18,
+	                                            cancelBg : 'rgba(0,0,0,0)',
+	                                            cancelColor : '#fff',
+	                                            cancelSize : 18,
+	                                            finishBg : 'rgba(0,0,0,0)',
+	                                            finishColor : '#fff',
+	                                            finishSize : 18
+	                                    }
+	                            }
+	                    }, function(ret) {
+	                            if (ret) {
+	                                api.toast({
+                                        msg : '上传成功！'
+                                    });
+	                            } else {
+                                    api.toast({
+                                        msg : '没有选择，或者选择出错'
+                                    });
+	                      
+	                            }
+	                            //$("#aui-footer").css('display','block');
+	                    });
+	                    break;
+	                    case 3:
+	                    	//$("#aui-footer").css('display','block');
+	                    break;
+	              }
+	        });
+		}
+		                       
+ 
+	</script>
+	</html>

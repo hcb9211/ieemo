@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" />
+		<style>
+			.aui-bar .aui-bar-tab .active-warning .aui-iconfont, .aui-bar .aui-bar-tab .active-warning p {
+				color: #FF9800;
+			}
+			.aui-bar-nav {
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			    /*height: 50px;*/
+			}
+			.aui-bar-navs {
+		         display:-webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			    /*height: 50px;*/
+			}
+			.aui-searchbar .aui-icon-search {
+			    line-height: 30px;
+			    margin-right: 5px;
+			    font-size: 16px;
+			}
+			.aui-searchbar {
+			    margin: 0 20px 0 20px;
+			    background: #ffffff;
+			    border-radius: 5px;
+			    height: 32px;
+			    line-height: 32px;
+			    color: #e2e2e2;
+			    font-size: 14px;
+				width: 100%;
+			    position: relative;
+			    padding-left: 4px;
+			    -webkit-box-flex: 1;
+			    display: -webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			}
+			.display-none{display:none;}
+		</style>
+	</head>
+	<body>
+		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header">
+			<div class="aui-bar-navs">
+				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南京<span class="aui-iconfont aui-icon-down"></span> </a>
+				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
+					<div class="aui-searchbar-input">
+						<form action="javascript:search();">
+							<input type="search" placeholder="请输入搜索内容" id="search-input">
+						</form>
+					</div>
+				</div>
+				<a class="scl-iconfont scl-icon-saoyisao aui-margin-r-10" tapmode onclick="doScanner();"></a>
+			</div>
+		</header>
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="location-header" style="padding-top:25px;">
+			<div class="aui-bar-navs">
+				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南邮大厦<span class="aui-iconfont aui-icon-down"></span> </a>
+				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
+					<div class="aui-searchbar-input">
+						<form action="javascript:search();">
+							<input type="search" placeholder="找附近吃喝玩乐" id="search-input">
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="pzsh-header" style="padding-top:25px;">
+			<div class="aui-bar-navs">
+				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南京<span class="aui-iconfont aui-icon-down"></span> </a>
+				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
+					<div class="aui-searchbar-input">
+						<form action="javascript:search();">
+							<input type="search" placeholder="输入名称、找优惠" id="search-input">
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="me-header" style="padding-top:25px;">
+			<div class="aui-bar-navs">
+				<div class="aui-title">
+					我
+				</div>
+				<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>
+			</div>
+		</header>
+		<footer class="aui-bar aui-bar-tab" id="aui-footer">
+			<div class="aui-bar-tab-item aui-active" tapmode data-header="index">
+				<i class="aui-iconfont aui-icon-home"></i>
+				<div class="aui-bar-tab-label">
+					首页
+				</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="location">
+				<i class="aui-iconfont aui-icon-location"></i>
+				<div class="aui-bar-tab-label">
+					附近
+				</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="pzsh">
+				<i class="scl-iconfont scl-icon-liujiaoxing"></i>
+				<div class="aui-bar-tab-label">
+					品质生活
+				</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="me">
+				<i class="aui-iconfont aui-icon-my"></i>
+				<div class="aui-bar-tab-label">
+					我的
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="./script/api.js"></script>
+	<script type="text/javascript" src="./script/aui-tab.js" ></script>
+	<script type="text/javascript" src="./script/common.js"></script>
+	<script type="text/javascript" src="./script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			// 设置ios7的标题栏字体变亮，全局用一个就行了
+			api.setStatusBarStyle({
+				style : 'light'
+			});
+			var header = $api.dom('.aui-bar');
+			var headers = $api.byId('index-header');
+			$api.fixStatusBar(headers);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+			var footer_h = $api.offset($api.byId('aui-footer')).h;
+			api.openFrameGroup({
+				name : 'footer_tab_index',
+				scrollEnabled : false,
+				rect : {
+					x : 0,
+					y : headerPos.h,
+					w : 'auto',
+					h : api.frameHeight - headerPos.h - footer_h
+				},
+				index : 0,
+				preload : 0,
+				frames : [{
+					name : 'main',
+					url : './html/main.html'
+				}, {
+					name : 'location',
+					url : './html/icart.html',
+					bounces : false
+				}, {
+					name : 'pzsh',
+					url : './html/coupon.html',
+					bounces : false
+				}, {
+					name : 'me',
+					url : './html/me.html',
+					bounces : false
+				}]
+			}, function(ret, err) {
+			});
+			//			bMap = api.require('bMap');
+			//			// 获取当前位置
+			//			bMap.getLocation({
+			//				accuracy : '10m',
+			//				autoStop : true,
+			//				filter : 1
+			//			}, function(ret, err) {
+			//				if (ret.status) {
+			//					bMap.getNameFromCoords({
+			//						lon : ret.lon,
+			//						lat : ret.lat
+			//					}, function(ret, err) {
+			//						if (ret.status) {
+			//							// 设置给位置
+			//							$(".aui-iconfont.aui-icon-location.aui-font-size-14").text(ret.address.replace('江苏省南京市',''));
+			//						}
+			//					});
+			//				} else {
+			//					alert(err.code);
+			//				}
+			//			});
+		}
+		var tab = new auiTab({
+			element : document.getElementById("aui-footer")
+		}, function(ret) {
+			if (ret) {
+				api.setFrameGroupIndex({
+					name : 'footer_tab_index',
+					index : ret.index - 1,
+					scroll : false,
+				});
+				var that = $("#aui-footer .aui-bar-tab-item").eq(ret.index - 1);
+				// 获取data-header存储的值
+				var headerId = that.attr("data-header");
+				// 对应的dom头部
+				var headerDOM = headerId + "-header";
+				$("#" + headerDOM).removeClass("display-none").siblings(".header").addClass("display-none");
+			}
+		});
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : './html/' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+	</html>

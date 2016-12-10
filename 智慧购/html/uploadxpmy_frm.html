@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>上传小票</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui-flex.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			
+			.display-none {
+				display: none
+			}
+		</style>
+	</head>
+	<body>  
+	        <div class="aui-content">
+			<div class="aui-bar aui-bar-btn  aui-bar-btn-full" id="tab">
+				<div class="aui-bar-btn-item" tapmode>
+					全部
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					通过
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					未通过
+				</div>
+			  </div>
+		    </div>
+			<section class="aui-content con-pl">
+			<ul class="aui-list aui-media-list">
+            <li class="aui-list-item" tapmode onclick="openWin('uploadsjxq_win')">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/drf.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">大润发满68返 50积分</div>
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                        <p class="aui-font-size-12">
+                                                                                        活动时间：2016.9.30-2016.10.8
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('uploadsjxq_win')">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/mdl.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">麦德龙满78返 50积分</div>
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                        <p class="aui-font-size-12">
+                                                                                        活动时间：2016.9.30-2016.10.8
+                        </p>
+                    </div>
+                </div>
+            </li>
+             </ul>
+		</section>
+		<section class="aui-content con-pl  display-none">
+			<ul class="aui-list aui-media-list">
+            <li class="aui-list-item" tapmode onclick="openWin('uploadsjxq_win')">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/mdl.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">麦德龙满68返 50积分</div>
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                        <p class="aui-font-size-12">
+                                                                                       活动时间：2016.9.30-2016.10.8
+                        </p>
+                    </div>
+                </div>
+            </li>
+             </ul>
+		</section>
+		<section class="aui-content con-pl display-none">
+			<ul class="aui-list aui-media-list">
+            <li class="aui-list-item" tapmode onclick="openWin('uploadsjxq_win')">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/drf.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">大润发满78返 50积分</div>
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                        <p class="aui-font-size-12">
+                                                                                       活动时间：2016.9.30-2016.10.8
+                        </p>
+                    </div>
+                </div>
+            </li>
+             </ul>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+		
+        var tab = new auiTab({
+			element : document.getElementById("tab"),
+		}, function(ret) {
+			console.log(ret.index)
+			var $ul = $('.con-pl');
+			$ul.css('display', 'none');
+			$ul.eq(ret.index - 1).css('display', 'block');
+		});
+		
+	</script>
+	</html>

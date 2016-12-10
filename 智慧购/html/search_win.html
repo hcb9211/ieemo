@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+	    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style>
+			.aui-bar-nav {
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			    /*height: 50px;*/
+			}
+			.aui-bar-navs {
+		         display:-webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			    /*height: 50px;*/
+			}
+			.aui-searchbar .aui-icon-search {
+			    line-height: 30px;
+			    margin-right: 5px;
+			    font-size: 16px;
+			}
+			.aui-searchbar {
+			    margin: 0 40px 0 10px;
+			    background: #ffffff;
+			    border-radius: 5px;
+			    height: 32px;
+			    line-height: 32px;
+			    color: #e2e2e2;
+			    font-size: 14px;
+				width: 100%;
+			    position: relative;
+			    padding-left: 4px;
+			    -webkit-box-flex: 1;
+			    display: -webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">
+			<div class="aui-bar-navs">
+				<a class="aui-btn aui-pull-left" tapmode onclick="closeWin()"> <span class="aui-iconfont aui-icon-left"></span> </a>
+				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					<div class="aui-searchbar-input">
+						<form action="javascript:search();">
+							<input type="search" placeholder="请输入商品、商家" id="search-input">
+						</form>
+					</div>
+					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
+				</div>
+				 
+			</div>
+		</header>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			var header = $api.byId('aui-header');
+			$api.fixStatusBar(header);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+			api.openFrame({
+				name : 'search_frm',
+				url : 'search_frm.html',
+				bounces : false,
+				rect : {
+					x : 0,
+					y : headerPos.h,
+					w : 'auto',
+					h : 'auto'
+				}
+			})
+		};
+		function closeWin() {
+			api.closeWin({
+			});
+		}
+	</script>
+	</html>

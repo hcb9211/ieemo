@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+		<style>
+			body {
+				background-color: #EEEEEE !important;
+			}
+			
+			.aui-slide-node img {
+				height: auto;
+				width: 100%;
+				margin:0;
+                display: block;
+			}
+			
+			.aui-btn-size{
+                height: 2.0rem;
+                width: 2.0rem;
+                display: block;
+                margin:auto;
+                border-radius: 1.0rem;
+	            border-width: 0.1rem;
+	            position: relative;
+				font-size: 0.9rem;
+				font-weight: 600;
+				font-family: inherit;
+				text-align: center;
+				line-height:2.0rem;
+            }
+			.aui-btn-bj1{
+				background: #ffc331;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj2{
+				background: #fe296a;
+				color: #FFFFFF;
+            }
+			.aui-btn-bj3{
+				background: #3aa9db;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj4{
+				background: #6f49ec;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj5{
+				background: #46c5d6;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj6{
+				background: #2ecffc;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj7{
+				background: #ff3895;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj8{
+				background: #7ed430;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj9{
+				background: #a65acc;
+				color: #FFFFFF;
+            }
+            .aui-btn-bj10{
+				background: #fb4094;
+				color: #FFFFFF;
+            }
+			.aui-btn-size img {
+				height: 2.0rem;
+                width: 2.0rem;
+			}
+			.aui-node1{
+				background: #FFFFFF;
+				color: #FFFFFF;
+			}
+			.aui-node1 img {
+				height: 8.0rem;
+				width: 100%;
+				margin:0;
+                display: block;
+			}
+			.aui-node2{
+				background: #FFFFFF;
+				color: #FFFFFF;
+			}
+			.aui-node2 img {
+				height: 4.0rem;
+				width: 100%;
+				margin:0;
+                display: block;
+			}
+			.aui-node3{
+				background: #FFFFFF;
+				color: #FFFFFF;
+			}
+			.aui-node3 img {
+				height: 3.875rem;
+				width: 100%;
+				margin:0;
+                display: block;
+			}
+			.aui-xin img {
+				height: 100%;
+				width: 0.75rem;
+				margin:0;
+			}
+			
+			.aui-card-height img{
+				width: auto;
+				height: 6.0rem;
+			}
+			.aui-card-padded-1 {
+			    padding: 0.5rem 0.5rem 0 0.5rem;
+			}
+			.p1{
+			    color: #FFFFFF;
+				position: absolute; left: 0.6rem; bottom: -0.3rem;
+			}
+			.p2{
+			    color: #FFFFFF;
+				position: absolute; right: 0.6rem; bottom:-0.3rem;
+			}
+			.line-through {
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="aui-refresh-content">
+			<div class="aui-content">
+				<div id="aui-slide" class="aui-slide-node">
+					<img src="../image/shouye/banner.png" />
+				</div>
+				<section class="aui-grid">
+					<div class="aui-row">
+						<div class="aui-col-5 aui-padded-t-15 aui-padded-b-0" tapmode onclick="openWin('supermarkets_win')">
+							<i class="aui-btn-bj1 aui-btn-size"> <img src="../image/shouye/1.png" /></i>
+							<div class="aui-grid-label">
+								超市
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-0">
+							<i class="aui-btn-bj2 aui-btn-size"> <img src="../image/shouye/2.png" /></i>
+							<div class="aui-grid-label">
+								美食
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-0">
+							<i class="aui-btn-bj3 aui-btn-size"> <img src="../image/shouye/3.png" /></i>
+							<div class="aui-grid-label">
+								购物
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-0">
+							<i class="aui-btn-bj4 aui-btn-size"> <img src="../image/shouye/4.png" /></i>
+							<div class="aui-grid-label">
+								酒店
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-0">
+							<i class="aui-btn-bj5 aui-btn-size"> <img src="../image/shouye/5.png" /></i>
+							<div class="aui-grid-label">
+								外卖
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-15">
+							<i class="aui-btn-bj6 aui-btn-size"> <img src="../image/shouye/6.png" /></i>
+							<div class="aui-grid-label">
+								丽人
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-15">
+							<i class="aui-btn-bj7 aui-btn-size"> <img src="../image/shouye/7.png" /></i>
+							<div class="aui-grid-label">
+								休闲娱乐
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-15">
+							<i class="aui-btn-bj8 aui-btn-size"> <img src="../image/shouye/8.png" /></i>
+							<div class="aui-grid-label">
+								电影
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-15">
+							<i class="aui-btn-bj9 aui-btn-size"> <img src="../image/shouye/9.png" /></i>
+							<div class="aui-grid-label">
+								生活服务
+							</div>
+						</div>
+						<div class="aui-col-5  aui-padded-t-15 aui-padded-b-15">
+							<i class="aui-btn-bj10 aui-btn-size"> <img src="../image/shouye/10.png" /></i>
+							<div class="aui-grid-label">
+								分类
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="aui-content" style="margin: 5px 0px;">
+					<div class="aui-row" >
+						<div class="aui-col-xs-6 aui-node1" style="padding: 0 0.1rem 0 0"><img src="../image/shouye/shopping.png"/>
+						</div>
+						<div class="aui-col-xs-6" style="padding: 0 0 0 0.1rem;">
+							<div class="aui-row">
+								<div class="aui-col-xs-12 aui-node2" style="margin: 0 0 0.125rem 0;"><img src="../image/shouye/like.png" />
+								</div>
+								<div class="aui-col-xs-12 aui-node3"><img src="../image/shouye/quan.png" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="aui-content aui-margin-t-10 aui-margin-b-10" style="text-align: center;">
+					<span class="line_m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span class="aui-xin">&nbsp;&nbsp;<img src="../image/shouye/xin.png" /></span>
+					<span class="aui-font-size-16">&nbsp;精选推荐&nbsp;&nbsp;</span>
+					<span class="line_m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</section>
+				<section class="aui-content aui-row">
+					<div class="aui-row-padded">
+						<div class="aui-col-xs-6">
+							<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+								<div class="aui-card-list-content-padded aui-card-padded-1">
+									<img  src="../image/shouye/quechao.jpg" />
+									<p class="p1">
+										已售288
+									</p>
+									<p class="p2">
+										788m
+									</p>
+								</div>
+								<div class="aui-card-list-footer">
+									<div class="aui-content">
+										<p>
+											<span class="aui-pull-left aui-font-size-14" style="color: #333">新雀巢巧克力咖啡</span>
+											<span class="aui-pull-right"style="color: #fb812c">4.6分</span>
+										</p>
+										<p class="aui-pull-left aui-font-size-12">
+											<span style="color: #a1a1a1">[三牌楼苏果超市15店通用]新西兰进口巧克力</span>
+										</p>
+										<p class="aui-pull-left">
+											<span class="aui-font-size-12"  style="color: #fc5135">￥</span>
+											<span class="aui-font-size-16" style="color: #fc5135">8.00</span>&nbsp; <span class="line-through aui-font-size-12" style="color: #999">￥10.00</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="aui-col-xs-6">
+							<div class="aui-card-list  aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+								<div class="aui-card-list-content-padded aui-card-padded-1">
+									<img src="../image/shouye/niunai.jpg" />
+									<p class="p1">
+										已售288
+									</p>
+									<p class="p2">
+										788m
+									</p>
+								</div>
+								<div class="aui-card-list-footer">
+									<div class="aui-content">
+										<p>
+											<span class="aui-pull-left aui-font-size-14" style="color: #333">圣牧有机纯牛奶</span>
+											<span class="aui-pull-right"style="color: #fb812c"></span>
+										</p>
+										<p class="aui-pull-left aui-font-size-12">
+											<span style="color: #a1a1a1">[大润发2店通用]经典有机全脂牛奶250ml*12盒*2箱</span>
+										</p>
+										<p class="aui-pull-left">
+											<span class="aui-font-size-12"  style="color: #fc5135">￥</span>
+											<span class="aui-font-size-16" style="color: #fc5135">65.00</span>
+											<span class="aui-font-size-12" style="border-style:solid; border-width:1px;border-radius: 3px;border-color:#fc5135;color: #fc5135">买一送一</span>
+											<span class="line-through aui-font-size-12" style="color: #999"></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="aui-col-xs-6">
+							<div class="aui-card-list  aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+								<div class="aui-card-list-content-padded aui-card-padded-1">
+									<img  src="../image/shouye/majia.jpg" />
+									<p class="p1">
+										已售3
+									</p>
+									<p class="p2">
+										1778m
+									</p>
+								</div>
+								<div class="aui-card-list-footer">
+									<div class="aui-content">
+										<p>
+											<span class="aui-pull-left aui-font-size-14" style="color: #333">大嘴猴女士马甲棉外套</span>
+											<span class="aui-pull-right"style="color: #fb812c"></span>
+										</p>
+										<p class="aui-pull-left aui-font-size-12">
+											<span style="color: #a1a1a1">[虹悦城PAUL FRANK3店通用]纯棉马甲外套</span>
+										</p>
+										<p class="aui-pull-left">
+											<span class="aui-font-size-12"  style="color: #fc5135">￥</span>
+											<span class="aui-font-size-16" style="color: #fc5135">188.00</span>&nbsp; 
+											<span class="line-through aui-font-size-12" style="color: #999">￥300.00</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="aui-col-xs-6">
+							<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+								<div class="aui-card-list-content-padded aui-card-padded-1">
+									<img src="../image/shouye/ji.jpg" />
+									<p class="p1">
+										已售243
+									</p>
+									<p class="p2">
+										1568m
+									</p>
+								</div>
+								<div class="aui-card-list-footer">
+									<div class="aui-content">
+										<p class="aui-font-size-14">
+											<span style="color: #333">潘老板炸鸡</span>
+										</p>
+										<p class="aui-font-size-12" style="margin:4px 0px 0px 0px;padding: 0px;">
+											<span style="color: #a1a1a1;">30分钟送达</span>
+										</p>
+										<p style="margin:0px 0px 4px 0px;padding: 0px;">
+											<span class="aui-font-size-12" style="color: #a1a1a1;">起送价￥15元|配送费￥2.5</span>
+										</p>
+										<p>
+											<span class="aui-font-size-12" style="color: #fc5135">满20减15、满50减24</span>
+											<span class="aui-font-size-12" style="border-style:solid; border-width:1px;border-radius: 3px;border-color:#fc5135;color: #fc5135">外卖</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+	</body>
+    <script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/aui-slide.js"></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : 'widget://image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				 
+					setTimeout(function() {
+						api.refreshHeaderLoadDone();
+					}, 1500)
+				 
+			});
+		};
+//		var slide = new auiSlide({
+//			container : document.getElementById("aui-slide"),
+//			// "width":300,
+//			"height" : 180,
+//			"speed" : 300,
+//			"autoPlay" : 3000, //自动播放
+//			"loop" : true,
+//			"pageShow" : true,
+//			"pageStyle" : 'dot',
+//			'dotPosition' : 'right'
+//		})
+//		console.log(slide.pageCount());
+//		var tab = new auiTab({
+//			element : document.getElementById("tab"),
+//		}, function(ret) {
+//			console.log(ret.index)
+//			var $ul = $('.con-pl');
+//			$ul.css('display', 'none');
+//			$ul.eq(ret.index - 1).css('display', 'block');
+//		});
+		
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+	</html>

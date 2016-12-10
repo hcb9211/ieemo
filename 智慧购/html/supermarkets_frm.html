@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>超市</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-card-height {
+				width: auto;
+				height: 100px;
+			}
+			.aui-bar-btn-item {
+				background-color: #ffffff;
+			}
+            .aui-card-padded-2{
+			    min-height: 0rem;
+   				padding: 0rem 1.5rem;
+            }
+            .p3{
+			    color: #ffffff;
+			    background-color: #fd2851;
+				position: absolute; left: 0rem; top: 0.3rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aui-content">
+			<div class="aui-bar aui-bar-btn  aui-bar-btn-full">
+				<div class="aui-bar-btn-item" tapmode>
+					全部分类<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					附近<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					综合排序<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					筛选<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-all"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+					    <li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								全部
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								休闲食品
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								生活用品
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								化妆洗护
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								办公用品
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								家用电器
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								儿童玩具
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								水果生鲜
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-near"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								全部
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-0.5km
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-1.0km
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-5.0km
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-zhpx"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								综合排序
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								离我最近
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								好评优先
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								人气最高
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-sx"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								全部
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								苏果
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								好又多
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								欧尚
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<section class="aui-content">
+			<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('supermarkets141_win')">
+				<div class="aui-card-list-content">
+					<ul class="aui-list aui-media-list">
+						<li class="aui-list-item aui-list-item-middle">
+							<div class="aui-media-list-item-inner">
+								<div class="aui-list-item-media">
+									<img src="../image/1.4/1.jpg" class="aui-img-round aui-list-img-sm">
+									<p class="p3">
+										可配送
+									</p>
+								</div>
+								<div class="aui-list-item-inner">
+									<div class="aui-list-item-text">
+										<div class="aui-list-item-title aui-font-size-16 aui-text-333">
+											好又多-南京大学店
+										</div>
+										<div class="aui-list-item-right">
+											193m
+										</div>
+									</div>
+									<div class="aui-list-item-text">
+										<span class="aui-text-danger">24个优惠活动进行中<i class="aui-iconfont aui-icon-down"></i></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="aui-card-list">
+				<div class="aui-card-list-content-padded">
+					<div class="aui-row aui-row-padded">
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/2.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/3.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/4.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/5.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="aui-card-list-footer aui-card-padded-2 aui-text-fc5e35">
+					<div>
+						￥16.5
+					</div>
+					<div>
+						￥26.5
+					</div>
+					<div>
+						￥36.5
+					</div>
+					<div>
+						￥46.5
+					</div>
+				</div>
+			</div>
+			<div class="aui-card-list" tapmode onclick="openWin('supermarkets141_win')">
+				<div class="aui-card-list-content">
+					<ul class="aui-list aui-media-list">
+						<li class="aui-list-item aui-list-item-middle">
+							<div class="aui-media-list-item-inner">
+								<div class="aui-list-item-media">
+									<img src="../image/1.4/6.jpg" class="aui-img-round aui-list-img-sm">
+								</div>
+								<div class="aui-list-item-inner">
+									<div class="aui-list-item-text">
+										<div class="aui-list-item-title aui-font-size-16 aui-text-333">
+											苏果超市-龙江店
+										</div>
+										<div class="aui-list-item-right">
+											1193m
+										</div>
+									</div>
+									<div class="aui-list-item-text">
+										<span class="aui-text-danger">14个优惠活动进行中<i class="aui-iconfont aui-icon-down"></i></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('supermarkets141_win')">
+				<div class="aui-card-list-content">
+					<ul class="aui-list aui-media-list">
+						<li class="aui-list-item aui-list-item-middle">
+							<div class="aui-media-list-item-inner">
+								<div class="aui-list-item-media">
+									<img src="../image/1.4/7.jpg" class="aui-img-round aui-list-img-sm">
+									<p class="p3">
+										可配送
+									</p>
+								</div>
+								<div class="aui-list-item-inner">
+									<div class="aui-list-item-text">
+										<div class="aui-list-item-title aui-font-size-16 aui-text-333">
+											家乐福-南京大学店
+										</div>
+										<div class="aui-list-item-right">
+											193m
+										</div>
+									</div>
+									<div class="aui-list-item-text">
+										<span class="aui-text-danger">24个优惠活动进行中<i class="aui-iconfont aui-icon-down"></i></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="aui-card-list">
+				<div class="aui-card-list-content-padded">
+					<div class="aui-row aui-row-padded">
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/8.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/9.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/10.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/11.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="aui-card-list-footer aui-card-padded-2 aui-text-fc5e35">
+					<div>
+						￥16.5
+					</div>
+					<div>
+						￥26.5
+					</div>
+					<div>
+						￥36.5
+					</div>
+					<div>
+						￥46.5
+					</div>
+				</div>
+			</div>
+			<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('supermarkets141_win')">
+				<div class="aui-card-list-content">
+					<ul class="aui-list aui-media-list">
+						<li class="aui-list-item aui-list-item-middle">
+							<div class="aui-media-list-item-inner">
+								<div class="aui-list-item-media">
+									<img src="../image/1.4/12.jpg" class="aui-img-round aui-list-img-sm">
+									<p class="p3">
+										可配送
+									</p>
+								</div>
+								<div class="aui-list-item-inner">
+									<div class="aui-list-item-text">
+										<div class="aui-list-item-title aui-font-size-16 aui-text-333">
+											大润发-南京大学店
+										</div>
+										<div class="aui-list-item-right">
+											1193m
+										</div>
+									</div>
+									<div class="aui-list-item-text">
+										<span class="aui-text-danger">16个优惠活动进行中<i class="aui-iconfont aui-icon-down"></i></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="aui-card-list">
+				<div class="aui-card-list-content-padded">
+					<div class="aui-row aui-row-padded">
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/13.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/14.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/15.jpg" />
+						</div>
+						<div class="aui-col-xs-3">
+							<img src="../image/1.4/16.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="aui-card-list-footer aui-card-padded-2 aui-text-fc5e35">
+					<div>
+						￥12.5
+					</div>
+					<div>
+						￥21.5
+					</div>
+					<div>
+						￥37.5
+					</div>
+					<div>
+						￥42.5
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			 
+		}
+		var bar = document.querySelectorAll(".aui-bar-btn");
+		if (bar) {
+			for (var i = 0; i < bar.length; i++) {
+				var d = bar[i];
+				var tab = new auiTab({
+					element : bar[i],
+					repeatClick : true
+				}, function(ret) {
+					if (ret.index == 1) {
+						showPopup('popup-all');
+						hidePopup('popup-near');
+						hidePopup('popup-zhpx');
+						hidePopup('popup-sx');
+					}
+					if (ret.index == 2) {
+						hidePopup('popup-all');
+						showPopup('popup-near');
+						hidePopup('popup-zhpx');
+						hidePopup('popup-sx');
+					}
+					if (ret.index == 3) {
+					    hidePopup('popup-all');
+						hidePopup('popup-near');
+						showPopup('popup-zhpx');
+						hidePopup('popup-sx');
+					}
+					if (ret.index == 4) {
+					    hidePopup('popup-all');
+						hidePopup('popup-near');
+						hidePopup('popup-zhpx');
+						showPopup('popup-sx');
+					}
+				});
+			}
+		}
+		var popup = new auiPopup();
+		function showPopup(str) {
+			popup.show(document.getElementById(str))
+		}
+
+		function hidePopup(str) {
+			popup.hide(document.getElementById(str))
+		}
+
+		
+	</script>
+</html>

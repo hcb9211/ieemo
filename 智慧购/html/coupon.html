@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>优惠券</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.card img {
+				width: 3.5rem;
+				margin: 0.5rem;
+				display: block;
+			}
+			.aui-bar-btn-item {
+				background-color: #ffffff;
+			}
+			p {
+				margin: 0px !important;
+				padding: 0px !important;
+				line-height: 130%
+			}
+			.aui-text-middle {
+				-webkit-box-align: center;
+				box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			.aui-col-xs-h{
+				height:4.0rem;
+			}
+			.aui-square {
+				background-color: #ff9800;
+				color: #ffffff;
+				font-size: 16px;
+			}
+			.aui-square-one {
+				background-color: #bbbbbb;
+				color: #ffffff;
+				font-size: 16px;
+			}
+			.aui-text-align{
+			    margin: 0.8rem 0;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+						justify-content: center;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+						align-items: center;
+			}
+			.aui-text-align-one{
+				text-align:center;
+				line-height:4.0rem;
+			}
+			.display-none {
+				display: none
+			}
+		</style>
+		</head>
+		<body>
+		<div class="aui-content">
+			<div class="aui-bar aui-bar-btn  aui-bar-btn-full" id="tab">
+				<div class="aui-bar-btn-item" tapmode>
+					优惠券
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					抵用券
+				</div>
+			</div>
+		</div>
+		<div class="aui-content con-pl">
+			<section class="aui-content aui-row aui-margin-b-5 aui-margin-l-5 aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-05-10_132221.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满128元减20元
+						</p>
+						<p class="aui-font-size-16">
+							清扬洗护产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-05-13_155755.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满328元减60元
+						</p>
+						<p class="aui-font-size-16">
+							光明系列产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-05-18_172955.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满99元减12元
+						</p>
+						<p class="aui-font-size-16">
+							好时系列产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-09-23_200417.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满12800元减200元
+						</p>
+						<p class="aui-font-size-16">
+							电子产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-09-22_195014.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满1280元减50元
+						</p>
+						<p class="aui-font-size-16">
+							捷安特系列
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-05-10_112729.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满88元减8元
+						</p>
+						<p class="aui-font-size-16">
+							蛋糕产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+			<section class="aui-content aui-row aui-padded-b-5 aui-margin-l-5  aui-margin-r-5">
+				<div class="aui-col-xs-3 aui-col-xs-h aui-bg-white">
+					<div class="card">
+						<img src="../image/shangping/2016-05-19_102036.png">
+					</div>
+				</div>
+				<div class="aui-col-xs-6 aui-col-xs-h aui-bg-white">
+					<div class="aui-content aui-text-middle aui-margin-t-5">
+						<p class="aui-money">
+							满228元减38元
+						</p>
+						<p class="aui-font-size-16">
+							费列罗系列产品
+						</p>
+						<p class="aui-font-size-14">
+							限大润发超市使用
+						</p>
+						<p class="aui-font-size-12">
+							使用时间：2016.9.30-2016.10.8
+						</p>
+					</div>
+				</div>
+				<div class="aui-col-xs-3 aui-col-xs-h aui-square" tapmode onclick="changebtn_yhq(this)">
+					<div class="aui-text-align">
+						点击
+						<br/>
+						领取
+					</div>
+				</div>
+			</section>
+		</div>
+		<section class="aui-content con-pl display-none">
+			<div class="aui-card-list-content-padded aui-border-b aui-border-t">
+				<div class="aui-row aui-row-padded">
+					<div class="aui-col-xs-6" tapmode onclick="dh_yhq()">
+						<img src="../image/juan/juan1.png">
+					</div>
+					<div class="aui-col-xs-6" tapmode onclick="dh_yhq()">
+						<img src="../image/juan/juan2.png">
+					</div>
+					<div class="aui-col-xs-6" tapmode onclick="dh_yhq()">
+						<img src="../image/juan/juan3.png">
+					</div>
+					<div class="aui-col-xs-6" tapmode onclick="dh_yhq()">
+						<img src="../image/juan/juan4.png">
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/aui-dialog.js" ></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		var tab = new auiTab({
+			element : document.getElementById("tab"),
+		}, function(ret) {
+			console.log(ret.index)
+			var $ul = $('.con-pl');
+			$ul.css('display', 'none');
+			$ul.eq(ret.index - 1).css('display', 'block');
+		});
+		
+		var dialog = new auiDialog({})
+		function dh_yhq(){
+			 dialog.alert({
+                    title:"兑换成功",
+                    msg:'在我的抵用劵里查看',
+                    buttons:['我知道了']
+                },function(ret){
+                    console.log(ret)
+                })
+		}
+	</script>
+	</html>

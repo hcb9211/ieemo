@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+	    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+	    <link rel="stylesheet" type="text/css" href="../css/iconfont/iconfont.css" />
+		<style>
+		    .header {
+	            background: url(../image/1.4.1/bj.jpg) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+	        }
+		
+		    
+			.aui-bar-nav {
+				background-color: rgba(0, 0, 0, 0);
+			    /*height: 50px;*/
+			}
+			.aui-bar-navs {
+		         display:-webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			    /*height: 50px;*/
+			}
+			.aui-bar-navs2 {
+		         display:-webkit-box;
+			     -webkit-box-pack: start;
+			     -webkit-box-align: start;
+			    /*height: 50px;*/
+			}
+			.aui-searchbar .aui-icon-search {
+			    line-height: 30px;
+			    margin-right: 5px;
+			    font-size: 16px;
+			}
+			.aui-searchbar {
+			    margin: 0 20px 0 20px;
+			    background-color: rgba(0, 0, 0, 0);
+			    color:#FFFFFF;
+			    border-radius: 5px;
+			    height: 32px;
+			    line-height: 32px;
+			    font-size: 18px;
+				width: 100%;
+			    position: relative;
+			    padding-left: 4px;
+			    -webkit-box-flex: 1;
+			    display: -webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			}
+			.aui-card-height img {
+				width: auto;
+				height: 50px;
+			}
+			.aui-info-1 {
+				position: relative;
+			    padding: 0.2rem 0 0 0;
+			    margin:0.0rem;
+			    font-size: 0.4rem;
+			    color: #ffffff;
+			    background-color: transparent;
+			    -webkit-box-sizing: border-box;
+			    		box-sizing: border-box;
+			    display: -webkit-box;
+			    display: -webkit-flex;
+			    display: flex;			
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-bar header" id="aui-header">
+			<div class="aui-bar-nav"><div class="aui-bar-navs">
+				<a class="aui-btn aui-pull-left" tapmode onclick="closeWin()"> <span class="aui-iconfont aui-icon-left"></span> </a>
+				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					 好又多-南京大学店
+				</div>
+				<a class="scl-iconfont scl-icon-fenxiang aui-margin-r-5 aui-font-size-16" tapmode></a> 
+				<a class="scl-iconfont scl-icon-xin aui-margin-r-5 aui-font-size-16" tapmode></a> 
+			</div></div>
+	 
+			<div class="aui-row">
+				<div class="aui-col-xs-2 aui-padded-l-5 aui-padded-t-20 aui-padded-b-0 aui-card-height" tapmode>
+					<img src="../image/1.4.1/dian.png" />
+				</div>
+				<div class="aui-col-xs-8 aui-padded-t-0 aui-padded-b-0" tapmode>
+
+			
+				<div class="aui-info-1"><span class="aui-margin-l-5 aui-label aui-label-green aui-font-size-12">满减</span><span class="aui-font-size-12">全场满10减5</span></div>
+				<div class="aui-info-1"><span class="aui-margin-l-5 aui-label aui-label-blue-2 aui-font-size-12">运费</span><span class="aui-font-size-12">19元以下运费4元,19元以上运费2元</span></div>
+				
+ 
+				</div>
+				<div class="aui-col-xs-2 aui-padded-t-10 aui-padded-b-0" tapmode onclick="">
+					<span class="aui-label aui-label-info aui-label-outlined-2 aui-margin-r-10">优惠券<i class="aui-iconfont aui-icon-down"></i></span> 
+				</div>
+			</div> 
+		</header>
+		<footer class="aui-bar aui-bar-tab" id="aui-footer">
+			<div class="aui-bar-tab-item aui-active" tapmode data-header="index">
+				<i class="aui-iconfont aui-icon-cart"></i>
+				 
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="location">
+				 
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="pzsh">
+				 
+			</div>
+			<div class="aui-bar-tab-item" tapmode data-header="me">
+				 
+				<div class="aui-bar-tab-label">
+					结算
+				</div>
+			</div>
+		</footer>	 
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			var header = $api.byId('aui-header');
+			$api.fixStatusBar(header);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+			var footer_h = $api.offset($api.byId('aui-footer')).h;
+			api.openFrame({
+				name : 'supermarkets141_frm',
+				url : 'supermarkets141_frm.html',
+				bounces : false,
+				rect : {
+					x : 0,
+					y : headerPos.h,
+					w : 'auto',
+					h : api.frameHeight - headerPos.h - footer_h
+				}
+			})
+			
+		};
+		function closeWin() {
+			api.closeWin({
+			});
+		}
+	</script>
+	</html>

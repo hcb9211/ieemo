@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+    
+    .aui-bar-nav .aui-bar-btn-item.aui-active {
+	    background-color: #ffb300;
+	    color: #FFFFFF;
+	}
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">
+        <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title aui-b">
+			<div class="aui-bar aui-bar-btn aui-bar-btn-round">
+	            <div class="aui-bar-btn-item aui-active">全部</div>
+	            <div class="aui-bar-btn-item" style="background-color: #ffffff;color: #000000;">我的</div>
+	        </div>
+		</div>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-tab.js" ></script>
+<script type="text/javascript">
+    apiready = function() {
+			api.parseTapmode();
+			myopenFrame('all')
+		};
+		function myopenFrame(str){
+			var header = $api.byId('aui-header');
+			$api.fixStatusBar(header);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+			api.openFrame({
+				name : 'uploadxp'+str+'_frm',
+				url : 'uploadxp'+str+'_frm.html',
+				bounces : false,
+				rect : {
+					x : 0,
+					y : headerPos.h,
+					w : 'auto',
+					h : 'auto'
+				}
+			})
+		}
+		function closeWin() {
+			api.closeWin({
+			});
+		}
+		
+		var bar = document.querySelectorAll(".aui-bar-btn");
+        if(bar){
+         for(var i=0; i<bar.length;i++){
+            var d = bar[i];
+            var tab = new auiTab({
+                element:bar[i],
+                repeatClick:true
+            },function(ret){
+                if (ret.index == 1) {
+					 document.querySelectorAll(".aui-bar-btn-item")[1].style.backgroundColor='#ffffff';
+					 document.querySelectorAll(".aui-bar-btn-item")[1].style.color='#000000';
+					 document.querySelectorAll(".aui-bar-btn-item")[0].style.backgroundColor='#ffb300';
+					 document.querySelectorAll(".aui-bar-btn-item")[0].style.color='#FFFFFF';
+					 myopenFrame('all')
+				}
+				if (ret.index == 2) {
+					 document.querySelectorAll(".aui-bar-btn-item")[0].style.backgroundColor='#ffffff';
+					 document.querySelectorAll(".aui-bar-btn-item")[0].style.color='#000000';
+					 document.querySelectorAll(".aui-bar-btn-item")[1].style.backgroundColor='#ffb300';
+					 document.querySelectorAll(".aui-bar-btn-item")[1].style.color='#FFFFFF';
+					 myopenFrame('my')
+			    }
+            });
+
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>到店签到</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui-flex.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			
+			.aui-btn-qd {
+				background-color: #ff9800;
+				font-size: 14px;
+			}
+			.aui-btn-yqd {
+				background-color: #BBBBBB;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+			<section class="aui-content con-pl display-none">
+			<ul class="aui-list aui-media-list">
+            <li class="aui-list-item" tapmode >
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/drf.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">大润发龙江新城广场店 </div>
+                            <div class="aui-list-item-right aui-btn aui-btn-qd" style="color:#FFFFFF" tapmode onclick="changebtn_qd(this)">签到</div>
+                        </div>
+                        <div class="aui-list-item-text aui-font-size-14">
+                             25个优惠活动进行中﹀
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode >
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/jlf.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">家乐福长江大桥店 </div>
+                            <div class="aui-list-item-right aui-btn aui-btn-qd" style="color:#FFFFFF" tapmode onclick="changebtn_qd(this)">签到</div>
+                        </div>
+                        <div class="aui-list-item-text aui-font-size-14">
+                             25个优惠活动进行中﹀
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode >
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/shangjia/mdl.jpg"/>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title" style="color:#4c5276">麦德龙双龙大道店 </div>
+                            <div class="aui-list-item-right aui-btn aui-btn-qd" style="color:#FFFFFF" tapmode onclick="changebtn_qd(this)">签到</div>
+                        </div>
+                        <div class="aui-list-item-text aui-font-size-14">
+                             25个优惠活动进行中﹀
+                        </div>
+                        <p class="aui-margin-t-5 aui-font-size-12 aui-iconfont aui-icon-location-color">768m</p>
+                    </div>
+                </div>
+            </li>
+             </ul>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/aui-toast.js" ></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+		
+		function changebtn_qd(obj){
+			 if(obj.innerHTML.indexOf('已') == -1){
+			    showtoast();
+			 	obj.innerHTML='已签到';
+			 	obj.className='aui-list-item-right aui-btn aui-btn-yqd';
+			 } 
+		}
+		
+		var toast = new auiToast();
+		function showtoast(){
+			toast.custom({
+	            title:"+5积分",
+	            html:'<i class="aui-iconfont aui-icon-laud"></i>',
+	            duration:2000
+	        });
+        }
+	</script>
+	</html>

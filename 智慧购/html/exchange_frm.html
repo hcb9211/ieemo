@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>兑换详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			
+
+			.card img{
+                height: 7.0rem;
+                width: auto;
+                display: block;
+                margin:0rem auto;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="aui-content" style="background: #FFFFFF">
+			<div class="card aui-padded-b-15 aui-padded-t-15"><img src="../image/shangping/2016-09-22_194421.png" />
+			</div>
+		</div>
+		<div class="aui-content aui-margin-b-5">
+			<ul class="aui-list aui-list-in">
+				<li class="aui-list-item aui-bg-FFB300">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-title aui-margin-l-10">
+							79000积分
+						</div>
+						<div class="aui-list-item-right" tapmode onclick="openWin('numorders_win')">
+							<div class="aui-label aui-font-size-16 aui-bg-FFFFFF">立即兑换</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<section class="aui-content">
+    <div class="aui-card-list">
+        <div class="aui-card-list-header">
+                                   兑换详情
+        </div>
+        <div class="aui-card-list-content aui-margin-l-15 aui-margin-r-15">
+            <img src="../image/shangping/2016-09-22_194421.png" />
+        </div>
+        <div class="aui-card-list-footer">
+                                   黑色
+        </div>
+        </section>
+    </div>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+	</html>

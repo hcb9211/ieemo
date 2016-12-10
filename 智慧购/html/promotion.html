@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>促销优惠</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-card-height {
+				width: auto;
+				height: 100px;
+			}
+			.aui-bar-btn-item {
+				background-color: #ffffff;
+			}
+			.line-through {
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aui-content">
+			<div class="aui-bar aui-bar-btn  aui-bar-btn-full">
+				<div class="aui-bar-btn-item" tapmode>
+					全部<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					附近<i class="aui-iconfont aui-icon-down"></i>
+				</div>
+				<div class="aui-bar-btn-item" tapmode>
+					优惠最多
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-all"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								全部
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								华润苏果
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								家乐福
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+							<div class="aui-list-item-inner">
+								麦德龙
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-popup" id="popup-near"  style="width: 100%;">
+				<div class="aui-popup-content">
+					<ul class="aui-list aui-list-noborder">
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner aui-list-item-middle">
+								全部
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-0.5km
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-1.0km
+							</div>
+						</li>
+						<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+							<div class="aui-list-item-inner">
+								0-5.0km
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<section class="aui-content con-pl aui-row aui-margin-t-5">
+			<div class="aui-row-padded">
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-18_174250.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥45.00</span>
+									<span class="line-through aui-font-size-12">￥60.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" tapmode>
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-18_172955.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥4.80</span>
+									<span class="line-through aui-font-size-12">￥6.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" >
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-13_155755.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥4800</span>
+									<span class="line-through aui-font-size-12">￥55.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" tapmode>
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-13_155711.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥55.00</span>
+									<span class="line-through aui-font-size-12">￥65.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" tapmode>
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-19_102036.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥45.00</span>
+									<span class="line-through aui-font-size-12">￥98.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin">
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-13_155723.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥10.00</span>
+									<span class="line-through aui-font-size-12">￥20.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" tapmode>
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-10_112729.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥30.00</span>
+									<span class="line-through aui-font-size-12">￥38.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin" tapmode>
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('goods_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-05-18_173748.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-money">￥8.80</span>
+									<span class="line-through aui-font-size-12">￥12.00</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12">
+									<span>10月1日前有效</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="b2b">
+						<div class="b2b-item" tapmode onclick="changebtn(this)">
+							<div class="aui-label aui-label-danger aui-label-margin">
+								加入icart
+							</div>
+						</div>
+						<div class="b2b-item">
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class="aui-margin-r-10 aui-font-size-12">苏果龙江店</span>
+							</div>
+							<div class="b2b-item-item" tapmode onclick="">
+								<span class=" aui-iconfont aui-icon-paper-color aui-margin-r-10 aui-font-size-12">756m</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			document.querySelector('body').addEventListener("touchstart", function(event) {
+				setTimeout(topdown, 301);
+			})
+		}
+		var bar = document.querySelectorAll(".aui-bar-btn");
+		if (bar) {
+			for (var i = 0; i < bar.length; i++) {
+				var d = bar[i];
+				var tab = new auiTab({
+					element : bar[i],
+					repeatClick : true
+				}, function(ret) {
+					if (ret.index == 1) {
+						hidePopup('popup-near');
+						showPopup('popup-all');
+					}
+					if (ret.index == 2) {
+						hidePopup('popup-all');
+						showPopup('popup-near');
+					}
+					if (ret.index == 3) {
+						hidePopup('popup-near');
+						hidePopup('popup-all');
+					}
+				});
+			}
+		}
+		var popup = new auiPopup();
+		function showPopup(str) {
+			popup.show(document.getElementById(str))
+		}
+
+		function hidePopup(str) {
+			popup.hide(document.getElementById(str))
+		}
+
+		function topdown() {
+			var all = document.getElementById('popup-all');
+			var isall = false;
+			if (all.className.indexOf('aui-popup-in') > -1) {
+				isall = true;
+			}
+			var near = document.getElementById('popup-near');
+			var isnear = false;
+			if (near.className.indexOf('aui-popup-in') > -1) {
+				isnear = true;
+			}
+			var baritem = document.querySelectorAll(".aui-bar-btn-item");
+			for (var i = 0; i < baritem.length; i++) {
+				var b = baritem[i];
+				if (isall) {
+					if (b.innerHTML.indexOf('全部') >= 0) {
+						b.innerHTML = '全部<i class="aui-iconfont aui-icon-top"></i>';
+					}
+					if (b.innerHTML.indexOf('附近') >= 0) {
+						b.innerHTML = '附近<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				} else {
+					if (b.innerHTML.indexOf('全部') >= 0) {
+						b.innerHTML = '全部<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				}
+				if (isnear) {
+					if (b.innerHTML.indexOf('附近') >= 0) {
+						b.innerHTML = '附近<i class="aui-iconfont aui-icon-top"></i>';
+					}
+					if (b.innerHTML.indexOf('全部') >= 0) {
+						b.innerHTML = '全部<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				} else {
+					if (b.innerHTML.indexOf('附近') >= 0) {
+						b.innerHTML = '附近<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				}
+			}
+		}
+	</script>
+</html>

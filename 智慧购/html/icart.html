@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>积分</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #FFFFFF;
+			}
+			.display-none {
+				display: none
+			}
+			.aui-tab-item.aui-active {
+			    color: #ff9800;
+			    border-bottom: 2px solid #ff9800;
+			    z-index: 1;
+			}
+			.aui-list .aui-list-header {
+			    background-color: #FFFFFF;
+			    color: #000000;
+			    margin-bottom: 1px;
+			}
+			.aui-card-height img{
+				height: 3.0rem;
+				width: auto;
+				display: block;
+			}
+			.cart-bj{
+                width: 100%;
+                height: 12.0rem;
+                background: url(../image/icon/bj.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+            }
+            .cart{
+                margin: 1.0rem 3.0rem;
+            }
+            .aui-line-h-3{
+            	line-height:3.0rem;
+            	height: 3.0rem;
+            }
+            .aui-line-h-6{
+                line-height:6.0rem;
+                height: 6.0rem;
+            }
+            .aui-btn-size-top{
+                display: block;
+                margin:auto;
+	            position: relative;
+				font-size: 0.9rem;
+				font-weight: 700;
+				font-family: inherit;
+				text-align: center;
+				line-height:3.0rem;
+				color: #FFB63d;
+            }
+            .aui-btn-size-down{
+                display: block;
+                margin:auto;
+	            position: relative;
+				font-size: 1.5rem;
+				font-weight: 800;
+				font-family: inherit;
+				text-align: center;
+				color: #000000;
+            }
+            .aui-div-size-1{
+                display: block;
+                margin:auto;
+	            position: relative;
+				font-size: 0.9rem;
+				font-weight: 700;
+				font-family: inherit;
+				text-align: center;
+				line-height:1.5rem;
+				color: #333;
+            }
+            .aui-div-size-2{
+                display: block;
+                margin:auto;
+	            position: relative;
+				font-size: 1.0rem;
+				font-weight: 700;
+				font-family: inherit;
+				text-align: center;
+				line-height:1.5rem;
+				color: #FFB63d;
+            }
+            .aui-div-size-3{
+				font-size: 0.7rem;
+            }
+            .aui-div-size-4{
+                display: block;
+                margin:auto;
+	            position: relative;
+				font-size: 0.6rem;
+				font-weight: 300;
+				font-family: inherit;
+				text-align: center;
+				line-height:1.0rem;
+            }
+		</style>
+	</head>
+	<body>
+		<section class="aui-content">
+			<div class="aui-list">
+				<div class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-title aui-font-size-14"  id="icartdate" tapmode></div>
+						<div class="aui-list-item-right">
+							<div class="aui-tab aui-icon-right" id="tab">
+								<div class="aui-tab-item  aui-margin-r-15 aui-active">
+									加入商品
+								</div>
+								<div class="aui-tab-item">
+									icart积分
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-content">
+				<div class="aui-popup" id="popup-all"  style="width: 100%;">
+					<div class="aui-popup-content">
+						<ul class="aui-list aui-list-noborder">
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner aui-list-item-middle">
+									全部
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									天
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									周
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									月
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									季
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									年
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="aui-content con-pl">
+			<ul class="aui-list aui-media-list">
+				<li class="aui-list-header">
+					<div class="aui-content">
+						<span class="aui-pull-left aui-font-size-16" tapmode onclick="openWin('businesses_win')">苏果超市龙江店</span>
+						<span class="aui-pull-left aui-font-size-14 aui-iconfont aui-icon-right"></span>
+						<span class="aui-pull-right aui-font-size-12 aui-iconfont aui-icon-location-color">768m</span>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-19_102036.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									费加罗珍品巧克力礼盒装 15粒装
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥45.00</span>
+									<span class="line_m aui-font-size-12">￥60.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-10_120156.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									韩国柚子茶 500g
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥48.00</span>
+									<span class="line_m aui-font-size-12">￥50.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-19_101837.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									禾瑞紫菜 100g
+								</div>
+							</div>
+							<div class="aui-list-item-text aui-font-size-14">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥10.00</span>
+									<span class="line_m aui-font-size-12">￥20.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-content">
+						<span class="aui-pull-right aui-money aui-font-size-16">共优惠￥27.00</span>
+					</div>
+				</li>
+			</ul>
+			<ul class="aui-list aui-media-list">
+				<li class="aui-list-header">
+					<div class="aui-content">
+						<span class="aui-pull-left aui-font-size-16" tapmode onclick="openWin('businesses_win')">沃尔玛龙江店</span>
+						<span class="aui-pull-left aui-font-size-14 aui-iconfont aui-icon-right"></span>
+						<span class="aui-pull-right aui-font-size-12 aui-iconfont aui-icon-location-color">3.6km</span>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-10_112729.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									fudo蛋糕 24×18g
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥30.00</span>
+									<span class="line_m aui-font-size-12">￥38.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-13_155755.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									光明莫斯利安酸奶
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥48.00</span>
+									<span class="line_m aui-font-size-12">￥55.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('goods_win')">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media aui-card-height">
+							<img src="../image/shangping/2016-05-19_101837.png"/>
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title" style="color:#4c5276">
+									禾瑞紫菜 100g
+								</div>
+							</div>
+							<div class="aui-list-item-text aui-font-size-14">
+								<div class="aui-content">
+									<span class="aui-pull-left aui-money">￥15.00</span>
+									<span class="line_m aui-font-size-12">￥20.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-content">
+						<span class="aui-pull-right aui-money aui-font-size-16">共优惠￥20.00</span>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="aui-content con-pl display-none">
+			<div class="aui-content cart">
+				<div class="cart-bj">
+					<div class="aui-line-h-3"></div>
+					<div class="aui-btn-size-top">
+						本月里程
+					</div>
+					<div class="aui-btn-size-down">
+						3.2km
+					</div>
+					<div class="aui-line-h-6"></div>
+				</div>
+			</div>
+			<div class="aui-content aui-row">
+				<div class="aui-col-xs-6">
+					<div class="aui-div-size-1">
+						本月消耗卡路里
+					</div>
+					<div class="aui-div-size-2">
+						<span >216</span><span class="aui-div-size-3">千焦</span>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-div-size-1">
+						icart可兑积分
+					</div>
+					<div class="aui-div-size-2">
+						<span >2666</span><span class="aui-div-size-3">分</span>
+					</div>
+				</div>
+				<div class="aui-col-xs-3">
+					&nbsp;
+				</div>
+				<div class="aui-col-xs-6 aui-margin-t-15 aui-margin-b-5">
+					<div class="aui-btn aui-btn-block aui-btn-sm aui-btn-warning" tapmode onclick="openWin('motionmap_win')">
+						本月运动地图
+					</div>
+				</div>
+				<div class="aui-col-xs-3">
+					&nbsp;
+				</div>
+			</div>
+			<div class="aui-content aui-row">
+			    <div class="aui-col-xs-2">
+					&nbsp;
+				</div>
+				<div class="aui-col-xs-8 ">
+					<div class="aui-div-size-4">使用超市icart购物车购物可获得积分</div>
+				</div>
+				<div class="aui-col-xs-2">
+					&nbsp;
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		var tab = new auiTab({
+			element : document.getElementById("tab"),
+		}, function(ret) {
+			console.log(ret.index)
+			var $ul = $('.con-pl');
+			$ul.css('display', 'none');
+			$ul.eq(ret.index - 1).css('display', 'block');
+			if (ret.index == 1) {
+				$('#icartdate').html('');
+				$('#icartdate').off('click');
+			}
+			if (ret.index == 2) {
+				$('#icartdate').html('<i class="aui-iconfont aui-icon-left aui-margin-r-10 aui-font-size-14"></i>10.1-10.31本月<i class="aui-iconfont aui-icon-right  aui-margin-l-10 aui-font-size-14"></i>');
+				$('#icartdate').on('click', showPopup);
+			}
+		});
+		var popup = new auiPopup();
+		function showPopup() {
+			popup.show(document.getElementById('popup-all'));
+		}
+
+		function hidePopup() {
+			popup.hide(document.getElementById('popup-all'));
+		}
+		
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+	</html>

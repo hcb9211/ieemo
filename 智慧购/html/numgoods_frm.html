@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>积分商品</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+            .col-icon img{
+                 height: 4.0rem;
+                 display: block;
+                 vertical-align:middle;
+                 margin: 0.5rem auto;
+            }
+            .scl-text{
+                 text-align:center;
+                 font-size: 16px;
+            }
+			.aui-card-height {
+				width: auto;
+				height: 100px;
+			}
+			.aui-bar-btn-item {
+				background-color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="aui-content">
+				<div class="aui-bar aui-bar-btn  aui-bar-btn-full">
+					<div class="aui-bar-btn-item" tapmode>
+						兑换范围<i class="aui-iconfont aui-icon-down"></i>
+					</div>
+					<div class="aui-bar-btn-item" tapmode>
+						全部分类<i class="aui-iconfont aui-icon-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="aui-content">
+				<div class="aui-popup" id="popup-dhfw"  style="width: 100%;">
+					<div class="aui-popup-content">
+						<ul class="aui-list aui-list-noborder">
+						    <li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner aui-list-item-middle">
+									全部
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner aui-list-item-middle">
+									2000-5000积分
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									5000-10000积分
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-all')">
+								<div class="aui-list-item-inner">
+									10000积分以上
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="aui-content">
+				<div class="aui-popup" id="popup-qbfl"  style="width: 100%;">
+					<div class="aui-popup-content">
+						<ul class="aui-list aui-list-noborder">
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+								<div class="aui-list-item-inner aui-list-item-middle">
+									全部
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+								<div class="aui-list-item-inner">
+									玩具
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+								<div class="aui-list-item-inner">
+									家电
+								</div>
+							</li>
+							<li class="aui-list-item" tapmode onclick="hidePopup('popup-near')">
+								<div class="aui-list-item-inner">
+									生活用品
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<section class="aui-content con-pl aui-row">
+			<div class="aui-row-padded">
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('exchange_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-09-22_194421.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12 aui-money">
+									<span>790000积分</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('exchange_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-09-22_195014.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12 aui-money">
+									<span>790000积分</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('exchange_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-09-22_194421.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12 aui-money">
+									<span>790000积分</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('exchange_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-09-22_194421.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12 aui-money">
+									<span>790000积分</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-col-xs-6">
+					<div class="aui-card-list aui-card-list-bottom" tapmode onclick="openWin('exchange_win')">
+						<div class="aui-card-list-content-padded aui-card-height">
+							<img src="../image/shangping/2016-09-22_194421.png" />
+						</div>
+						<div class="aui-card-list-footer aui-card-list-footer-padding">
+							<div class="aui-content">
+								<p>
+									<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+								</p>
+								<p class="aui-pull-left aui-font-size-12 aui-money">
+									<span>790000积分</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+ 		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+    <script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			document.querySelector('body').addEventListener("touchstart", function(event) {
+				setTimeout(topdown, 301);
+			})
+		}
+		var bar = document.querySelectorAll(".aui-bar-btn");
+		if (bar) {
+			for (var i = 0; i < bar.length; i++) {
+				var d = bar[i];
+				var tab = new auiTab({
+					element : bar[i],
+					repeatClick : true
+				}, function(ret) {
+					if (ret.index == 1) {
+						hidePopup('popup-qbfl');
+						showPopup('popup-dhfw');
+					}
+					if (ret.index == 2) {
+						hidePopup('popup-dhfw');
+						showPopup('popup-qbfl');
+					}
+				});
+			}
+		}
+		var popup = new auiPopup();
+		function showPopup(str) {
+			popup.show(document.getElementById(str))
+		}
+
+		function hidePopup(str) {
+			popup.hide(document.getElementById(str))
+		}
+
+		function topdown() {
+			var all = document.getElementById('popup-dhfw');
+			var isall = false;
+			if (all.className.indexOf('aui-popup-in') > -1) {
+				isall = true;
+			}
+			var near = document.getElementById('popup-qbfl');
+			var isnear = false;
+			if (near.className.indexOf('aui-popup-in') > -1) {
+				isnear = true;
+			}
+			var baritem = document.querySelectorAll(".aui-bar-btn-item");
+			for (var i = 0; i < baritem.length; i++) {
+				var b = baritem[i];
+				if (isall) {
+					if (b.innerHTML.indexOf('兑换范围') >= 0) {
+						b.innerHTML = '兑换范围<i class="aui-iconfont aui-icon-top"></i>';
+					}
+					if (b.innerHTML.indexOf('全部分类') >= 0) {
+						b.innerHTML = '全部分类<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				} else {
+					if (b.innerHTML.indexOf('兑换范围') >= 0) {
+						b.innerHTML = '兑换范围<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				}
+				if (isnear) {
+					if (b.innerHTML.indexOf('全部分类') >= 0) {
+						b.innerHTML = '全部分类<i class="aui-iconfont aui-icon-top"></i>';
+					}
+					if (b.innerHTML.indexOf('兑换范围') >= 0) {
+						b.innerHTML = '兑换范围<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				} else {
+					if (b.innerHTML.indexOf('全部分类') >= 0) {
+						b.innerHTML = '全部分类<i class="aui-iconfont aui-icon-down"></i>';
+					}
+				}
+			}
+		}
+		
+	</script>
+	</html>

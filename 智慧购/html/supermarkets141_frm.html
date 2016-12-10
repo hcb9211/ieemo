@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>超市</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui-flex.css" />
+    <style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-searchbar .aui-icon-search {
+			    line-height: 30px;
+			    margin-right: 5px;
+			    font-size: 16px;
+			}
+			.aui-searchbar {
+			    margin: 0;
+			    background: #ffffff;
+			    border-radius: 5px;
+			    height: 32px;
+			    line-height: 32px;
+			    color: #e2e2e2;
+			    font-size: 14px;
+				width: 100%;
+			    position: relative;
+			    padding-left: 4px;
+			    -webkit-box-flex: 1;
+			    display: -webkit-box;
+			    -webkit-box-pack: center;
+			    -webkit-box-align: center;
+			}
+			.scl-margin-40{
+				margin: 0 2.0rem  !important;
+			}
+			.scl-tab-item {
+			    height: 2.0rem;
+                line-height: 2.0rem;
+			}
+			
+			.display-none{display:none;}
+			
+            .aui-content {
+				-webkit-overflow-scrolling: touch;
+				height: 100%;
+			}
+			.aui-flex-col {
+				height: 100%;
+			}
+			.aui-flex-item-3 {
+				height: 100%;
+				background: #FFFFFF;
+			}
+			.box [class*=aui-flex-]:not(.aui-flex-col) {
+			background-color: rgba(26, 188, 156, 0.5);
+			color: #EEEEEE;
+			font-size: 12px;
+			}
+			.box.nobg [class*=aui-flex-]:not(.aui-flex-col){
+			background: #EEEEEE;
+			}
+			.box.bottom {
+				margin-bottom: 15px;
+			}
+			img {
+				width: 100%;
+			}
+			.aui-flex-item-9 {
+				float: left;
+				width: 75%;
+				padding: 5px;
+			}
+			.demo-box {
+				height: 550px;
+				font-size: 14px;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+			.demo-box::-webkit-scrollbar {
+				width: 0px;
+				height: 0px;
+				visibility: hidden;
+				display: none;
+			}
+			.img-list {
+				padding: 2px;
+			}
+			.img-list > div {
+				padding: 2px;
+			}
+			.img-list img {
+				display: block;
+			}
+			.aui-list-view-cells {
+				position: relative;
+				padding: 12px 12px;
+				overflow: hidden;
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-touch-callout: none;
+			}
+			.aui-list-view-cells:active {
+				background: #FFFFFF;
+				border-radius: 6px;
+			}
+			.aui-list-view-cell {
+				background: #FFFFFF;
+			}
+			.active {
+				border: 0;
+				background: #EEEEEE;
+			}
+			.active:after {
+				border-left: 5px solid #FF9800;
+				border-right: 1px solid #EEEEEE;
+			}
+			.aui-list-view:after {
+				border-top: 0px solid #c8c7cc;
+			}
+			
+			.aui-card-height {
+				width: auto;
+				height: 60px;
+			}
+			.line-through {
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+		<div class="aui-content-padded-2">
+		      <div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
+					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
+					<div class="aui-searchbar-input">
+						<form action="javascript:search();">
+							<input type="search" placeholder="搜索店内商品" id="search-input">
+						</form>
+					</div>
+				</div>
+		</div>
+		<div class="aui-content aui-bg-wirte">
+		<div class="aui-tab" id="tab">
+			<div class="aui-tab-item scl-tab-item scl-margin-40 aui-text-333 aui-active">
+				商&nbsp;品
+			</div>
+			<div class="aui-tab-item scl-tab-item scl-margin-40 aui-text-333">
+				评&nbsp;价
+			</div>
+			<div class="aui-tab-item scl-tab-item scl-margin-40 aui-text-333">
+				商&nbsp;家
+			</div>
+		</div>
+		</div>
+		<div class="aui-content">
+			<div class="aui-flex-col">
+				<div class="aui-flex-item-3 ">
+					<ul class="aui-list-view demo-box" style="margin-bottom: 0;background: none" id="leftbox">
+						<li class="aui-list-view-cell aui-border-r active">
+							促销优惠
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							酒水饮料
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							休闲食品
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							个人洗护
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							家庭清洁
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							粮油副食
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							新鲜冷藏
+						</li>
+						<li class="aui-list-view-cell aui-border-r">
+							日用百货
+						</li>
+					</ul>
+				</div>
+				<div class="aui-flex-item-9">
+					
+				</div>
+			</div>
+		</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+	    Zepto(function() {
+			$("#leftbox").on("tap", "li", function() {
+				$('#leftbox li').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+		apiready = function() {
+			api.parseTapmode();
+		}
+
+		 
+		var tab = new auiTab({
+			element : document.getElementById("tab"),
+		}, function(ret) {
+			console.log(ret.index)
+//			var $ul = $('.con-pl');
+//			$ul.css('display', 'none');
+//			$ul.eq(ret.index - 1).css('display', 'block');
+		});
+		
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+</html>

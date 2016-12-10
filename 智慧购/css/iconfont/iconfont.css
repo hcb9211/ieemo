@@ -1,0 +1,17 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.ttf?t=1481295892735') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+.scl-iconfont {
+  font-family:"iconfont" !important;
+  font-size:1.1rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scl-icon-fenxiang:before { content: "\e631"; }
+.scl-icon-saoyisao:before { content: "\e7c7"; }
+.scl-icon-liujiaoxing:before { content: "\e683"; }
+.scl-icon-xin:before { content: "\e64c"; }

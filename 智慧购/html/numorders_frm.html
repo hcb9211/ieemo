@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			
+
+			.card img{
+                height: 7.0rem;
+                width: auto;
+                display: block;
+                margin:0rem auto;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="aui-content aui-margin-b-5">
+			<ul class="aui-list aui-media-list">
+				<li class="aui-list-item">
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-media">
+							<img src="../image/shangping/2016-09-22_194421.png">
+						</div>
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-content">
+									<p>
+										<span class="aui-pull-left aui-font-size-16 ">四轴遥控直升机</span>
+									</p>
+									<p class="aui-pull-left aui-font-size-12 aui-money">
+										<span>79000积分</span>
+									</p>
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title"></div>
+								<div class="aui-list-item-right">
+									<div class="aui-bar aui-bar-btn aui-bar-btn-sm" style="width:100%;">
+										<div class="aui-bar-btn-item" tapmode onclick="del()">
+											<i class="aui-iconfont aui-icon-minus"></i>
+										</div>
+										<div class="aui-bar-btn-item">
+											<input id="count" type="number" class="aui-input aui-text-center" value="1" >
+										</div>
+										<div class="aui-bar-btn-item" tapmode onclick="add()">
+											<i class="aui-iconfont aui-icon-plus"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="aui-content aui-margin-b-15">
+			<ul class="aui-list aui-form-list">
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							收货人：
+						</div>
+						<div class="aui-list-item-input">
+							<input type="text" placeholder="收货人姓名">
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							联系电话：
+						</div>
+						<div class="aui-list-item-input">
+							<input type="number" placeholder="收货人联系电话">
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							所在地区：
+						</div>
+						<div class="aui-list-item-input">
+							<input type="text" placeholder="收货人所在地区">
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							详细地址：
+						</div>
+						<div class="aui-list-item-input">
+							<input type="text" placeholder="收货人详细地址">
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<footer class="aui-bar aui-bar-tab aui-bg-white" id="aui-footer">
+			<div class="aui-bar-tab-item  aui-padded-l-10" tapmode style="width:3%;text-align: left;">
+				合计:79000积分
+			</div>
+			<div class="aui-bar-tab-item aui-bg-FF9800" tapmode onclick="openDialog()">
+				立即兑换
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+    <script type="text/javascript" src="../script/aui-dialog.js" ></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+
+		function add() {
+			var count = $('#count').attr('value');
+			count = parseInt(count) + 1;
+			$('#count').attr('value', count);
+		}
+
+		function del() {
+			var count = $('#count').attr('value');
+			if (count > 1) {
+				count = parseInt(count) - 1;
+			}
+			$('#count').attr('value', count);
+		}
+		
+		var dialog = new auiDialog({})
+		function openDialog() {
+			dialog.alert({
+				title : "恭喜你",
+				msg : '兑换成功！',
+				buttons : ['确定']
+			}, function(ret) {
+				if (ret) {
+					api.closeWin({
+			        });
+				}
+			})
+		}
+	</script>
+	</html>

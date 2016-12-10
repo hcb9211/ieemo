@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>本月运动地图</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-ffb63d {
+				color: #ffb63d;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="aui-content aui-padded-b-5">
+			<div class="aui-card-list">
+				<div class="aui-card-list-header aui-card-list-user">
+					<div class="aui-card-list-user-name">
+						<div>
+							苏果超市龙江店
+						</div>
+						<div class="aui-ffb63d">
+							10月10日
+						</div>
+					</div>
+				</div>
+				<div class="aui-card-list-content aui-padded-l-15 aui-padded-r-15" tapmode onclick="openWin('icartmap_win')">
+					<img src="../image/map/map1.png"/>
+				</div>
+			</div>
+		</section>
+		<section class="aui-content aui-padded-b-5">
+			<div class="aui-card-list">
+				<div class="aui-card-list-header aui-card-list-user">
+					<div class="aui-card-list-user-name">
+						<div>
+							苏果超市龙江店
+						</div>
+						<div class="aui-ffb63d">
+							10月2日
+						</div>
+					</div>
+				</div>
+				<div class="aui-card-list-content aui-padded-l-15 aui-padded-r-15" tapmode onclick="openWin('icartmap_win')">
+					<img src="../image/map/map1.png"/>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+</html>

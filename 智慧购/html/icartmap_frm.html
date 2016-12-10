@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>icart足迹</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: url(../image/map/map2.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+			}
+			.aui-btn-size{
+                height: 4.0rem;
+                width: 90%;
+                display: block;
+                margin:auto;
+                border-radius: 0.5rem;
+	            border-width: 0.1rem;
+	            position: relative;
+				font-size: 0.7rem;
+				font-weight: 400;
+				font-family: inherit;
+				text-align: center;
+				line-height:1.5rem;
+				background: #000000;
+				color: #FFFFFF;
+				top:20.0rem;
+            }
+		</style>
+	</head>
+	<body>
+		<section class="aui-content">
+			<div class="aui-btn-size">
+			<div class="aui-content aui-row">
+				<div class="aui-col-xs-4 aui-padded-t-10">2.1km
+				</div>
+				<div class="aui-col-xs-4 aui-padded-t-10">216千焦
+				</div>
+				<div class="aui-col-xs-4 aui-padded-t-10">26分
+				</div>
+				<div class="aui-col-xs-4 aui-padded-b-10">里程
+				</div>
+				<div class="aui-col-xs-4 aui-padded-b-10">消耗卡路里
+				</div>
+				<div class="aui-col-xs-4 aui-padded-b-10">获得积分
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+		}
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name : '' + name + '',
+				url : '' + name + '.html',
+				bounces : false,
+				delay : delay,
+				slidBackEnabled : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
+</html>

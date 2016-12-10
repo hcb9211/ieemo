@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>我</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: #EEEEEE;
+			}
+			.aui-card-height {
+				width: auto;
+				height: 100px;
+			}
+			.aui-content-bg {
+			    height: 7.0rem;
+				background: url(../image/me/banner-5.1.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+				display: -webkit-box;
+			    display: -webkit-flex;
+			    display: flex;
+				-webkit-box-pack: center;
+    			-webkit-justify-content: center;
+        	    justify-content: center;
+				-webkit-align-items: center;
+                align-items: center;
+			}
+			.aui-btn-size{
+                height: 3.0rem;
+                width: 3.0rem;
+                display: block;
+                margin:auto;
+                border-radius: 1.5rem;
+	            border-width: 0.1rem;
+	            position: relative;
+				font-size: 0.9rem;
+				font-weight: 600;
+				font-family: inherit;
+				text-align: center;
+				line-height:3.0rem;
+				background: #ff9800;
+				color: #FFFFFF;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="aui-content aui-content-bg">
+			<div class="aui-btn-size">
+				Jasme
+			</div>
+		</div>
+		<div class="aui-content aui-margin-b-15">
+			<ul class="aui-list aui-list-in">
+				<!--<li class="aui-list-item aui-list-item-middle" tapmode onclick="openWin('myexchange_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							我的兑换
+						</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('mykeep_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							我的收藏
+						</div>
+					</div>
+				</li>-->
+				
+				<li class="aui-list-item" tapmode onclick="openWin('mynumerical_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							我的积分
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('mycoupon_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							我的优惠券
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('mydycoupon_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							我的抵用卷
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="openWin('mysetting_win')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							设置
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item" tapmode onclick="alert('现在忙,请稍后再试！')">
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<div class="aui-list-item-title">
+							帮助与反馈
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tab.js" ></script>
+	<script type="text/javascript" src="../script/aui-popup.js" ></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			 
+		}
+		
+	</script>
+</html>
