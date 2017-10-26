@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/common/validate.js"></script>
+
+<script type="text/javascript" src="../../../../script/control/lifecircle/question/add/addquestion.js"></script>
+
+</head>
+<body style="background:#fff;">
+    <div class="" id="info" v-cloak>
+        <div class="mine_yjfk_title">
+            <input type="text" placeholder="点击编辑标题" class="mine_yjfk_title_input" v-model="bean.quesTitle"/>
+            <span class="mine_yjfk_title_number color_05">{{bean.quesTitle.length}}/50</span>
+        </div>
+        <ul class="shq_tw_list">
+            <li @click="type()"><img src="../../../../image/gzwdr_gz_img.png" alt="" class="shq_tw_list_add_img" />选择分类</li>
+        </ul>
+        <textarea class="shq_tw_textarea" placeholder="请详细描述您提出的问题吧~" v-model="bean.quesContent"></textarea>
+    </div>
+
+</body>
+</html>

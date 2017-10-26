@@ -1,226 +1,93 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="./css/aui.2.0.css" />
-		<link rel="stylesheet" type="text/css" href="./css/common.css" />
-		<link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" />
-		<style>
-			.aui-bar .aui-bar-tab .active-warning .aui-iconfont, .aui-bar .aui-bar-tab .active-warning p {
-				color: #FF9800;
-			}
-			.aui-bar-nav {
-			    -webkit-box-pack: center;
-			    -webkit-box-align: center;
-			    /*height: 50px;*/
-			}
-			.aui-bar-navs {
-		         display:-webkit-box;
-			    -webkit-box-pack: center;
-			    -webkit-box-align: center;
-			    /*height: 50px;*/
-			}
-			.aui-searchbar .aui-icon-search {
-			    line-height: 30px;
-			    margin-right: 5px;
-			    font-size: 16px;
-			}
-			.aui-searchbar {
-			    margin: 0 20px 0 20px;
-			    background: #ffffff;
-			    border-radius: 5px;
-			    height: 32px;
-			    line-height: 32px;
-			    color: #e2e2e2;
-			    font-size: 14px;
-				width: 100%;
-			    position: relative;
-			    padding-left: 4px;
-			    -webkit-box-flex: 1;
-			    display: -webkit-box;
-			    -webkit-box-pack: center;
-			    -webkit-box-align: center;
-			}
-			.display-none{display:none;}
-		</style>
-	</head>
-	<body>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header">
-			<div class="aui-bar-navs">
-				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南京<span class="aui-iconfont aui-icon-down"></span> </a>
-				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
-					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
-					<div class="aui-searchbar-input">
-						<form action="javascript:search();">
-							<input type="search" placeholder="请输入搜索内容" id="search-input">
-						</form>
-					</div>
-				</div>
-				<a class="scl-iconfont scl-icon-saoyisao aui-margin-r-10" tapmode onclick="doScanner();"></a>
-			</div>
-		</header>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="location-header" style="padding-top:25px;">
-			<div class="aui-bar-navs">
-				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南邮大厦<span class="aui-iconfont aui-icon-down"></span> </a>
-				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
-					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
-					<div class="aui-searchbar-input">
-						<form action="javascript:search();">
-							<input type="search" placeholder="找附近吃喝玩乐" id="search-input">
-						</form>
-					</div>
-				</div>
-			</div>
-		</header>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="pzsh-header" style="padding-top:25px;">
-			<div class="aui-bar-navs">
-				<a class="aui-left aui-margin-l-10" tapmode onclick="openWinto('city_win','./html/city_win')"> 南京<span class="aui-iconfont aui-icon-down"></span> </a>
-				<div class="aui-searchbar aui-border-radius" tapmode="" onclick="">
-					<i class="aui-iconfont aui-icon-search aui-text-default"></i>
-					<div class="aui-searchbar-input">
-						<form action="javascript:search();">
-							<input type="search" placeholder="输入名称、找优惠" id="search-input">
-						</form>
-					</div>
-				</div>
-			</div>
-		</header>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="me-header" style="padding-top:25px;">
-			<div class="aui-bar-navs">
-				<div class="aui-title">
-					我
-				</div>
-				<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>
-			</div>
-		</header>
-		<footer class="aui-bar aui-bar-tab" id="aui-footer">
-			<div class="aui-bar-tab-item aui-active" tapmode data-header="index">
-				<i class="aui-iconfont aui-icon-home"></i>
-				<div class="aui-bar-tab-label">
-					首页
-				</div>
-			</div>
-			<div class="aui-bar-tab-item" tapmode data-header="location">
-				<i class="aui-iconfont aui-icon-location"></i>
-				<div class="aui-bar-tab-label">
-					附近
-				</div>
-			</div>
-			<div class="aui-bar-tab-item" tapmode data-header="pzsh">
-				<i class="scl-iconfont scl-icon-liujiaoxing"></i>
-				<div class="aui-bar-tab-label">
-					品质生活
-				</div>
-			</div>
-			<div class="aui-bar-tab-item" tapmode data-header="me">
-				<i class="aui-iconfont aui-icon-my"></i>
-				<div class="aui-bar-tab-label">
-					我的
-				</div>
-			</div>
-		</footer>
-	</body>
-	<script type="text/javascript" src="./script/api.js"></script>
-	<script type="text/javascript" src="./script/aui-tab.js" ></script>
-	<script type="text/javascript" src="./script/common.js"></script>
-	<script type="text/javascript" src="./script/zepto.min.js"></script>
-	<script type="text/javascript">
-		apiready = function() {
-			api.parseTapmode();
-			// 设置ios7的标题栏字体变亮，全局用一个就行了
-			api.setStatusBarStyle({
-				style : 'light'
-			});
-			var header = $api.dom('.aui-bar');
-			var headers = $api.byId('index-header');
-			$api.fixStatusBar(headers);
-			var headerPos = $api.offset(header);
-			var body_h = $api.offset($api.dom('body')).h;
-			var footer_h = $api.offset($api.byId('aui-footer')).h;
-			api.openFrameGroup({
-				name : 'footer_tab_index',
-				scrollEnabled : false,
-				rect : {
-					x : 0,
-					y : headerPos.h,
-					w : 'auto',
-					h : api.frameHeight - headerPos.h - footer_h
-				},
-				index : 0,
-				preload : 0,
-				frames : [{
-					name : 'main',
-					url : './html/main.html'
-				}, {
-					name : 'location',
-					url : './html/icart.html',
-					bounces : false
-				}, {
-					name : 'pzsh',
-					url : './html/coupon.html',
-					bounces : false
-				}, {
-					name : 'me',
-					url : './html/me.html',
-					bounces : false
-				}]
-			}, function(ret, err) {
-			});
-			//			bMap = api.require('bMap');
-			//			// 获取当前位置
-			//			bMap.getLocation({
-			//				accuracy : '10m',
-			//				autoStop : true,
-			//				filter : 1
-			//			}, function(ret, err) {
-			//				if (ret.status) {
-			//					bMap.getNameFromCoords({
-			//						lon : ret.lon,
-			//						lat : ret.lat
-			//					}, function(ret, err) {
-			//						if (ret.status) {
-			//							// 设置给位置
-			//							$(".aui-iconfont.aui-icon-location.aui-font-size-14").text(ret.address.replace('江苏省南京市',''));
-			//						}
-			//					});
-			//				} else {
-			//					alert(err.code);
-			//				}
-			//			});
-		}
-		var tab = new auiTab({
-			element : document.getElementById("aui-footer")
-		}, function(ret) {
-			if (ret) {
-				api.setFrameGroupIndex({
-					name : 'footer_tab_index',
-					index : ret.index - 1,
-					scroll : false,
-				});
-				var that = $("#aui-footer .aui-bar-tab-item").eq(ret.index - 1);
-				// 获取data-header存储的值
-				var headerId = that.attr("data-header");
-				// 对应的dom头部
-				var headerDOM = headerId + "-header";
-				$("#" + headerDOM).removeClass("display-none").siblings(".header").addClass("display-none");
-			}
-		});
-		function openWin(name) {
-			var delay = 0;
-			if (api.systemType != 'ios') {
-				delay = 300;
-			}
-			api.openWin({
-				name : '' + name + '',
-				url : './html/' + name + '.html',
-				bounces : false,
-				delay : delay,
-				slidBackEnabled : true,
-				vScrollBarEnabled : false
-			});
-		}
-	</script>
-	</html>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#f8f6ef;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/Aliicon/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+</head>
+<body>
+<div style="height:30px;background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);"></div>
+<div class="top_one" id="top_header" name="header" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);">
+    <div class="index_top">
+        <div onclick="enterCommunity()">
+            <img src="image/top_dizi.png" class="index_top_logo">
+            <div class="top_id">{{community.communityName}}</div>
+            <i class="icon iconfont icon-xia" style="float:left; margin:4px 5px 0 0;"></i>
+        </div>
+        <p class="index_search" style="position: relative;left:3;">
+            <img class="index_search_bt" src="image/ico_search_44@2x.png"/>
+            <input type="search" placeholder="请输入您想要的商品" class="index_search_zi" onclick="search_win()" readonly="true" style="width: calc(100% - 24px);"/>
+            <img src="image/ico_sys.png" class="index_search_bt" onclick="doScanner()" style="position: absolute;top: 5px;right:10px;"/>
+        </p>
+        <span style="display: none"> <img src="image/top_sun.png"class="index_top_logo3" />亿猫</span>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+<!--好友 -->
+<header style="height: 20px;background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);display: none;" ></header>
+<div class="mine_top display"  name="header">
+    <div class="mine_top_first">好友<img src="image/mine_set_img.png" alt="" class="mine_top_set_img"/></div>
+</div>
+
+<div class="top top_red display"  name="header" style="padding-top:25px!important;height: 70px!important;z-index:999;position: fixed; background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);">
+    <input type="text" placeholder="搜索话题" ontouchstart="search()" readonly="true" class="ex_addsp_ss shq_top_ss shq_top_ss_bj">
+</div>
+<!--消息 -->
+<!-- <header style="height: 20px;background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);display: none;"   ></header> -->
+<div class="mine_top display"  name="header">
+    <div class="mine_top_first">消息</div>
+</div>
+<!--我的 -->
+<!-- <header style="height: 20px;background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);display: none;"></header> -->
+<div class="mine_top display"  name="header">
+    <div class="mine_top_first">我的<img src="image/mine_set_img.png" alt="" class="mine_top_set_img" onclick="enterset()"/></div>
+</div>
+<div class="bottom_zz"></div>
+<ul class="dynamic_bottom" id="nav">
+    <li>
+        <img src="image/dynamic_shouye_1.png" alt="" class="dynamic_bottom_img1 display" style="height:27px;margin-top:4px"/>
+        <img src="image/dynamic_shouye_2.png" alt="" class="dynamic_bottom_img2 " style="height:27px;margin-top:4px"/>
+        <span class="dynamic_bottom_font dynamic_bottom_font_click">首页</span>
+    </li>
+    <li>
+        <img src="image/dynamic_friend_1.png" alt="" class="dynamic_bottom_img1" style="height:24px;"/>
+        <img src="image/dynamic_friend_2.png" alt="" class="dynamic_bottom_img2 display" style="height:24px;"/>
+        <span class="dynamic_bottom_font">好友</span>
+    </li>
+    <li>
+        <div class="dynamic_bottom_img1 dynamic_bottom_shq1 ">
+            <img src="image/dynamic_shq_1.png" alt="" class="dynamic_bottom_img1" style="height:27px;margin-top:6px;"/>
+            <span class="dynamic_bottom_font" style="margin-top:3px;">生活圈</span>
+        </div>
+        <div class="dynamic_bottom_img2 dynamic_bottom_shq2 display" >
+            <img src="image/shq_choose.png" alt="" class="shq_choose_img" />
+        </div>
+    </li>
+    <li>
+        <img src="image/dynamic_xiaoxi_1.png" alt="" class="dynamic_bottom_img1" style="height:26px;margin-top:5px;width:26px;"/>
+        <img src="image/dynamic_xiaoxi_2.png" alt="" class="dynamic_bottom_img2 display" style="height:26px;margin-top:5px;width:26px;"/>
+        <span class="dynamic_bottom_font">消息</span>
+    </li>
+    <li>
+        <img src="image/dynamic_mine_1.png" alt="" class="dynamic_bottom_img1" style="height:27px;margin-top:5px;"/>
+        <img src="image/dynamic_mine_2.png" alt="" class ="dynamic_bottom_img2 display" style="height:27px;margin-top:5px;"/>
+        <span class="dynamic_bottom_font">我的</span>
+    </li>
+</ul>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="script/common/path.js"></script>
+<script type="text/javascript" src="script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="script/tool/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="script/common/common.js"></script>
+<script type="text/javascript" src="script/vue.min.js"></script>
+<script type="text/javascript" src="script/index.js"></script>
+
+</body>
+</html>

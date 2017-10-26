@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/jquery.spinner.js"></script>
+</head>
+<body>
+    <div class="main_dynamic" id="broadcastcontent" style="margin-top: 0px;">
+    	<template>
+    		<ul class="ymdlb_list">
+	            <li v-for="bean in broadcastData">
+	                <div class="ymdlb_list_title"><p>{{bean.headline}}</p></div>
+	                <p class="ymdlb_list_time">{{bean.startDate}}</p>
+	                <div class="ymdlb_list_img"><img :src="bean.images" alt="" /></div>
+	                <p class="ymdlb_list_con">{{bean.content}}</p>
+	                <p class="ymdlb_list_con_more" @click="registerView(bean.id)"><span >查看全文</span></p>
+	            </li>
+	        </ul>
+    	</template>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js" ></script>
+<script type="text/javascript" src="../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../script/control/news/broadcast.js" ></script>
+</html>

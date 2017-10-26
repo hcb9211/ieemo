@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div id="orderEva">
+		<template>
+			<div class="main_dynamic" v-for="bean in Updata.commodityList">
+		        <div class="gwjl_pj_xq">
+		            <div class="gwjl_pj_xq_img"><img :src="bean.picture" alt="" /></div>
+		            <div class="gwjl_pj_xq_name color_01">
+		                <p>{{bean.commodityName}}</p>
+		            </div>   
+		            <!--<img src="../../../image/mine_yy_plsj_into.png" alt="" class="gwjl_pj_xq_into" />-->
+		        </div>
+		        <div class="mine_plsj_pf gwjl_pj_pf1">
+		            <span class="mine_plsj_pf_font">商品评分</span>
+		            <ul class="mine_plsj_pf_list mine_plsj_pf_list1" id="mine_plsj_pf_list">
+		                <li class="aa" @click="grade(bean,2)">1</li>
+		                <li @click="commoditygrade(bean,4)">2</li>
+		                <li @click="commoditygrade(bean,6)">3</li>
+		                <li @click="commoditygrade(bean,8)">4</li>
+		                <li @click="commoditygrade(bean,10)">5</li>
+		            </ul> 
+		        </div>
+		        <div class="mine_plsj_pf gwjl_pj_pf2">
+		            <span class="mine_plsj_pf_font">超市评分</span>
+		            <ul class="mine_plsj_pf_list mine_plsj_pf_list2" id="mine_plsj_pf_list">
+		                <li class="aa"  @click="shopgrade(bean,2)">1</li>
+		                <li  @click="shopgrade(bean,4)">2</li>
+		                <li  @click="shopgrade(bean,6)">3</li>
+		                <li  @click="shopgrade(bean,8)">4</li>
+		                <li  @click="shopgrade(bean,10)">5</li>
+		            </ul> 
+		        </div>
+		        <textarea placeholder="喜欢这家店么？说说吧~" class="mine_plsj_content" v-model="bean.content"></textarea>
+		        <ul class="mine_plsj_content_pic">
+		            <li v-for="img in bean.baselist"><img :src="img" alt=""/></li>
+		            <li @click="addimg(bean)" v-if="bean.baselist.length < 3"></li>
+		        </ul>
+		    </div>
+		    <div class="orderEva_submit font_06" @click="Submit()">提交评论</div>
+		</template>
+	</div>  
+	<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="../../../script/jquery.spinner.js"></script>
+	<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+	<script type="text/javascript" src="../../../script/common/common.js"></script>
+	<script type="text/javascript" src="../../../script/common/path.js"></script>
+	<script type="text/javascript" src="../../../script/vue.min.js"></script>
+	<script type="text/javascript" src="../../../script/control/usercenter/order/orderEvaluate.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿ <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>选择社区</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/aui.2.0.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+	<style>
+		.rotate{
+			transition:all 1s ease;
+		}
+		.rotate:active{
+			transform: rotate(720deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="top_header">
+    	<div class="top top_red" name="header" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);">
+	        <div class="community_city">{{commCity}}</div>
+	        <!--<i class="aui-iconfont aui-i con-down community_down"></i>-->
+	        <div class="community_input">
+		    	<div>
+		    		<img class="dingwei_search_bt" src="../../image/ico_search_44@2x.png" style="position: relative;top: -1px;"/>
+		            <input type="text" placeholder="搜索社区" class="dingwei_search_zi" v-model="commsearch" style="color: #999999;position: relative;top: -1px;" @click="searchclick"/>
+		    	</div>
+		    	<span class="community_search" v-if="(commsearch == '')&&(nearby)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		    	<span class="community_search" v-else-if="(commsearch != '')&&(search)" @click="searchinit()">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+		    	<span class="community_search" v-else-if="(commsearch == '')&&(search)" @click="nearbyclick()">&nbsp;&nbsp;取消&nbsp;&nbsp;</span>
+		    </div>
+	    </div>
+	    <div class="dingwei_mind" v-show="nearby">
+	        <h3>当前地址</h3>
+	        <h4><p class="nowAddress"></p><span class="dq_dz" @click="poiList()"><img src="../../image/dq_dz.png" class="rotate"/>重新定位</span></h4>
+	        <h3 v-if="community.countyId">已加入社区</h3>
+	        <h4 v-if="community.countyId">
+	            <p>{{community.communityName}}</p>
+	            <span class="dq_jr" v-if="userNo" @click="quitCommunity(community)">退出社区</span>
+	        </h4>
+	        <!--当前未知所属社区-->
+	        <h3>当前所属社区</h3>
+	        <ul>
+	        	<li>{{present.communityName}}<span class="dq_jr" v-if="community.countyId==undefined" @click="addCommunity(present,1)">加入社区</span></li>
+	        </ul>
+	        <!--定位到的附近的社区-->
+	        <h3>附近社区</h3>
+	        <ul>
+	        	<li v-for="bean in communityList" v-if="bean.communityNo != community.communityNo">{{bean.communityName}} <span class="dq_jr" @click="addCommunity(bean,1)" v-if="community.communityNo == undefined">加入社区</span></li>
+	        </ul>
+	    </div>
+	    <div class="dingwei_mind" v-show="search">
+	        <!--搜索到的社区-->
+	        <h3>搜索社区</h3>
+	        <ul>
+	        	<li  v-for="search in searchList">{{search.communityName}}&nbsp;&nbsp;<span class="color_05">({{search.countyName}})</span> <span class="dq_jr" @click="addCommunity(search,2)">加入社区</span></li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/community/community.js"></script>
+</html>

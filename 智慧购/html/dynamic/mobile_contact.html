@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>手机联系人</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <div class="main_dynamic" style="margin-top:10px;" v-cloak>
+        <div class="addfriend_sousuo"><input type="text" class="addfriend_sousuo_input color_01" placeholder="姓名/昵称"></div>
+        <ul class="addfriend_ss_list">
+            <li>
+                <!-- <p class="addfriend_ss_list_xh">A</p> -->
+                <ul class="addfriend_ss_list_md">
+                    <li v-for="bean in list" v-show="search(bean)">
+                        <div class="addfriend_ss_list_tx"><img :src="bean.headPortrait" alt="" v-if="'' != bean.headPortrait">
+                        <img src="../../image/nick.png" alt="" v-else="'' == bean.headPortrait">
+                        </div>
+                        <div class="addfriend_ss_list_con">
+                            <p class="addfriend_ss_list_bz color_01">{{bean.realName}}</p>
+                            <p class="addfriend_ss_list_nc color_03">昵称：{{bean.nickname}}</p>
+                        </div>
+                        <p class="addfriend_ss_list_tjzt addfriend_ss_list_tjzt_ytj" v-if="'1' == bean.isFriend">已添加</p>
+                        <p class="addfriend_ss_list_tjzt" v-if="'0' == bean.isFriend" @click="addFriends(bean.userNo)">添加</p>
+                        <p class="addfriend_ss_list_tjzt" v-if="'0' == bean.isInvite" @click="invite(bean.mobile)">邀请进社区</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/mobile_contact.js"></script>
+</body>
+</html>

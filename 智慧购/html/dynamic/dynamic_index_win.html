@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>动态</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <div class="dynamic_bj">
+    	<template>
+	        <div class="dynamic_top_bj" v-if="userbean.headPortrait && userbean.headPortrait !=''" ><img :src="userbean.headPortrait" alt=""></div>
+	        <div class="dynamic_top_bj" v-else><img src="../../image/dynamic_top_bj.png" alt=""></div>
+	        <div class="dynamic_top">
+	            <div class="dynamic_top_xx">
+	                <div class="dynamic_top_tx" @click="mydynamicinfo()" v-if="userbean.headPortrait && userbean.headPortrait !=''" style="margin-top: 10px;" ><img :src="userbean.headPortrait" alt=""></div>
+	                <div class="dynamic_top_tx" v-else style="margin-top: 10px;"><img src="../../image/nick.png" alt=""></div>
+	                <div class="dynamic_top_xx_con">
+	                    <p class="dynamic_top_name color_06">{{userbean.nickName}}</p>
+	                    <p class="dynamic_top_qm color_06">{{userbean.signAture}}</p>
+	                </div>
+	            </div>
+	            <ul class="dynamic_top_list color_06" style="margin-top: 5px;">
+	                <li class="dynamic_top_list_li_click" data-type="1"><img src="../../image/dynamic_top_dt.png" alt="">动态</li>
+	                <li data-type="2" class="display"><img src="../../image/dynamic_top_fj.png" alt="">我的</li>
+	                <li data-type="3"><img src="../../image/dynamic_top_mine.png" alt="">附近</li>
+	            </ul>
+	        </div>
+	    </template>
+    </div>
+    <!--动态内容-->
+    <div class="dynamic_con" style="margin-bottom:0px;">
+    	<template>
+	        <div class="dynamic_con_xxtz color_06" id="unreadDiv">
+	        <p class="dynamic_con_xxtz_content" v-if="1 == type && unreadInfo.unreadcount > 0"><img :src="unreadInfo.headlist" alt="">{{unreadInfo.unreadcount}}条新消息</p>
+	        <p class="dynamic_con_xxtz_content" v-if="2 == type && myunreadInfo.unreadcount > 0"><img :src="myunreadInfo.headlist" alt="">{{myunreadInfo.unreadcount}}条新消息</p>
+	        <p class="dynamic_con_xxtz_content" v-if="3 == type && nearbyunreadInfo.unreadcount > 0"><img :src="nearbyunreadInfo.headlist" alt="">{{nearbyunreadInfo.unreadcount}}条新消息</p>
+	        </div>
+	        <ul class="dynamic_con_list" v-if="1 == type">
+	            <li v-for="bean in list">
+					<div v-if="bean.type == 3">
+						<div class="dynamic_con_tx" @click="showFriendInfo(bean.createBy)"><img :src="bean.headPortrait" alt=""></div>
+						<div class="dynamic_con_xq">
+							<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+							<!--<p class="dynamic_con_content color_02">{{title}}</p>-->
+							<p class="dynamic_con_fx">
+								<span class="dynamic_con_fx_tx"><img :src="bean.image" alt="" /></span>
+								<span class="dynamic_con_fx_name color_01">{{bean.content}}</span>
+								<!--<span class="dynamic_con_fx_qm color_03">{{signAture}}</span>-->
+							</p>
+							<p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+							<p class="dynamic_con_cz">
+								<span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+								<img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+								<img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)" v-if="bean.createBy != userNo">
+							</p>
+							<p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+							<p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+							<p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+						</div>
+					</div>
+					<div v-else>
+						<div class="dynamic_con_tx" @click="showFriendInfo(bean.createBy)"><img :src="bean.headPortrait" alt=""></div>
+						<div class="dynamic_con_xq">
+							<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+							<p class="dynamic_con_content color_02">{{bean.content}}</p>
+							<ul class="dynamic_con_pic">
+								<li v-for="(img,imgindex) in bean.imageArr" @click="imgclick(bean,imgindex)"><img :src="img" alt=""></li>
+							</ul>
+							<p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+							<p class="dynamic_con_cz">
+								<span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+								<img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+								<img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)" v-if="bean.createBy != userNo">
+							</p>
+							<p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+							<p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+							<p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+						</div>
+					</div>
+
+	            </li>
+	         </ul>
+	         <ul class="dynamic_con_list" v-if="2 == type">
+	            <li v-for="bean in mylist">
+					<div v-if="bean.type == 3">
+						<div class="dynamic_con_tx" @click="showFriendInfo(bean.createBy)"><img :src="bean.headPortrait" alt=""></div>
+						<div class="dynamic_con_xq">
+							<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+							<!--<p class="dynamic_con_content color_02">{{title}}</p>-->
+							<p class="dynamic_con_fx">
+								<span class="dynamic_con_fx_tx"><img :src="bean.image" alt="" /></span>
+								<span class="dynamic_con_fx_name color_01">{{bean.content}}</span>
+								<!--<span class="dynamic_con_fx_qm color_03">{{signAture}}</span>-->
+							</p>
+							<p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+							<p class="dynamic_con_cz">
+								<span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+								<img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+								<img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)" v-if="bean.createBy != userNo">
+							</p>
+							<p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+							<p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+							<p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+						</div>
+					</div>
+					<div v-else>
+						<div class="dynamic_con_tx"><img :src="bean.headPortrait" alt=""></div>
+						<div class="dynamic_con_xq">
+							<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+							<p class="dynamic_con_content color_02">{{bean.content}}</p>
+							<ul class="dynamic_con_pic">
+								<li v-for="(img,imgindex) in bean.imageArr" @click="imgclick(bean,imgindex)"><img :src="img" alt=""></li>
+							</ul>
+							<p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+							<p class="dynamic_con_cz">
+								<span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+								<img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+								<img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+
+
+							</p>
+							<p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+							<p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+							<p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+						</div>
+					</div>
+	            </li>
+	             </ul>
+	         <ul class="dynamic_con_list" v-if="3 == type">
+	            <li v-for="bean in nearbylist">
+					<div v-if="bean.type == 3">
+						<div class="dynamic_con_tx" @click="showFriendInfo(bean.createBy)"><img :src="bean.headPortrait" alt=""></div>
+						<div class="dynamic_con_xq">
+							<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+							<!--<p class="dynamic_con_content color_02">{{title}}</p>-->
+							<p class="dynamic_con_fx">
+								<span class="dynamic_con_fx_tx"><img :src="bean.image" alt="" /></span>
+								<span class="dynamic_con_fx_name color_01">{{bean.content}}</span>
+								<!--<span class="dynamic_con_fx_qm color_03">{{signAture}}</span>-->
+							</p>
+							<p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+							<p class="dynamic_con_cz">
+								<span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+								<img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+								<img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+								<img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)" v-if="bean.createBy != userNo">
+							</p>
+							<p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+							<p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+							<p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+						</div>
+					</div>
+	               <div v-else>
+					   <div class="dynamic_con_tx" @click="showFriendInfo(bean.createBy)"><img :src="bean.headPortrait" alt=""></div>
+					   <div class="dynamic_con_xq">
+						   <p class="dynamic_con_name color_01">{{bean.createName}}</p>
+						   <p class="dynamic_con_content color_02">{{bean.content}}</p>
+						   <ul class="dynamic_con_pic">
+							   <li v-for="(img,imgindex) in bean.imageArr" @click="imgclick(bean,imgindex)"><img :src="img" alt=""></li>
+						   </ul>
+						   <p class="dynamic_con_gps" v-if="'' != bean.address && null != bean.address"><img src="../../image/dynamic_gps.png" alt="">{{bean.address}}</p>
+						   <p class="dynamic_con_cz">
+							   <span class="dynamic_con_time color_03">{{bean.createDate}}</span>
+							   <img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(bean, 1)">
+							   <img src="../../image/dynamic_zan.png" alt="" v-if="'0' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+							   <img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == bean.isPushed" class="dynamic_con_zan1" @click="likes(bean)">
+							   <img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)">
+						   </p>
+						   <p class="dynamic_con_dzr" v-if="bean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{bean.pusher}}</p>
+						   <p class="dynamic_con_pinlun color_02" v-for="pl in bean.dynamicCommentList" @click="showcomment(bean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+						   <p class="dynamic_con_pinlun color_02"  @click="showcomment(bean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+					   </div>
+				   </div>
+	            </li>
+	        </ul>
+			<!-- 从生活圈分享的动态 -->
+			<!--<ul class="dynamic_con_list" v-if="4 == type">
+				<li v-for="bean in list">
+					<div class="dynamic_con_tx"><img :src="bean.exCover" alt="" /></div>
+					<div class="dynamic_con_xq">
+						<p class="dynamic_con_name color_01">{{bean.createName}}</p>
+						<p class="dynamic_con_content color_02">{{bean.content}}</p>
+						<p class="dynamic_con_fx">
+							<span class="dynamic_con_fx_tx"><img src="images/top2.png" alt="" /></span>
+							<span class="dynamic_con_fx_name color_01">{{}}</span>
+							<span class="dynamic_con_fx_qm color_03">审美不妥协</span>
+						</p>
+						<p class="dynamic_con_gps"><img src="images/dynamic_gps.png" alt="" />南油大厦</p>
+						<p class="dynamic_con_cz">
+							<span class="dynamic_con_time color_03">17分钟前</span>
+							<img src="images/dynamic_pl.png" alt="" class="dynamic_con_pl" />
+							<img src="images/dynamic_zan.png" alt="" class="dynamic_con_zan1"/>
+							<img src="images/dynamic_zan2.png" alt="" class="dynamic_con_zan2 display"/>
+						</p>
+						<p class="dynamic_con_dzr"><img src="images/dynamic_zan2.png" alt="" />张三、李四、王五、赵六</p>
+						<p class="dynamic_con_pinlun color_02"><span>张三：</span>我也喜欢猫咪老师耶！</p>
+						<p class="dynamic_con_pinlun color_02"><span>我猜我是谁</span>&nbsp;回复&nbsp;<span>张三：</span>同道中人啊~</p>
+					</div>
+				</li>
+			</ul>-->
+
+	        <div id="comDiv" class="fixed_tc fixed_tc_zIndex" style="display: none;">
+		        <div class="friend_index_tc">
+		            <p class="friend_index_tc_font">评论</p>
+		            <textarea placeholder="请输入你想评论的内容！" id="content" class="icart_xq_tc_tx" v-model="bean.content"></textarea>
+		            <div class="friend_index_tc_btn" @click="comment()" style="width:50%; float:left;">确定</div>
+		            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('#comDiv').hide();">取消</div>
+		        </div>
+		    </div>
+
+		    <div id="reportDiv" class="fixed_tc fixed_tc_zIndex" style="display: none;">
+		        <div class="friend_index_tc">
+		            <p class="friend_index_tc_font">举报</p>
+		            <textarea placeholder="请输入你想举报的内容！"  class="icart_xq_tc_tx" id="report" v-model="report"></textarea>
+		            <div class="friend_index_tc_btn" @click="reportsave()" style="width:50%; float:left;">确定</div>
+		            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('#reportDiv').hide();">取消</div>
+		        </div>
+		    </div>
+		</template>
+    </div>
+    <!--分布按钮-->
+    <div class="dynamic_fb_btn">
+    <img src="../../image/dynamic_fb.png" alt="" class="dynamic_fb_btn_box">
+    <img src="../../image/dynamic_tc_psadd.png" alt="" class="dynamic_tc_psadd">
+    </div>
+
+    <!--动态弹窗-->
+    <div class="fixed_tc_dynamic display">
+        <ul class="dynamic_tc_list">
+            <li id="addDynamic">
+                <div class="dynamic_tc_fzt_font">发状态</div>
+                <div class="dynamic_tc_fzt_img"><img src="../../image/dynamic_tc_bj.png" alt=""></div>
+            </li>
+            <li id="addFriend">
+                <div class="dynamic_tc_fzt_font">添加好友</div>
+                <div class="dynamic_tc_fzt_img"><img src="../../image/dynamic_tc_add.png" alt=""></div>
+            </li>
+           <!-- <li>
+                <div class="dynamic_tc_fzt_font">扫一扫</div>
+                <div class="dynamic_tc_fzt_img"><img src="../../image/dynamic_tc_sys.png" alt=""></div>
+            </li>
+            <li>
+                <div class="dynamic_tc_fzt_font">拍摄</div>
+                <div class="dynamic_tc_fzt_img"><img src="../../image/dynamic_tc_ps.png" alt=""></div>
+            </li>-->
+        </ul>
+    </div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/dynamic_index_win.js"></script>
+</body>
+</html>

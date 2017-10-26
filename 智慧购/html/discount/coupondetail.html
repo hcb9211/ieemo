@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+	<meta name="MobileOptimized" content="320"/>
+	<title>领取到的优惠券</title>
+	<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+	<link href="../../css/public.css"  rel="stylesheet" type="text/css"/>
+	<link href="../../css/index.css"  rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../css/discount/coupondetail.css">
+</head>
+<body>
+<div class="couponbg">
+	<div class="topcoupon">
+		<div class="titlecoupon">
+			<p>由亿猫科技提供</p>
+			<h2><span class="prices"></span>元现金抵用券</h2>
+		</div>
+		<div class="validity">
+			 <p>有效期</p>
+			<h2><span class="beginDate"></span>至<span class="endDate"></span></h2>
+		</div>
+	</div>
+	<div class="bottomcoupon">
+		<div class="textcoupon">
+			<span class="coupontitle">使用须知</span>
+			<p>1.此代金券仅限在有效期内使用，且消费需要满<span class="salemoney"></span>元</p>
+			<p>2.此代金券目前适用于苏果亿猫智能购物车专享</p>
+			<p>3.此代金券由亿猫科技有限公司提供</p>
+		</div>
+	</div>
+</div>
+<div class="shareBtn">分享给我的朋友</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script>
+	apiready = function () {
+		var prices = api.pageParam.prices;
+		var beginDate = api.pageParam.beginDate;
+		var endDate = api.pageParam.endDate;
+		var beginPrice = api.pageParam.beginPrice;
+		$('.prices').text(prices);
+		$('.beginDate').text(beginDate);
+		$('.endDate').text(endDate);
+		$('.salemoney').text(beginPrice);
+		var userbean = user.getuserinfo();
+		var headPortrait = userbean.headPortrait;
+		if(headPortrait){
+			headPortrait = headPortrait;
+		}else{
+			headPortrait = '../../image/active.png'
+		}
+		var option = {
+            title : '我在亿猫智慧购中领到了优惠券',
+            description : '亿猫购物车可以领优惠券啦',
+            imgUrl : headPortrait,
+			url : 'http://www.ieemoo.com/admin/remote/buysLists/html/coupondetail.html?prices=' + prices + '&&' + 'beginDate=' + beginDate + '&&' + 'endDate=' + endDate + '&&' + 'beginPrice=' + beginPrice
+		}
+		$('.shareBtn').click(function () {
+			dialog.share(option);
+        })
+    }
+
+</script>
+</html>

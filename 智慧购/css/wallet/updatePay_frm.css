@@ -1,0 +1,102 @@
+.bindPhoneBox{
+    width:100%;height:2.75rem;
+    padding:0 1rem;
+    line-height:2.75rem;
+}
+.bindPhoneInput{
+    width:90%;height:2.5rem;
+    border:1px solid #e1e1e3;
+    margin:0 auto;
+    background-color:white;
+    border-radius:4px;
+    font-size:14px;
+}
+.bindPhoneInput input{
+    width:70%;height:100%;
+    padding:0 .5rem;
+    float: left;
+    font-size:14px;
+}
+.smsBtn{
+    width:30%;height:100%;
+    text-align:center;
+    line-height:2.5rem;
+    color:#ff9800;
+    float: right;
+    border-left:1px solid #e1e1e3;
+}
+.nextBox{
+    width:90%;height:2rem;
+    text-align:center;
+    line-height:2rem;
+    color:white;
+    margin:1rem auto;
+    background:#ff9800;
+    border-radius:4px;
+}
+header{
+    width:100%;
+    height:2.75rem;
+    background-color:white;
+    border-bottom:1px solid #e1e1e3;
+    padding:.5rem;
+}
+.nickNamePay{
+    width:15%;
+    height:1.65rem;
+    line-height:1.65rem;
+    float: left;
+}
+.iconPay{
+    width:1.65rem;
+    height:1.65rem;
+    background:url("../../../image/wallet/pay.png") no-repeat 0 0;
+    background-size:contain;
+    float: left;
+}
+.promptPay{
+    width:70%;
+    height:1.65rem;
+    float: left;
+    line-height:1.65rem;
+}
+.payRight{
+    width:15%;
+    height:1.65rem;
+    line-height:1.65rem;
+    float: right;
+    text-align: right;
+    font-weight:bold;
+    margin-top:5px;
+}
+.closeBox{
+    width:1.2rem;height:1.2rem;
+    border-radius:50%;
+    border:1px solid #999;
+    float: right;
+}
+.closeBox div{
+    bottom:5px;right:3px;
+    color:#999;
+}
+main{
+    width:100%;height:1.75rem;
+    margin-top:1.575rem;
+}
+.saveBtn,.backBtn{
+    width:35%;
+    height:100%;
+    border-radius:4px;
+    float: left;
+    background-color:#fe9d3f;
+    color:white;
+    text-align: center;
+    line-height:1.75rem;
+    margin-left:2rem;
+}
+.backBtn{
+    float: right;
+    background-color:#999;
+    margin-right:2rem;
+    margin-left:0;
+}

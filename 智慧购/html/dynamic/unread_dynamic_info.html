@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>未读消息</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff;">
+    <div class="main_dynamic" style="margin-top: 10px;" v-cloak>
+    	<ul class="newxx_list">
+    		<li v-for="bean in list" @click="info(bean.dynamicInfo.dynamicNo)">
+    			<div class="newxx_list_tx" v-if="'' != bean.headPortrait"><img :src="bean.headPortrait" alt=""></div>
+    			<div class="newxx_list_tx" v-if="'' == bean.headPortrait"><img src="../../image/nick.png" alt=""></div>
+    			<div class="newxx_list_con">
+    				<p class="newxx_list_name">{{bean.createName}}</p>
+    				<p class="newxx_list_hfly" v-if="'' == bean.content"><img src="../../image/newxx_dz.png" alt="" class="newxx_list_hfly_dz"></p>
+    				<p class="newxx_list_hfly" v-if="'' != bean.content">{{bean.content}}</p>
+    				<p class="newxx_list_time">{{bean.createDate}}</p>
+    			</div>
+    			<div class="newxx_list_pic" v-if="bean.dynamicInfo.images && bean.dynamicInfo.images.length > 0 "><img :src="bean.dynamicInfo.images[0]" alt=""></div>
+    			<div class="newxx_list_pic" v-else><p class="newxx_list_fbxx">{{bean.dynamicInfo.content}}</p></div>
+    		</li>
+    	</ul>
+    </div>
+
+    	
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/unread_dynamic_info.js"></script>
+<script>
+    $(".newxx_list_pic").each(function(){
+	    var divH = $(this).height();
+	    var $p = $("p", $(this)).eq(0);
+	    while ($p.outerHeight() > divH) {
+	        $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+	    };
+	});
+</script>
+</body>
+</html>

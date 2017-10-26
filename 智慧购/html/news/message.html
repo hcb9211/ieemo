@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background-color: #FFFFFF;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/jquery.spinner.js"></script>
+</head>
+<body style="background-color: #FFFFFF;">
+    <div class="main_dynamic message_con_list" style="margin-top: 0px;">
+        <ul class="message_top" id="info" v-cloak>
+            
+            <li onclick="registerView()">
+                <img src="../../image/message_top_img1.png" alt="" class="message_top_img">
+                <div class="message_top_con message_top_con_new">
+                    <p class="message_top_con_title message_top_con_title_new color_01">亿猫大喇叭</p>
+                </div>
+
+            </li>
+            <li onclick="winmsd()">
+                <img src="../../image/message_top_img2.png" alt="" class="message_top_img">
+                <div class="message_top_con message_top_con_new">
+                    <p class="message_top_con_title message_top_con_title_new color_01">系统消息</p>
+                </div>
+
+            </li>
+            <li onclick="friendsmessagepage()">
+                <img src="../../image/message_top_img4.png" alt="" class="message_top_img">
+                <div class="message_top_con message_top_con_new">
+                    <p class="message_top_con_title message_top_con_title_new color_01">新的好友</p>
+                    <span class="message_top_con_xxtx" v-if="count > 0">{{count}}</span>
+                </div>
+
+            </li>
+            <li onclick="familymessagepage()">
+                <img src="../../image/message_top_img5.png" alt="" class="message_top_img">
+                <div class="message_top_con message_top_con_new">
+                    <p class="message_top_con_title message_top_con_title_new color_01">家庭成员</p>
+                    <span class="message_top_con_xxtx" v-if="familyRequestCount > 0">{{familyRequestCount}}</span>
+                </div>
+
+            </li>
+            <li>
+                <!--<img src="../../image/message_top_img3.png" alt="" class="message_top_img"/>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>-->
+            </li>
+        </ul>
+        <!--<div class="message_con_list_titlt color_03">好友私信</div>-->
+        <!--<ul class="message_con_list_ul">
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx2.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">系统消息</p>
+                    <p class="message_top_con_xx color_03">亿猫智慧购物车来啦~</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx3.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx2.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">系统消息</p>
+                    <p class="message_top_con_xx color_03">亿猫智慧购物车来啦~</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx3.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+        </ul>-->
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js" ></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../script/control/news/message.js"></script>
+</html>

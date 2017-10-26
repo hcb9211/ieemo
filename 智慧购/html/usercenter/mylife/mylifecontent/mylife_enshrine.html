@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <div class="main_dynamic" id="enshrine">
+    	<!--我的收藏-->
+        <ul class="myshq_experience">
+        	<div v-for="bean in enshrineList" @touchstart="alldisplay()">
+        		<li v-if="bean.collectSrc=='0'" @click="particulars(bean)">
+	                <div class="myshq_collect_top">
+	                    <div class="myshq_collect_tx"><img :src="bean.headpic" /></div>
+	                    <span class="myshq_collect_name">{{bean.nickname}}</span>
+	                    <img src="../../../../image/myshq_sc_choose_img.png" alt="" class="myshq_collect_list_img" @click="enshrinedisplay(bean)"/>
+	                    <ul v-bind:class="{ myshq_collect_top_list: true, 'mylife_enshrine_display': bean.enshrinedisplay }">
+	                        <li>分享</li>
+	                        <li>删除</li>
+	                    </ul>
+	                </div>
+	                <div class="myshq_experience_pic"><img :src="bean.srcCover" alt="" /></div>
+	                <p class="myshq_experience_title">{{bean.srcTitle}}</p>
+	                <div class="myshq_experience_con">
+	                    <p> {{bean.srcContent}}</p>
+	                </div>
+	                <p class="myshq_experience_zl">
+	                    <span class="myshq_experience_dz">赞：{{bean.praisenum}}</span>
+	                    <span class="myshq_experience_pl">评论：{{bean.commentnum}}</span>
+	                </p>
+	            </li>
+	            <li v-else-if="(bean.collectSrc == '1')||(bean.collectSrc == '2')" @click="particulars(bean)">
+	                <div class="myshq_collect_top">
+	                    <div class="myshq_collect_tx" v-if="bean.headpic != ''"><img :src="bean.headpic" alt="" /></div>
+	                    <div class="myshq_collect_tx" v-else-if="bean.headpic == ''"><img src="../../../../image/nick.png" alt="" /></div>
+	                    <span class="myshq_collect_name">{{bean.nickname}}</span>
+	                    <img src="../../../../image/myshq_sc_choose_img.png" alt="" class="myshq_collect_list_img" @click="enshrinedisplay(bean)"/>
+	                    <ul v-bind:class="{ myshq_collect_top_list: true, 'mylife_enshrine_display': bean.enshrinedisplay }">
+	                        <li>分享</li>
+	                        <li>删除</li>
+	                    </ul>
+	                </div>               
+	                <p class="myshq_experience_title">{{bean.srcTitle}}</p>
+	                <div class="myshq_experience_con">
+	                    <p> {{bean.srcContent}}</p>
+	                </div>
+	                <p class="myshq_experience_zl">
+	                    <span class="myshq_experience_dz">赞：{{bean.praisenum}}</span>
+	                    <span class="myshq_experience_pl">评论：{{bean.commentnum}}</span>
+	                </p>
+	            </li>
+        	</div>
+            <!--<li v-for="bean in enshrineList" @touchstart="alldisplay()">
+                <div class="myshq_collect_top">
+                    <div class="myshq_collect_tx"><img :src="bean.headpic" /></div>
+                    <span class="myshq_collect_name">{{bean.nickname}}</span>
+                    <img src="../../../../image/myshq_sc_choose_img.png" alt="" class="myshq_collect_list_img" @click="enshrinedisplay(bean)"/>
+                    <ul v-bind:class="{ myshq_collect_top_list: enshrinetrue, 'mylife_enshrine_display': bean.enshrinedisplay }">
+                        <li>分享</li>
+                        <li>删除</li>
+                    </ul>
+                </div>
+                <div class="myshq_experience_pic"><img :src="bean.srcCover" alt="" /></div>
+                <p class="myshq_experience_title">{{bean.srcTitle}}</p>
+                <div class="myshq_experience_con">
+                    <p> {{bean.srcContent}}</p>
+                </div>
+                <p class="myshq_experience_zl">
+                    <span class="myshq_experience_dz">赞：{{bean.praisenum}}</span>
+                    <span class="myshq_experience_pl">评论：{{bean.commentnum}}</span>
+                </p>
+            </li>-->
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../../script/api.js" ></script>
+<script type="text/javascript" src="../../../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../../../script/common/path.js" ></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_enshrine.js" ></script>
+</html>

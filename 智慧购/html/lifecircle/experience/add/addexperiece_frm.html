@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>写经验</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/common/validate.js"></script>
+<script type="text/javascript" src="../../../../script/control/lifecircle/experience/add/addexperice_frm.js"></script>
+
+</head>
+<body style="background:#fff;">
+    <div id="experiece" v-cloak>
+    <div class="main_shq_xjy" >
+        <div class="shq_xjy_fmimg">
+            <img :src="options.imgbase64" alt="" class="shq_xjy_fmimg_img shq_xjy_fmimg_img_lj" />
+            <div class="shq_xjy_fmimg_ts">
+                <img src="../../../../image/shq_xjy_scfm_bj.png" alt="" class="shq_xjy_fmimg_ts_pic"  @click="faceimage()"/>
+                <p class="shq_xjy_fmimg_ts_font">点击设置封面</p>
+            </div>
+        </div>
+        <div class="shq_xjy_con">
+            <div class="shq_xjy_bjtitle">
+                <input type="text" placeholder="点击编辑标题" class="shq_xjy_bjtitle_input" v-model="bean.exTitle" />
+                <span class="shq_xjy_bjtitle_number">{{bean.exTitle.length}}/50</span>
+            </div>
+            <ul class="shq_xjy_xzfl">
+                <li @touchstart="typeclick()"><img src="../../../../image/gzwdr_gz_img.png" alt="" class="shq_xjy_xzfl_add_img" />选择分类</li>
+            </ul>
+           
+           <div v-for="(listbean,listindex) in bean.coterieExpConList" v-if="listbean.contentType == '0'" >
+            <div class="shq_xjy_jt_con" @click="updatetextpage(listbean,listindex)">{{listbean.content}}
+            
+            </div>
+             <div class="shq_xjy_contentj display">
+                <ul class="shq_xjy_contentj_choose">
+                    <li @click="addtext()">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_font_img"><img src="../../../../image/shq_xjy_font_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">文字</p>
+                    </li>
+                    <li @click="addimg()">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_pic_img"><img src="../../../../image/shq_xjy_pic_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">图片</p>
+                    </li>
+                    <li class="display">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_vedio_img"><img src="../../../../image/shq_xjy_vedio_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">视频</p>
+                    </li>
+                    <li class="display">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_sp_img"><img src="../../../../image/shq_xjy_sc_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">商品</p>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div v-else-if="listbean.contentType == '1'"  >
+             <div class="shq_xjy_sczp_pic" @click="imgeditpage(listbean)">
+                <img :src="listbean.imgbase64" alt="" >
+                <span class="shq_xjy_sczp_pic_bj">编辑</span>
+                <div class="shq_xjy_mc_edit" v-if="listbean.edit == '1'" @click="closeeditpage(listbean)">
+                    <ul class="shq_xjy_mc_edit_list">
+                        <li @click="deleteimage(listindex,$event)">
+                            <div class="shq_xjy_mc_edit_img"><img src="../../../../image/shq_xjy_pic_del.png" alt="" class="shq_xjy_mc_edit_del_img"></div>
+                            <p class="shq_xjy_mc_edit_font">删除</p>
+                        </li>
+                        <li @click="chooseimage(listbean,listindex,$event)">
+                            <div class="shq_xjy_mc_edit_img"><img src="../../../../image/shq_xjy_pic_again.png" alt="" class="shq_xjy_mc_edit_again_img"></div>
+                            <p class="shq_xjy_mc_edit_font">重选</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="shq_xjy_contentj">
+                <ul class="shq_xjy_contentj_choose">
+                    <li @click="addtext()">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_font_img"><img src="../../../../image/shq_xjy_font_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">文字</p>
+                    </li>
+                    <li @click="addimg()">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_pic_img"><img src="../../../../image/shq_xjy_pic_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">图片</p>
+                    </li>
+                    <li class="display">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_vedio_img"><img src="../../../../image/shq_xjy_vedio_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">视频</p>
+                    </li>
+                    <li class="display">
+                        <div class="shq_xjy_contentj_img shq_xjy_contentj_sp_img"><img src="../../../../image/shq_xjy_sc_img.png" alt=""></div>
+                        <p class="shq_xjy_contentj_font">商品</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="shq_xjy_bottom_btn" @click="save()">发布</div>
+</div>
+    <script>
+//        $(document.body).ready(function(){
+//            var shq_xjy_sczp_pic=document.getElementsByClassName("shq_xjy_sczp_pic")[0];
+//            shq_xjy_sczp_pic.style.height=0.562*(shq_xjy_sczp_pic.offsetWidth)+"px";
+//            $(window).resize(function(){
+//
+//                var shq_xjy_sczp_pic=document.getElementsByClassName("shq_xjy_sczp_pic")[0];
+//                shq_xjy_sczp_pic.style.height=0.562*(shq_xjy_sczp_pic.offsetWidth)+"px";
+//            });
+//        });
+
+    </script>
+</body>
+</html>

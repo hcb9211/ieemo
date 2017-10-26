@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>收藏夹</title>
+    <link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<!--******(Zhiping)*******-->
+	<!--<h4 class="order_headline color_07 bg_colorff">全部订单</h4>-->
+	<ul id="order" class="order color_01 bg_colorff">
+		<template>
+			<li class="order_option" v-for="bean in orderList">
+				<div class="order_option_commodity borderbottom_01">
+					<div class="order_commodity_name">{{bean.storeName}}</div>
+					<span class="order_commodity_price color_07">{{bean.statusText}}</span>
+				</div>
+				<div class="order_option_quantity borderbottom_01">
+					<span class="order_quantity_count">共 <span class="color_07">{{bean.productCount}}</span> 件</span>
+					<span class="order_quantity_prices">合计： <span class="color_07">￥ {{bean.amount}}</span></span>
+				</div>
+				<div class="order_option_button">
+					<span v-if="bean.status == 3">
+						<span v-if="bean.whetherEvaluation == 0">订单未评价 </span>
+						<span v-else-if="bean.whetherEvaluation == 1">订单已评价</span>
+					</span>
+					<span>&nbsp;</span>
+					<span class="order_particulars bg_color04 color_06" @click="orderDet(bean.orderNo)">&nbsp;查看详情&nbsp;</span>
+				</div>
+			</li>
+		</template>
+	</ul>
+</body>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/order/order.js"></script>
+</html>

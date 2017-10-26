@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <!--<div class="top top_red"><img src="../../../../image/back.png" alt="" class="top_return"/>我的经验</div>-->
+    <div class="main_dynamic" id="mylife_experience">
+    	<template>
+	        <ul class="myshq_experience" style="margin-top: 0;">
+	            <li v-for="bean in experienceList" @click="particulars(bean)" style="padding-top: 0;">
+	                <div class="myshq_experience_pic"><img  :src="bean.exCover" alt="" /></div>
+	                <p class="myshq_experience_title">{{bean.exTitle}}</p>
+	                <!--<div class="myshq_experience_con">
+	                    <p> 此时，嫩绿嫩绿的莴笋成批上架，好吃又便宜。用这春天的莴笋，做一些符合春天口味的爽脆小菜，那是再合适不过了。只要买上些新鲜莴笋回家，再做点简单的处理，就能吃的轻松此时，嫩绿嫩绿的莴笋成批上架，好吃又便宜。用这春天的莴笋，做一些符合春天口味的爽脆小菜，那是再合适不过了。只要买上些新鲜莴笋回家，再做点简单的处理，就能吃的轻松</p>
+	                </div>-->
+	                <p class="myshq_experience_zl">
+	                    <span class="myshq_experience_dz">赞：{{bean.praisenum	}}</span>
+	                    <span class="myshq_experience_pl">评论：{{bean.commentnum}}</span>
+	                    <span class="myshq_experience_time">{{bean.createDate}}</span>
+	                </p>
+	            </li>
+	        </ul>
+	    </template>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../../script/api.js" ></script>
+<script type="text/javascript" src="../../../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../../../script/common/path.js" ></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_experience.js" ></script>
+</html>

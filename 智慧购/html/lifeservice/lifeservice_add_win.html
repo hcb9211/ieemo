@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>生活服务--发布</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff">
+	<div  id="info">
+    <!--<div class="top top_red" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);">-->
+        <!--<div class="backbox" onclick="closeWin();">-->
+            <!--<img src="../../image/back.png" alt="" class="top_return">-->
+        <!--</div>-->
+        <!--<div class="top_title" >发布服务</div>-->
+        <!--<div  @click="save()" >发布</div>-->
+    <!--</div>-->
+
+        <div class="top top_red" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);">
+            <div  id="title" onclick="closeWin()" style="width: 10%;height:100%;float:left;">
+                <img src="../../image/back.png" alt="" class="top_return"/>
+            </div>
+            <div class="title" style="width:75%;height:100%;float:left; line-height: 50px;">发布服务</div>
+            <div class="shareBtn" style="width:15%;float:right; line-height: 52px;" @click="save()" >
+                发布
+            </div>
+        </div>
+
+
+    <div class="main_register" style="margin-top:59px;">
+      <div class="life_fabu_xzfl"><span @click="selectCate()" v-if="'' == bean.serviceTypeName">+选择分类</span>
+      	<span @click="selectCate()" v-if="'' != bean.serviceTypeName">{{bean.serviceTypeName}}</span>
+      </div>
+        <ul class="register_list change_pwd_list">
+           <span class="life_fabu_zi">您的姓名</span>
+        	<li class="life_fabu_tit"><input type="text" placeholder="请填写真实姓名" v-model="bean.realName" class="register_pwd color_01" maxlength="10"></li>
+        	<span class="life_fabu_zi">联系方式</span>
+        	<li class="life_fabu_tit"><input type="text" placeholder="请确保号码无误" v-model="bean.telNo" class="register_pwd color_01" maxlength="11"></li>
+            <span class="life_fabu_zi">发布标题</span>
+        	<li class="life_fabu_tit"><input type="text" placeholder="最多可填写30个字" v-model="bean.title" class="register_pwd color_01" maxlength="30"></li>
+        </ul>
+        <div class="life_fabu_con">
+            <p class="life_fabu_con_font">发布照片</p>
+            <ul class="life_fabu_con_list">
+            		<li v-for="imgbean in imgbase64" ><div class="life_fabu_con_list_img"><img :src="imgbean"></div></li>
+                 <li id="defImg" @click="caramer()" v-if="imgbase64.length == 0">
+                    <div class="life_fabu_con_list_img"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <textarea placeholder="请详细描述您所要发布的服务内容~" class="dynamic_fbss_content color_01" v-model="bean.content"></textarea>
+    </div>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/common/validate.js"></script>
+<script type="text/javascript" src="../../script/control/lifeservice/lifeservice_add_win.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>谁可以看</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/zepto.min.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/can_see.js"></script>
+</head>
+<body>
+	<div class="top_nof" name="header">
+            <div class="backbox" onclick="closeWin()">
+    		  <img src="../../image/back.png"  alt="" class="top_nof_return"/>
+            </div>
+    		谁可以看
+    		<span class="top_font_right" id="canok">发布</span>
+    </div>
+    <!--<div class="top top_red" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);"><img src="../../image/back.png" alt="" class="top_return" onclick="closeWin();">谁可以看<span class="top_font_right" id="canok">完成</span></div>-->
+    <div class="main_dynamic">
+        <ul class="dynamic_skyc_choose">
+            <li>
+                <div class="dynamic_skyc_choose_first">
+                    <div class="dynamic_skyc_choose_first_left">
+                        <p class="dynamic_skyc_choose_first_font1 color_01">公开</p>
+                        <p class="dynamic_skyc_choose_first_font2 color_03">所有人可见</p>
+                    </div>
+                    <span class="dynamic_skyc_choose_first_span">
+                        <input type="radio" class="dynamic_skyc_choose_first_radio" id="dynamic_skyc_choose_first_radio1" name="dynamic_skyc_choose_first_radio" value="0"><label for="dynamic_skyc_choose_first_radio1"></label>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="dynamic_skyc_choose_first">
+                    <div class="dynamic_skyc_choose_first_left">
+                        <p class="dynamic_skyc_choose_first_font1 color_01">好友圈</p>
+                        <p class="dynamic_skyc_choose_first_font2 color_03">仅相互关注好友可见</p>
+                    </div>
+                    <span class="dynamic_skyc_choose_first_span">
+                        <input type="radio" class="dynamic_skyc_choose_first_radio" id="dynamic_skyc_choose_first_radio2" name="dynamic_skyc_choose_first_radio" value="1"><label for="dynamic_skyc_choose_first_radio2"></label>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="dynamic_skyc_choose_first">
+                    <div class="dynamic_skyc_choose_first_left">
+                        <p class="dynamic_skyc_choose_first_font1 color_01">私密</p>
+                        <p class="dynamic_skyc_choose_first_font2 color_03">仅自己可见</p>
+                    </div>
+                    <span class="dynamic_skyc_choose_first_span">
+                        <input type="radio" class="dynamic_skyc_choose_first_radio" id="dynamic_skyc_choose_first_radio3" name="dynamic_skyc_choose_first_radio" value="2"><label for="dynamic_skyc_choose_first_radio3"></label>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="dynamic_skyc_choose_first">
+                    <div class="dynamic_skyc_choose_first_left">
+                        <p class="dynamic_skyc_choose_first_font1 color_01">部分可见</p>
+                        <p class="dynamic_skyc_choose_first_font2 color_03">选中的朋友可见</p>
+                    </div>
+                    <span class="dynamic_skyc_choose_first_span">
+                        <input type="radio" class="dynamic_skyc_choose_first_radio" id="dynamic_skyc_choose_first_radio4" name="dynamic_skyc_choose_first_radio" value="3"><label for="dynamic_skyc_choose_first_radio4"></label>
+                    </span>
+                </div>
+                <div class="dynamic_skyc_choose_two" style="display: none;" id="phone3">
+                    <p class="dynamic_skyc_choose_two_sz" data-val="1">从通讯录选择</p>
+                    <p class="dynamic_skyc_choose_two_name1" style="display: none;"></p>
+                </div>
+            </li>
+            <li>
+                <div class="dynamic_skyc_choose_first">
+                    <div class="dynamic_skyc_choose_first_left">
+                        <p class="dynamic_skyc_choose_first_font1 color_01">不给谁看</p>
+                        <p class="dynamic_skyc_choose_first_font2 color_03">选中的朋友不可见</p>
+                    </div>
+                    <span class="dynamic_skyc_choose_first_span">
+                        <input type="radio" class="dynamic_skyc_choose_first_radio" id="dynamic_skyc_choose_first_radio5" name="dynamic_skyc_choose_first_radio" value="4"><label for="dynamic_skyc_choose_first_radio5"></label>
+                    </span>
+                </div>
+                <div class="dynamic_skyc_choose_two" style="display: none;"  id="phone4">
+                    <p class="dynamic_skyc_choose_two_sz" data-val="2">从通讯录选择</p>
+                    <p class="dynamic_skyc_choose_two_name2" style="display: none;"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

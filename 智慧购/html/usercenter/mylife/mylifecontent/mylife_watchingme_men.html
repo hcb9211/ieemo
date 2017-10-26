@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <!--<div class="top top_red"><img src="../../../image/back.png" alt="" class="top_return"/>我的关注</div>-->
+    <ul class="sj_gz_list color_01" style="position:fixed;top:2px;">
+      <li class="sj_gz_list_border" onclick="question()">问题</li>
+      <li onclick="people()">人</li>
+    </ul>
+    <div class="main_dynamic main_myshq_wdgzr" id="watchingme">
+    	<!--<template>-->
+    		<!--问题-->
+	        <ul v-bind:class="{ myshq_wdgz_question_list: true, 'watchingmeque': watchingmeque }">
+	            <li v-for="beanque in watchingquestionList" @click="particularsque(beanque)">
+	                <p class="myshq_wdgz_question">{{beanque.quesTitle}}</p>
+	                <p class="myshq_wdgz_question_con">
+	                    <span class="myshq_wdgz_question_gz_number">关注：{{beanque.focusnum}}</span>
+	                    <span class="myshq_wdgz_question_answer_number">回答：{{beanque.answernum}}</span>
+	                </p>
+	            </li>
+	        </ul>
+    		 <!--人-->
+	        <ul v-bind:class="{ myshq_gzwdr: true, 'watchingmepeo': watchingmepeo }">
+	            <li v-for="(beanpeo,index) in watchingpeopleList">
+	                <div class="myshq_gzwdr_tx" v-if="beanpeo.userHeadpic != ''"><img :src="beanpeo.userHeadpic" alt="" /></div>
+	                <div class="myshq_gzwdr_tx" v-else-if="beanpeo.userHeadpic == ''"><img src="../../../../image/nick.png" alt="" /></div>
+	                <div class="myshq_gzwdr_con">
+	                    <p class="myshq_gzwdr_name">{{beanpeo.userNickname}}</p>
+	                    <p class="myshq_gzwdr_qm">{{beanpeo.userSignature}}</p>
+	                </div>
+	                <div class="myshq_gzwdr_btn myshq_gzwdr_btn_ygz" @click="followed(beanpeo.userNo,index)"><img src="../../../../image/gzwdr_gz_img.png" class="myshq_gzwdr_btn_img display" alt="" />已关注</div>
+	            </li>
+	        </ul>
+	    <!--</template>-->
+    </div>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_watchingme_men.js"></script>
+<script>
+    $(".sj_gz_list").children("li").click(function(){
+        $(this).addClass("sj_gz_list_border").siblings().removeClass("sj_gz_list_border");
+    })
+</script>
+</html>

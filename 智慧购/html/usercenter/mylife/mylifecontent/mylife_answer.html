@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/aui.2.0.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <!--<div class="top top_red" style="margin-top: 15px;"><span class="aui-iconfont aui-icon-left" onclick="closeWin()"></span>我的回答</div>-->
+    <div class="main_dynamic" id="answer">
+    	<template></template>
+	        <ul class="myshq_wdgz_question_list">
+	            <li v-for="bean in answerList" @click="particulars(bean)">
+	                <p class="myshq_wdgz_question">{{bean.quesName}}</p>
+	                <p class="myshq_wdgz_question_answer">{{bean.answContent}}</p>
+	                <p class="myshq_wdgz_question_con">
+	                    <span class="myshq_wdgz_question_gz_number">同意：{{bean.praisenum}}</span>
+	                    <span class="myshq_wdgz_question_answer_number">评论：{{bean.commentnum}}</span>
+	                    <span class="myshq_wdgz_question_time">{{bean.createDate}}</span>
+	                </p>
+	            </li>
+	        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../../script/api.js" ></script>
+<script type="text/javascript" src="../../../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../../../script/common/path.js" ></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_answer.js" ></script>
+</html>

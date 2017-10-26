@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>提现明细</title>
+    <link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<body>
+<div class="profitBox" id="tixianinfo">
+    <div class="profitlist" >
+        <div class="profitLi profitLi1">账号</div>
+        <div class="profitLi profitLi2">日期</div>
+        <div class="profitLi profitLi3">金额</div>
+    </div>
+    <div class="profitlist" v-for="bean in tixianlist">
+        <div class="profitLis profitLi1">{{bean.cashAccount}}</div>
+        <div class="profitLis profitLi2">{{(bean.transTime).substr(0,10)}}</div>
+        <div class="profitLis profitLi3">&yen; {{bean.amount}}</div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/yimaoke/tixian.js"></script>
+</body>
+</head>
+</html>

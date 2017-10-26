@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="overflow:visible;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>经验详情</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+
+</head>
+<body style="overflow:visible;">
+
+     <div class="top_nof" name="header"  style="padding-right:0px;">
+		 <div class="backbox" onclick="closeWin()">
+			 <img src="../../../../image/back.png"  alt="" class="top_nof_return"/>
+		 </div>
+		 问题
+		 <img src="../../../../image/share.png" alt="" class="shq_jy_fx_img" style="float:right;margin-top:12px;" onclick="shareBtn()">
+    	<img src="../../../../image/shq_jy_top_img.png" alt="" class="shq_jy_top_list_img" style="display: none;" />
+    </div>
+</body>
+	<script type="text/javascript">
+		apiready = function(){
+			api.parseTapmode();
+			var pageParam = api.pageParam;
+			var dataurl = pageParam.url.url;
+			var dataname = pageParam.url.name;
+			// var title = pageParam.url.title;
+			// $("#title").append(title);
+
+			// delete pageParam.dataurl;
+			// delete pageParam.dataname;
+	        var height = 0;
+	        var header =$("div[name=header]")[0];
+	        
+	       
+	        if (api.systemType == "ios") {
+		   		height = 20;
+		   		
+		   	} else {
+		   		 height = 25;
+		   	}
+			$(".top_nof").css({
+	   			height: $(".top_nof").height() + height
+	   		});
+	        $api.fixStatusBar(header);
+	        var headerPos = $api.offset(header);
+//	        alert(headerPos.h);
+	        var body_h = $api.offset($api.dom('body')).h;
+	        api.openFrame({
+	            name : dataname,
+	            url : dataurl,
+	            bounces : false,
+	            rect : {
+	                x : 0,
+	                y : headerPos.h,
+	                w : 'auto',
+	                h : 'auto'
+	            },
+	            pageParam:pageParam.info
+	        })
+		}
+        function shareBtn() {
+            api.sendEvent({
+                name:'sharecontent',
+                extra:{
+                    shareevent:'suc'
+                }
+            })
+        }
+	</script>
+</html>

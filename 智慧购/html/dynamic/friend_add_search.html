@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>添加好友</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <div class="main_dynamic" style="margin-top:10px;" v-cloak>
+        <ul class="addfriend_cx">
+            <li>
+                <div class="addfrient_cximg"><img src="../../image/add_friend_sousuo.png" alt=""></div>
+                <input type="text" placeholder="用户名/手机号码" class="addfriend_cx_input color_01">
+            </li>
+        </ul>
+        <ul class="addfriend_fj_list">
+            <li v-for="bean in list">
+                <div class="addfriend_fj_tx" v-if="'' != bean.headPortrait"><img :src="bean.headPortrait" alt=""></div>
+                <div class="addfriend_fj_tx" v-if="'' == bean.headPortrait"><img src="../../image/nick.png" alt=""></div>
+                <div class="addfriend_fj_con">
+                    <p class="addfriend_fj_name color_01">{{bean.nickname}}</p>
+                    <p class="addfriend_fj_qm color_03"></p>
+                </div>
+                <div class="addfriend_fj_add color_06" @click="addFriends(bean.userNo)" v-if="'0' == bean.isFriend">添加</div>
+                <div class="addfriend_fj_add color_06 addfriend_ss_list_tjzt_ytj" v-if="'1' == bean.isFriend">已添加</div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/friend_add_search.js"></script>
+</body>
+</html>

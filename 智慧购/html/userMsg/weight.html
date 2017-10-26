@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>更改体重</title>
+    <link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff;">
+
+<div class="top_nof" name="header">
+        <div class="backbox" onclick="closeWin()" >
+            <img src="../../image/back.png" alt=""class="top_nof_return">
+        </div>
+            更改体重
+         <span class="top_font_right">保存</span>
+
+    </div>
+
+<div class="main_dynamic">
+    <div class="mine_yjfk_title">
+        <input type="text" placeholder="请输入昵称" class="mine_yjfk_title_input minexx_change_name_input"/>
+    </div>
+    <p class="minexx_change_name_ts color_03">敢不敢写下你的体重[偷笑]~</p>
+</div>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script>
+    apiready = function () {
+        var height = 0;
+        var header =$("div[name=header]")[0];
+        
+       
+        if (api.systemType == "ios") {
+            height = 20;
+            
+        } else {
+             height = 25;
+        }
+        $(".top_nof").css({
+            height: $(".top_nof").height() + height
+        });
+        $api.fixStatusBar(header);
+
+        var nickname = api.pageParam.param;
+        $('.minexx_change_name_input').val(nickname);
+        $('.minexx_change_name_input').focus();
+    }
+    $('.top_font_right').click(function () {
+        var nickname =  $.trim($('.minexx_change_name_input').val());
+        var isnumber = /^[+]?\d+(\.\d+)?$/;
+        if("" == nickname){
+            api.alert({
+                title : '提示',
+                msg : '请输入体重'
+            })
+            return false;
+        }
+        if(!isnumber.test(nickname)){
+            api.alert({
+                title : '提示',
+                msg : '请输入数字'
+            })
+            return false;
+        }
+        api.sendEvent({
+            name : 'weight',
+            extra : {
+                weight : nickname
+            }
+        })
+        api.closeWin();
+
+    })
+</script>
+</body>
+</html>

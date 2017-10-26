@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>收益明细</title>
+    <link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<body>
+<div class="profitBox" id="info">
+    <div class="profitlist" >
+        <div class="profitLi">日期</div>
+        <div class="profitLi">单数</div>
+        <div class="profitLi">收益</div>
+    </div>
+    <div class="profitlist" v-for="bean in list">
+        <div class="profitLis">{{bean.transDate}}</div>
+        <div class="profitLis">{{bean.number}}</div>
+        <div class="profitLis">&yen; {{bean.amount}}</div>
+    </div>
+   
+</div>
+
+
+    <script type="text/javascript" src="../../../script/api.js"></script>
+    <script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src="../../../script/common/path.js"></script>
+    <script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../../script/vue.min.js"></script>
+    <script type="text/javascript" src="../../../script/common/common.js"></script>
+    <script type="text/javascript" src="../../../script/control/usercenter/yimaoke/moreincome.js"></script>
+</body>
+</head>
+</html>

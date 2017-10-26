@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title></title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<body>
+    
+    <div class="top_nof" name="header">
+		<div class="backbox" onclick="closeWin()" >
+			<img src="../../../../image/back.png" alt="" class="top_nof_return">
+		</div>
+			写经验
+    	<ul class="shq_top_list">
+    		<!-- <li>预览</li> -->
+    		<li onclick="save()">保存</li>
+    	</ul>
+    </div>
+
+</body>
+	<script type="text/javascript">
+		apiready = function(){
+			api.parseTapmode();
+			var pageParam = api.pageParam;
+			var dataurl = pageParam.url.url;
+			var dataname = pageParam.url.name;
+			var title = pageParam.url.title;
+			
+			// delete pageParam.dataurl;
+			// delete pageParam.dataname;
+
+	       var height = 0;
+	        var header =$("div[name=header]")[0];
+	        
+	       
+	        if (api.systemType == "ios") {
+		   		height = 20;
+		   		
+		   	} else {
+		   		 height = 25;
+		   	}
+			$(".top_nof").css({
+	   			height: $(".top_nof").height() + height
+	   		});
+	        $api.fixStatusBar(header);
+	        var headerPos = $api.offset(header);
+	        var body_h = $api.offset($api.dom('body')).h;
+	        api.openFrame({
+	            name : dataname,
+	            url : dataurl,
+	            bounces : false,
+	            rect : {
+	                x : 0,
+	                y : headerPos.h,
+	                w : 'auto',
+	                h : 'auto'
+	            },
+	            pageParam:pageParam.info
+	        })
+		}
+		//保存
+		function save(){
+			api.sendEvent({
+			    name: 'addsaveexperice'
+			});
+		}
+	</script>
+</head>

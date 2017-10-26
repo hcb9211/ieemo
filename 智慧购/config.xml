@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget id="A6992835854946" version="0.0.2"> 
-  <name>智慧购</name>  
-  <description>a sample APICloud app.</description>  
-  <author email="developer@apicloud.com" href="http://www.apicloud.com">scl</author>  
+<widget id="A6931252607549" version="0.0.1"> 
+  <name>亿猫</name>  
+  <description>Example For APICloud.</description>  
+  <author email="developer@apicloud.com" href="http://www.apicloud.com">Developer</author>  
   <content src="index.html"/>  
   <preference name="pageBounce" value="false"/>  
   <preference name="appBackground" value="rgba(0,0,0,0.0)"/>  
-  <preference name="windowBackground" value="rgba(0,0,0,0.0)"/>  
+  <preference name="windowBackground" value="#d02e2e"/>  
   <preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>  
   <preference name="hScrollBarEnabled" value="true"/>  
-  <preference name="vScrollBarEnabled" value="false"/>  
+  <preference name="vScrollBarEnabled" value="true"/>  
   <preference name="autoLaunch" value="true"/>  
   <preference name="fullScreen" value="false"/>  
   <preference name="autoUpdate" value="true"/>  
   <preference name="smartUpdate" value="false"/>  
-  <preference name="debug" value="true"/>  
-  <preference name="iOS7StatusBarAppearance" value="true"/>  
+  <preference name="debug" value="true"/>
   <preference name="statusBarAppearance" value="true"/>  
-  <preference name="softInputMode" value="resize"/>  
-  <preference name="urlScheme" value="tanchiguo"/>  
+  <preference name="querySchemes" value="alipay"/>  
   <permission name="readPhoneState"/>  
   <permission name="camera"/>  
   <permission name="record"/>  
@@ -28,10 +26,23 @@
   <permission name="internet"/>  
   <permission name="bootCompleted"/>  
   <permission name="hardware"/>  
-  <permission name="call"/>  
   <access origin="*"/>  
   <feature name="bMap"> 
-    <param name="android_api_key" value="IsnDe29UgGTYjQZjPZ61qGtyGki3u2Mz"/>  
-    <param name="ios_api_key" value="BSXhxv396CNQG6CSdgITkr7smnhgAfSz"/> 
+    <param name="android_api_key" value="kIlSDtctGVyaNpGwkKGEjiKk1rcppXRT"/>  
+    <param name="ios_api_key" value="KzWtos2fvDc18ypaQXwoluWlwwqGjyfF"/> 
+  </feature>  
+  <feature name="qq"> 
+    <param name="urlScheme" value="tencent1105909567"/>  
+    <param name="apiKey" value="1105909567"/> 
+  </feature>  
+  <feature name="wx"> 
+    <param name="urlScheme" value="wx691bf06b4d7ca60f"/>  
+    <param name="apiKey" value="wx691bf06b4d7ca60f"/>  
+    <param name="apiSecret" value="90059b7c19880fa4ea695b0adcc6ac10"/> 
+  </feature>  
+  <feature name="weibo"> 
+    <param name="urlScheme" value="wb1132217156"/>  
+    <param name="apiKey" value="1132217156"/>  
+    <param name="registUrl" value="http://www.apicloud.com"/> 
   </feature> 
 </widget>

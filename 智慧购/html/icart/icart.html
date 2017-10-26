@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>ICART</title>
+<link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css" rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css" rel="stylesheet" type="text/css"  />
+<!--<link href="../../css/aui.2.0.css" rel="stylesheet" type="text/css"  />-->
+    <style>
+        .type_red{
+            color:#d0302f;
+        }
+        .typeBox{
+            width:100%;
+            height:34px!important;
+            background:#fff;
+            -webkit-overflow-scrolling: touch;
+        }
+        .typeBox .types{
+            width:50%;
+            height:100%;
+            line-height:34px;
+            text-align:center;
+            float: left;
+            border-right:1px solid #eee;
+        }
+        .types:last-child{border:none;}
+        .showtype{
+            width:100%;height:100%;
+            position: relative;
+        }
+        .typelist{
+            width:100%;
+            height:auto;
+            background:#fff;
+            position: absolute;
+            left:0;top:0;
+            float: left;
+            z-index: 9999;
+        }
+        .typelist li{
+            width:100%;
+            height:44px;
+            line-height:44px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+        /*.typelist li:last-child{border:0;}*/
+    </style>
+</head>
+<body>
+<div class="mind"  id="stores" style="margin-top: 0px" v-cloak>
+    <div class="felist"><img src="../../image/chanpn_picq.png" /></div>
+    <div class="typeBox">
+        <div class="types typetitle type_red" @click="neawclick()"> 附近 </div>
+        <div class="types sorttitle" @click="salesVolume()">销量排序</div>
+    </div>
+    <div class="showtype">
+        <ul class="typelist distancelist" data-type1="hide">
+            <li onclick="getTypes(0.0,0.0)" class="type_red active">全部</li>
+            <li onclick="getTypes(0.0,0.1)">0-1km</li>
+            <li onclick="getTypes(1.0,3.0)">1-3km</li>
+            <li onclick="getTypes(3.0,5.0)">3-5km</li>
+        </ul>
+        <ul class="typelist sortlist" data-type2="hide">
+            <li @click="salesVolume()" id="big" class="type_red active">从多到少</li>
+            <li @click="salesVolume()" id="small">从少到多</li>
+        </ul>
+        <div class="mask"></div>
+
+    </div>
+
+
+    <div class="icart_con_list" v-if="types == 'aa'">
+        <li @click="getData(todo)" v-for="todo in todos" >
+            <div class="icart_con_tx">
+                <img :src="todo.picture" alt="" />
+            </div>
+            <div class="icart_con_xq">
+                <p class="icart_con_name color_01">
+                    {{todo.name}}
+                    <span>{{todo.distance}}KM</span>
+                </p>
+                <!--<p>{{tood.id}}</p>-->
+                <p class="icart_con_content color_03">
+                    <span class="bg_color03">满减</span>
+                    {{todo.reduceNum}}个商品参加满减
+                </p>
+                 <p class="icart_con_content color_03">
+                     <span class="bg_color03">活动</span>
+                     {{todo.promotionNum}}个促销活动
+                 </p>
+                <ul class="icart_con_pic">
+                    <li v-for="goods in todo.ShopSalesAdvertiselist" @click="getGoods(goods)">
+                        <span>
+                            <img :src="goods.picture" alt="" />
+                        </span>
+                        <p class="color_02">{{goods.name}}</p>
+                        <h3>¥{{goods.nowPrice}}</h3>
+                    </li>
+                </ul>
+            </div>
+        </li>
+  </div>
+    <div v-else class="icart_con_list">
+        <li @click="getData(salesVolume)" v-for="salesVolume in salesVolumeList">
+            <div class="icart_con_tx">
+                <img :src="salesVolume.picture" alt="" />
+            </div>
+            <div class="icart_con_xq">
+                <p class="icart_con_name color_01">
+                    {{salesVolume.name}}
+                    <span>{{salesVolume.distance}}KM</span>
+                </p>
+                <!--<p>{{tood.id}}</p>-->
+                <p class="icart_con_content color_03">
+                    <span class="bg_color03">满减</span>
+                    {{salesVolume.reduceNum}}个商品参加满减
+                </p>
+                <p class="icart_con_content color_03">
+                    <span class="bg_color03">活动</span>
+                    {{salesVolume.promotionNum}}个促销活动
+                </p>
+                <ul class="icart_con_pic">
+                    <li v-for="goods in salesVolume.ShopSalesAdvertiselist" @click="getGoods(goods)">
+                        <span>
+                            <img :src="goods.picture" alt="" />
+                        </span>
+                        <p class="color_02">{{goods.name}}</p>
+                        <h3>¥{{goods.nowPrice}}</h3>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </div>
+
+</div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+ <script type="text/javascript" src="../../script/control/icart/icart.js"></script>
+
+  <script>
+		var spfl_right_active=document.getElementsByClassName("felist")[0];
+		spfl_right_active.style.height=0.324*(spfl_right_active.offsetWidth)+"px";
+		$(window).resize(function(){
+			var spfl_right_active=document.getElementsByClassName("felist")[0];
+			spfl_right_active.style.height=0.324*(spfl_right_active.offsetWidth)+"px";
+		})
+	</script>
+
+<script>
+  //  设置遮罩
+  var heights = $(window).height();
+  $('.mask').css({
+      width:'100%',
+      height: 0,
+      background:'rgba(0,0,0,0.3)',
+      zIndex:10,
+      position:'absolute',
+      left:0,top:0,
+  })
+  // 初始化
+  $('.distancelist').fadeOut();
+  $('.sortlist').fadeOut();
+  var hei1 = $('.felist').height();
+  var hei2 = $('.typeBox').height();
+  $('.icart_con_list').css('minHeight',heights - hei1 - hei2);
+
+// 点击附近
+    $('.typetitle').click(function(){
+        var type1 = $('.distancelist').data('type1');
+        var heights = $(window).height();
+        if(type1 == 'hide'){
+            if(!$('.typetitle').hasClass("type_red")){
+                $('.sortlist').fadeOut();
+                $('.mask').css({height:0})
+                getTypes(0.0,0.0);
+                $('.distancelist').find('.active').addClass('type_red').siblings().removeClass('type_red');
+            }else{
+                $('.sortlist').fadeOut();
+                type1 = 'show';
+                $('.mask').css({height:heights});
+                $('.distancelist').fadeIn();
+                $(this).addClass('type_red').siblings().removeClass('type_red');
+            }
+        }
+//        $('body').on('touchmove',function(event){event.preventDefault();});
+    })
+
+  // 点击销量排序
+  $('.sorttitle').click(function(){
+      var heights = $(window).height();
+      var type2 = $('.sortlist').data('type2');
+      $('.mask').css({
+          width:'100%',
+          height: 0,
+          background:'rgba(0,0,0,0.3)',
+          zIndex:10,
+          position:'absolute',
+          left:0,top:55,
+      })
+      if(type2 == 'hide'){
+          if(!$('.sorttitle').hasClass("type_red")){
+              getstoreVm.salesVolumeInit(1);
+              $('.distancelist').fadeOut();
+              $('.mask').css({height:0});
+              $('.sortlist').find('.active').addClass('type_red').siblings().removeClass('type_red');
+          }else{
+              $('.distancelist').fadeOut();
+              type2 = 'show';
+              $('.mask').css({height:heights});
+              $('.sortlist').fadeIn();
+              $(this).addClass('type_red').siblings().removeClass('type_red');
+          }
+      }
+//      $('body').on('touchmove',function(event){event.preventDefault();});
+  })
+
+    // 点击li消除
+    $('.distancelist li').click(function () {
+        $(this).each(function (index,ele) {
+//            $('.typetitle').text($(this).text());
+            $(this).addClass('type_red').siblings().removeClass('type_red');
+        })
+        $(this).parent().fadeOut();
+        $('.mask').css({height:0})
+    })
+  $('.sortlist li').click(function () {
+      $(this).each(function (index,ele) {
+//          $('.sorttitle').text($(this).text());
+          $(this).addClass('type_red').siblings().removeClass('type_red');
+      })
+      $(this).parent().fadeOut();
+      $('.mask').css({height:0})
+  })
+  // 点击遮罩让list消失
+  $('.mask').click(function () {
+      $('.typelist').fadeOut();
+      $(this).css({height:0})
+  })
+    //  文案颜色改变
+    $('.types').click(function () {
+        $(this).each(function (index,ele) {
+            $(this).addClass('type_red').siblings().removeClass('type_red');
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

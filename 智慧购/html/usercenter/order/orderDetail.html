@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>收藏夹</title>
+    <link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<ul id="orderDet" class="orderDet color_01 bg_colorff">
+		<template>
+			<li class="orderDet_number borderbottom_01 color_04">订单号:{{orderDetList.orderNo}}</li>
+			<li class="orderDet_time color_04">订单时间:{{orderDetList.createDate}}</li>
+			<!--<li class="orderDet_time color_04">订单状态:{{orderDetList.status}}</li>-->
+			<li class="orderDet_interval bg_color05"></li>
+			<li class="orderDet_commodity borderbottom_01" v-for="bean in orderDetList.commodityList">
+				<div class="orderDet_commodity_img"><img :src="bean.picture"/></div>
+				<div class="orderDet_commodity_PicNum f_right">
+					<p class="color_07">￥<span class="f_right">{{bean.price}}</span></p>
+					<p class="color_04">数量:<span class="f_right">{{bean.count}}</span></p>
+				</div>
+				<div class="orderDet_commodity_name f_right">{{bean.commodityName}}</div>
+			</li>
+			<li class="orderDet_interval bg_color05"></li>
+			<li class="orderDet_total_prices borderbottom_01">商品总价:<div class="f_right color_07">￥<span class="f_right">{{orderDetList.amount}}</span></div></li>
+			<li class="orderDet_prices borderbottom_01">优惠金额:<div class="f_right color_07">￥<span class="f_right">{{orderDetList.promoteAmount}}</span></div></li>
+			<li class="orderDet_payment borderbottom_01">实付金额:<div class="f_right color_07">￥<span class="f_right">{{orderDetList.amount|currency - orderDetList.promoteAmount|currency}}</span></div></li>
+			<li class="erweima" v-if="orderDetList.status == 0"><span class="pull-left">复核码：</span><img id="barcode2"/></li>
+			<div class="orderDet_footer bg_colorff color_06" @click="orderEvaluate()" v-if="(orderDetList.whetherEvaluation==0) && (orderDetList.status==3)">立即评价</div>
+			<div class="orderDet_footerdisplay bg_colorff color_06" @click="orderEvaluate()" v-else-if="(orderDetList.whetherEvaluation==1) && (orderDetList.status==3)">订单已评价</div>
+		</template>
+	</ul>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/tool/JsBarcode/JsBarcode.all.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/order/orderDetail.js"></script>
+</html>

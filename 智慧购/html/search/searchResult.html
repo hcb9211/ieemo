@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>搜索结果</title>
+    <link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>
+    <link href="../../css/public.css"  rel="stylesheet" type="text/css"/>
+    <link href="../../css/index.css"  rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body>
+<div class="mind_shopcat" style="margin-top:0px" id="app" v-cloak>
+    <div class="bj_shopcart" v-for="searchgoods in searchgoodsList">
+        <ul style="-webkit-overflow-scrolling: touch;">
+            <li class="bj_li_wc" @click='entergoodsDetail(searchgoods)'>
+                <h3><img :src="searchgoods.picture"/></h3>
+                <h4 style="height:25px;">{{searchgoods.name}}</h4>
+                <h6 style="height:20px;float:left;">{{searchgoods.storeName}}</h6>
+                <div class="list_lineH_hcb list_lineH_hcbss">
+                    <div class="promotionType" v-if="searchgoods.type == '0'">满减</div>
+                    <div class="promotionType" v-else-if="searchgoods.type=='1'">促销</div>
+                    <div v-else></div>
+                    <div class="promotionCon">{{searchgoods.themeName}}</div>
+                </div>
+                <h5>
+                    <p><small>￥</small>{{searchgoods.nowPrice}}</p><span class="color_05 font_02">原价：￥{{searchgoods.price}}</span>
+                </h5>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/control/search/searchResult.js"></script>
+
+</html>

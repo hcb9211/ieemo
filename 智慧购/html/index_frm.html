@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#f8f6ef;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>首页</title>
+<link href="../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../script/tool/swiper/swiper.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../css/public.css"  rel="stylesheet" type="text/css"  />
+    <style>
+        .top_login{
+            width:100%;height:30px;
+            background:rgba(0,0,0,0.5);   /*F0EFF5*/
+            padding:0 10px;
+            line-height:30px;
+            color:#fff;   /*4B4A50*/
+            position: fixed;
+            left:0;top:0;
+            z-index:9999;
+            transition:all 1s ease;
+            display: none;
+        }
+        .top_login img{
+            width:20px;
+            margin-right:10px;
+            margin-bottom:2px;
+        }
+        .swiper-container{
+        	overflow: hidden;
+        	border-radius:0 0 10px 10px;
+        	box-shadow: 0px 3px 8px  #999999;
+        }
+    </style>
+</head>
+<body>
+<div id="index_frm">
+    <div class="top_login" onclick="signOut()"><img src="../image/pad.png" alt="">ICart平板已登录,点击可退出</div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="swiper-wrapper">
+            <div class="swiper-slide"  v-for="car in carousel">
+            	<img :src="car.path" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <!-- 菜单 -->
+    <div class="index_menu">
+        <ul>
+            <li onclick="openWin('../html/icart/icart_win')"><span><img src="../image/menu_1.png"/></span><a>超市</a></li>
+            <li onclick="toast('活动未开放，敬请期待')"><span><img src="../image/menu_2.png"/></span><a>扫码购</a></li>
+            <li onclick="showLifeservice();" ><span><img src="../image/menu_3.png"/></span><a>生活服务</a></li>
+            <li @click="rankpage()"><span><img src="../image/menu_4.png"/></span><a>排行榜</a></li>
+            <li @click="discount()"><span><img src="../image/menu_5.png"/></span><a>优惠券</a></li>
+        </ul>
+    </div>
+
+    <!-- 热门头条  -->
+    <div class="realtime_info">
+        <i class="icon_notice"></i>
+        <ul id="notice_ul">
+			<li v-for="headline in headlineList">{{headline.content}}</li>
+        </ul>
+    </div>
+
+    <!-- 圈子热议 -->
+    <div class="index_title bg_title_01"><img src="../image/top_titile_01_logo.png" /><span>圈子热议</span></div>
+    <div class="hot_rem">
+        <ul>
+            <li v-for="bean in coterielist" @click="experiecepage(bean)"><b><img :src="bean.exCover" style="height: 60px" /></b><p>{{bean.exTitle}}</p><span>{{bean.coterieName}}</span></li>
+        </ul>
+        <h3></h3>
+        <h4></h4>
+    </div>
+
+    <!-- 火爆全城 -->
+    <div class="index_title bg_title_02"><img src="../image/top_titile_02_logo.png" /><span>火爆全城</span></div>
+    <div class="scrollMenus">
+        <div style="width: calc(100% / 5 * 100);">
+			<div class="linhaimenuitem" v-for="fireStorm in fireStormList"><img :src="fireStorm.picture" /></div>
+        </div>
+    </div>
+
+  <!--猜你喜欢-->
+   <div class="index_bfloor">
+    <strong class="st_befo_1">&nbsp;</strong><b>&nbsp;</b>
+    <img src="../image/ico_more_36@2x.png" /><span>猜你喜欢</span>
+    <b>&nbsp;</b><strong class="st_befo_1">&nbsp;</strong>
+   </div>
+   <ul class="list_goods">
+        <li v-for="bean in tool" @click="getData(bean)" class="beanBox">
+            <div class="list_goods_pic"><img :src="bean.picture" alt="" /></div>
+            <p class="list_goods_name">{{bean.name}}</p>
+            <div class="list_lineH_hcb">
+                <div class="promotionType" v-if="bean.type == '0'">满减</div>
+                <div class="promotionType" v-else-if="bean.type == '1'">促销</div>
+                <div v-else></div>
+                <div class="promotionCon">{{bean.themeName}}</div>
+            </div>
+            <p class="list_goods_price margi_bot">&yen;{{bean.nowPrice}}<span>{{bean.addIcartNum}}人<img src="../image/list_shopcat.png" /></span></p>
+        </li>
+   </ul>
+</div>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common/path.js"></script>
+<script type="text/javascript" src="../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../script/common/common.js"></script>
+<script type="text/javascript" src="../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../script/bootstrap.min.js"></script>
+<script type="text/javascript" src="../script/waypoint.js"></script>
+<script type="text/javascript" src="../script/vue.min.js"></script>
+<script type="text/javascript" src="../script/tool/swiper/swiper.min.js"></script>
+<script type="text/javascript" src="../script/index_frm.js"></script>
+<script type="text/javascript">
+	//轮播图高度
+	var slide = $("#swiper-wrapper").width();
+	$("#swiper-wrapper").height(slide/3);
+	var  notice_timer = null;
+    //通知中奖信息
+    function notice_wheelplay(){
+    	//刷新时检测上一个计时器是否销毁
+        if(notice_timer != null){
+        	return false;
+        clearInterval(notice_timer);
+        }
+        var notice_ul = document.getElementById('notice_ul');
+        var notice_li_arr = notice_ul.getElementsByTagName('li');
+        var notice_li_height = notice_li_arr[0].offsetHeight,
+            notice_li_index = 1;
+        function notice_play(){
+            if(notice_li_index - 1 >= 0){
+                var obj = notice_li_arr[notice_li_index - 1].cloneNode(true);
+                notice_ul.appendChild(obj);
+            }
+            notice_ul.style.top = - notice_li_index * notice_li_height + 'px';
+            notice_li_index ++;
+        }; 
+        notice_timer = setInterval(notice_play,3000);
+    }
+
+    function showLifeservice(){
+        api.openWin({
+            name: '生活服务',
+            url: 'lifeservice/lifeservice_index_win.html',
+            pageParam: null
+        });
+    }
+</script>
+</html>

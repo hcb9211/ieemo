@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <!--<div class="top top_red"><img src="images/back.png" alt="" class="top_return"/>我的提问</div>-->
+    <div class="main_dynamic" id="mylife_question">
+        <ul class="myshq_wdgz_question_list">
+            <li v-for="bean in questionList" @click="particulars(bean)">
+                <p class="myshq_wdgz_question">{{bean.quesTitle}}</p>
+                <p class="myshq_wdgz_question_con">
+                    <span class="myshq_wdgz_question_gz_number">关注：{{bean.focusnum}}</span>
+                    <span class="myshq_wdgz_question_answer_number">回答：{{bean.answernum}}</span>
+                    <span class="myshq_wdgz_question_time">{{bean.createDate}}</span>
+                </p>
+            </li>
+            <!--<li>
+                <p class="myshq_wdgz_question">为什么卫龙的市场认可度那么高？</p>
+                <p class="myshq_wdgz_question_con">
+                    <span class="myshq_wdgz_question_gz_number">关注：25</span>
+                    <span class="myshq_wdgz_question_answer_number">回答：25</span>
+                    <span class="myshq_wdgz_question_time">04.12</span>
+                </p>
+            </li>-->
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../../script/api.js" ></script>
+<script type="text/javascript" src="../../../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_question.js" ></script>
+</html>

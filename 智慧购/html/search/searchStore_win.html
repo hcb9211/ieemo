@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <style>
+        .aui-bar-nav {
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            height: 50px;
+        }
+        .aui-bar-navs {
+            display:-webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            height: 50px;
+        }
+        .aui-searchbar .aui-icon-search {
+            line-height: 30px;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        .aui-searchbar {
+            margin: 0 40px 0 10px;
+            background: #f2f2f2;
+            border-radius: 5px;
+            height: 32px;
+            line-height: 35px;
+            color: #333;
+            font-size: 14px;
+            width: 100%;
+            position: relative;
+            padding-left: 4px;
+            -webkit-box-flex: 1;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+        }
+        .aui-searchbar-input{
+            height:100%;margin:0;
+            background:rgba(0,0,0,0)
+        }
+
+        .aui-searchbar form{
+            width:100%;
+        }
+        #aui-header{
+            /*background:white;*/
+            border-bottom:1px solid #e5e5e5;
+        }
+        body{
+            background:white!important;
+        }
+        #search-input{
+            text-align:center;
+            padding-top:.4rem;
+        }
+        .searchText{
+            float: left;
+            width: 80%;
+            height: 100%;
+            display: block;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">
+    <div class="aui-bar-navs aui-pull-left" onclick="closeWin()">
+        <a class="aui-btn aui-pull-left" tapmode > <span class="aui-iconfont aui-icon-left" style="font-weight:bold;"></span></a>
+    </div>
+    <span class="searchText">
+        搜索结果
+    </span>
+</header>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script src="../../script/zepto.min.js"></script>
+<script >
+    apiready = function() {
+        //  向右返回
+        swipeRight();
+
+     /*   var content = $('#search-input').val();
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name : 'searchStore_frm',
+            url : 'searchStore_frm.html',
+            bounces : false,
+            rect : {
+                x : 0,
+                y : headerPos.h,
+                w : 'auto',
+                h : 'auto'
+            },
+            pageParam : {
+                searchText : api.pageParam.searchText,
+                searchContent : content
+            }
+        });*/
+
+
+    };
+
+
+</script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>消息</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="script/jquery.spinner.js"></script>
+</head>
+<body>
+    <div class="main_dynamic message_con_list" style="margin-top:0px;">
+        <ul class="message_top">
+            <li>
+                <img src="../../image/message_top_img1.png" alt="" class="message_top_img"/>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+            <li>
+                <img src="../../image/message_top_img2.png" alt="" class="message_top_img"/>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">系统消息</p>
+                    <p class="message_top_con_xx color_03">亿猫智慧购物车来啦~</p>
+                </div>
+            </li>
+            <li>
+                <img src="../../image/message_top_img3.png" alt="" class="message_top_img"/>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>
+            </li>
+        </ul>
+        <div class="message_con_list_titlt color_03">好友私信</div>
+        <ul class="message_con_list_ul">
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx2.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">系统消息</p>
+                    <p class="message_top_con_xx color_03">亿猫智慧购物车来啦~</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx3.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx2.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">系统消息</p>
+                    <p class="message_top_con_xx color_03">亿猫智慧购物车来啦~</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx3.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">客服消息</p>
+                    <p class="message_top_con_xx color_03">请问您有什么需要帮助的？</p>
+                </div>
+            </li>
+            <li>
+                <div class="message_con_list_tx"><img src="../../image/message_con_list_tx1.png" alt=""/></div>
+                <div class="message_top_con">
+                    <p class="message_top_con_title color_01">亿猫大喇叭</p>
+                    <p class="message_top_con_xx color_03">苏果超市五一特卖会开始啦！</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(".dynamic_bottom").children("li").click(function(){
+            $(this).find(".dynamic_bottom_img1").addClass("display").parent("li").find(".dynamic_bottom_img2").removeClass("display");
+            $(this).siblings().find(".dynamic_bottom_img1").removeClass("display");
+            $(this).siblings().find(".dynamic_bottom_img2").addClass("display");
+            $(this).find(".dynamic_bottom_font").addClass("dynamic_bottom_font_click").parent("li").siblings().find(".dynamic_bottom_font").removeClass("dynamic_bottom_font_click");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="overflow:visible;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>经验详情</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/control/lifecircle/question/info/questioninfo.js"></script>
+</head>
+<body style="overflow:visible;">
+
+    <div class="main_dynamic" id="info" style="margin-top: 0px" v-cloak>
+        <div class="shq_question_con">
+            <p class="shq_question_xq_title">{{bean.quesTitle}}</p>
+            <p class="shq_question_xq_con">{{bean.quesContent}}</p>
+            <div class="shq_question_xq_choose">
+                <p class="shq_question_xq_choose_lnum"><img src="../../../../image/shq_wtxqy_ll_img.png" alt="" class="shq_question_xq_choose_lnum_img" />{{bean.readnum}}人浏览</p>
+                <p class="shq_question_xq_choose_pl"><img src="../../../../image/shq_wtxqy_pl_img.png" alt="" class="shq_question_xq_choose_pl_img" />{{bean.commentnum}}人评论</p>
+
+                <div class="shq_jy_person_gz shq_question_xq_choose_gz" v-if="bean.isFocus == '0'" @click="saveCoterieQuestionFans(bean)">
+                    <img src="../../../../image/gzwdr_gz_img.png" alt="" class="shq_jy_person_gz_img" />关注
+                </div>
+                <div class="shq_jy_person_gz shq_question_xq_choose_gz"  v-else-if="bean.isFocus == '1'" @click="updateCoterieQuestionFans(bean)">
+                     已关注
+                </div>
+            </div>
+            <ul class="shq_qusetion_hd_choose shq_qusetion_hd_choose_click">
+                <!-- <li class="display"><img src="../../../../image/shq_wtxqy_yq_img.png" alt="" class="shq_qusetion_hd_choose_yqhd_img" />邀请回答</li> -->
+                <li @click="answerpage(bean)"><img src="../../../../image/shq_wtxqy_xpl_img.png" alt="" class="shq_qusetion_hd_choose_xhd_img" />写回答</li>
+            </ul>
+        </div>
+        <div class="shq_hd_xq">
+            <p class="shq_hd_xq_font">共{{bean.answernum}}个回答</p>
+            <ul class="shq_hd_xq_list">
+                <li v-for="bean in list" @click="answerinfo(bean)">
+                    <div class="shq_hd_tx">
+                        <img :src="bean.headpic" alt="" v-if="bean.headpic && bean.headpic != ''"/>
+                         <img src="../../../../image/nick.png" alt="" v-else/>
+                    </div>
+                    <div class="shq_hd_con">
+                        <p class="shq_hd_name">{{bean.nickname}}</p>
+                        <div class="shq_hd_content"><p>{{bean.answContent}}</p>
+                        </div>
+                        <div class="shq_hd_qd">
+                            <p class="shq_hd_agree">同意：{{bean.praisenum}}</p>
+                            <p class="shq_hd_pl">评论：{{bean.commentnum}}</p>
+                            <p class="shq_hd_time">{{bean.margindata}}</p>
+                        </div>
+                    </div>
+                </li>
+              
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        //    多行文本溢出
+        $(".shq_hd_content").each(function(){
+            var box_height = $(this).height();
+            var $p = $("p", $(this)).eq(0);
+            while ($p.outerHeight() > box_height) {
+                $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+            };
+        });
+    </script>
+
+</body>
+</html>

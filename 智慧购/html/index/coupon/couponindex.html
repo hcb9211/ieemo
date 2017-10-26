@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../css/discount/discount.css">
+    <link rel="stylesheet" href="../../../css/discount/progress.css">
+
+</head>
+<body style="background-:transparent">
+<div class="maskBox" id="maskBox">
+    <div class="mask">
+        <div class="discountBg">
+            <div class="discountBgImg">
+                <div class="discountlogo">
+                    <div class="logohead"></div>
+                    <div class="logotitle"></div>
+                </div>
+                <div class="logoCon">
+                    <div class="getcountBg" v-for="youhui in youhuiList">
+                        <div class="topgetcount">
+                            <ul class="leftcount">
+                                <li>
+                                    &yen;<span class="countmoney">{{youhui.value}}</span>
+                                </li>
+                                <li>
+                                    <div class="counttype">有效期:{{youhui.endDate}}</div>
+                                    <div class="counttype" v-if="youhui.rule == 1">满{{youhui.beginPrice}}元可用</div>
+                                    <div class="counttype" v-else-if="youhui.rule == 3">满{{youhui.value}}元可用</div>
+                                </li>
+                                <li>
+                                    <div class="countBtn countBtn2" v-if="youhui.isReceive == 1">已领取</div>
+                                    <div class="countBtn" @click="shanchu(youhui)" v-else-if="youhui.isReceive == 0 && youhui.receiveNum/youhui.totalNum != 1">立即领取</div>
+                                    <div class="countBtn countBtn2 " v-else>明日请早</div>
+                                </li>
+                            </ul>
+                            <div class="rightcount">
+                                <!--<div class="radialProgressBar progress-30">
+                                    <div class="overlay">
+                                        <div class="countprogross">已抢</div>
+                                        <div class="countprogross countprogrossCon">{{Math.round((youhui.receiveNum/youhui.totalNum)*100)}}%</div>
+                                    </div>
+                                </div>-->
+                                <div class="circle" style="left:0">
+                                    <div class="pie_left"><div class="left"></div></div>
+                                    <div class="pie_right"><div class="right"></div></div>
+                                    <div class="masks">
+                                        <div class="masktitle">已抢</div>
+                                        <span class="masknum">{{Math.round((youhui.receiveNum/youhui.totalNum)*100)}}</span>
+                                        <div class="percent">%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottomcount" v-if="youhui.type=='1'">门店通用券</div>
+                        <div class="bottomcount" v-else>{{youhui.storeName}}使用</div>
+                    </div>
+                </div>
+            </div>
+            <div class="discountClose"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/control/index/couponindex/couponindex.js"></script>
+<script>
+
+</script>
+</html>

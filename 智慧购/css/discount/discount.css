@@ -1,0 +1,340 @@
+*{margin:0;padding:0;}
+ul,li{list-style: none}
+
+.discountBg{
+    width:335px;height:445px;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto;
+    z-index: 999999999999999;
+}
+.discountBgBox{
+    width:100%;height:auto;
+    position: relative;
+    top:20px;
+}
+.discountBgImg{
+    width:335px;height:405px;
+    background:url("../../image/discount/discount_index.png") no-repeat 0 0;
+    background-size:contain;
+    padding-top:15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.discountClose{
+    width:37px;height:37px;
+    border-radius:50%;
+    margin : 10px auto;
+    background:url("../../image/discount/close.png") no-repeat 0 0;
+    background-size:contain;
+}
+.discountlogo{
+    width:300px;height:90px;
+    margin:0 auto;
+}
+.logohead{
+    width:33px;height:33px;
+    margin:0 auto;
+    background:url("../../image/discount/logohead.png") no-repeat 0 0;
+    background-size : contain;
+}
+.logotitle{
+    width:212px;height:30px;
+    margin:20px auto;
+    background:url("../../image/discount/logotitle.png") no-repeat 0 0;
+    background-size:contain;
+}
+.logoCon{
+    width:90%;
+    max-height:250px;
+    margin:30px auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+.logoConBox{
+    width:100%;height:auto;
+    margin:30px auto;
+}
+.getcountBg{
+    width:100%;
+    height:75px;
+    background:url("../../image/discount/getcountBg.png") no-repeat 0 0;
+    background-size:contain;
+    margin-bottom:9px;
+    /*padding-top:10px;*/
+}
+.getcountBgBox{
+    width:95%;height:85px;
+    background:url("../../image/discount/discountBg2.png") no-repeat 0 0;
+    background-size:cover;
+    margin:10px;
+}
+.getcountBgBox:first-child{
+    margin-top: 10px;
+}
+.topgetcount{
+    width:100%;
+    height:50px;
+
+}
+.bottomcount{
+    width:75%;
+    height:30px;
+    padding-left:15px;
+    border-radius:2px;
+    color:#666;
+    font-size:11px;
+    line-height:23px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.bottomcountBox{
+    width:48%;text-align:left;margin-left:57px;
+}
+.leftcount{
+    width:80%;
+    height:100%;
+    float: left;
+    padding-left:10px;
+    margin-top:5px;
+}
+.countPrice{
+    line-height: 75px!important;
+}
+.rightcount{
+    width:12%;
+    height:112%;
+    float: right;
+    position: relative;
+    right:20px;
+}
+.rightBox{height:150%;}
+.countprogross{
+    float:left;
+    height:20px;
+    text-align: center;
+    margin-left:8px;
+    line-height: 16px;
+}
+.countprogross:nth-of-type(1){
+    font-size:10px;
+    line-height: 28px;
+    margin-left:10px;
+}
+.leftcount li:nth-of-type(1){
+    width:19%;
+    height:100%;
+    float: left;
+    font-size:14px;
+    color:#DF2020;
+    text-align: center;
+    line-height:47px;
+}
+.leftcount li:nth-of-type(2){
+    width:40%;
+    height:100%;
+    float: left;
+    margin-left:10px;
+    margin-top:2px;
+}
+.leftcount li:nth-of-type(3){
+    width:26%;
+    height:100%;
+    float: right;
+    margin-right:10px;
+}
+.countmoney{
+    font-size:30px;
+}
+.countmoney2{
+    font-size:36px;
+}
+.counttype{
+    width:100%;
+    height:50%;
+    text-align:center;
+    color:#444;
+    font-size:12px;
+    vertical-align: top;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lengcount{width:160%}
+.counttypes{
+    line-height: 35px;
+}
+.counttype:nth-of-type(1){
+    font-size:14px;
+    font-weight:bold;
+    color:#222;
+}
+.countBtn{
+    width:60px;
+    height:20px;
+    border-radius:20px;
+    color:white;
+    background-color: #FF2828;
+    margin-top:8px;
+    text-align:center;
+    line-height:20px;
+    font-size:12px;
+
+}
+.poscountBtn{
+    position: absolute;
+    bottom:-5px;
+    left:-6px;
+}
+.countBtnBox{
+    width:80%;
+    height:20px;
+    line-height:20px;
+    background:linear-gradient(to right, #FF7A7A,#E02323);
+}
+.countBtn2{
+    color:#fff;
+    background-color:#979797;
+}
+
+
+/* 首页优惠券 -- str */
+.getcountBox{
+    width:100%;
+    height:auto;
+}
+.getcountBox li {
+    width:95%;height:85px;
+    background:url("../../image/discount/discountBg2.png") no-repeat 0 0;
+    background-size:cover;
+    margin:10px;
+    padding:10px;
+    padding-right: 5px;
+}
+.getcountBgBox:first-child{
+    margin-top: 10px;
+}
+.countImg{
+    width:50px;height:50px;
+    border-radius:50%;
+    float: left;
+    overflow: hidden;
+    margin-top:8px;
+    text-align: center;
+}
+.countImg .activeImg{
+    width:33px;height:33px;
+    margin-top:10px;
+}
+.countImg img{
+   width:100%;
+}
+.getcountTitle{
+    width:55%;height:100%;
+    float: left;
+    margin-left:10px;
+}
+.getcounttype{
+    height:20px;
+    line-height:20px;
+    color:#222;
+    font-size:16px;
+}
+.getcounttime{
+    height:15px;
+    line-height:15px;
+    margin-top:13px;
+    color:#666;
+    font-size:12px;
+}
+.getcountstorelimit{
+    height:15px;
+    line-height:15px;
+    color:#666;
+    font-size:12px;
+}
+.getcountPrice{
+    width:20%;height:100%;
+    float: right;
+}
+.pricesBox{
+    color:#E11F20;
+    font-size:12px;
+    height:60%;
+    line-height:47px;
+    text-align:center;
+}
+.prices{
+    font-size:22px;
+}
+.getcountCon{
+    width:110%;
+    height:30%;
+    margin:5px auto;
+    color:#444;
+    font-size:12px;
+    text-align: center;
+}
+/* 首页优惠券 -- end */
+.circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    position: absolute;
+    background-color: #FFD4D4;
+    top:5px;
+}
+.pie_left,.pie_right{
+    width:50px;
+    height:50px;
+    position: absolute;
+    left:0;top:0;
+}
+.left,.right{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color: #FF2828;
+    position: absolute;
+    left:0;top:0;
+}
+.pie_right, .right{
+    clip:rect(0,auto,auto,25px);
+}
+.pie_left, .left{
+    clip:rect(0,25px,auto,0);
+}
+.masks{
+    width:40px;height:40px;
+    border-radius:50%;
+    position: absolute;
+    left:5px;top:5px;
+    text-align:center;
+    line-height:40px;
+    font-size:12px;
+    background-color: #fff;
+    color:#ff3a80;
+}
+.masks .masktitle{
+    width:100%;
+    text-align:center;
+    line-height: 30px;
+}
+.masknum{
+    width:52%;
+    float: left;
+    line-height:1px;
+    text-align: right;
+}
+.percent{
+    width:10%;
+    float: left;
+    line-height:1px;
+    text-align: left;
+}

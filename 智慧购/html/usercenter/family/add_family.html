@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>添加家庭成员</title>
+<link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div id="body">
+    <div class="main_dynamic" style="margin-top:10px;">
+        <div class="addfriend_sousuo"><input type="text" class="addfriend_sousuo_input color_01" placeholder="姓名/昵称"></div>
+        <ul class="addfriend_fj_list">            
+            <li v-for="bean in list" v-show="search(bean)">
+                <div class="addfriend_fj_tx"><img :src="bean.headPortrait" alt="" v-if="'' != bean.headPortrait">
+                        <img src="../../../image/nick.png" alt="" v-else></div>
+                <div class="addfriend_fj_con">
+                    <p class="addfriend_fj_name color_01">{{bean.name}}</p>
+                    <p class="addfriend_fj_qm color_03">{{bean.signature}}</p>
+                </div>
+                <div class="addfriend_fj_add color_06" @click="showAddFamily(bean.userNo)" v-if="'0' == bean.isFamily">添加</div>
+                <div class="addfriend_fj_add color_06" v-else-if="'2' == bean.isFamily" style="background:#ddd;">添加</div>
+                <div class="addfriend_fj_add" style="background: none;" v-else>{{bean.familyRemarks}}</div>
+            </li>
+        </ul>
+    </div>
+    
+    <!--弹窗-->
+    <div class="fixed_tc" style="display:none;">
+        <div class="friend_index_tc">
+            <p class="friend_index_tc_font">请填写家庭成员角色</p>
+            <input type="text" class="friend_index_tc_input" v-model="bean.remarks"/>
+            <div class="friend_index_tc_btn" @click="addFamily()" style="width:50%; float:left;">确定</div>
+            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('.fixed_tc').hide();">取消</div>
+        </div>
+    </div>
+    </div>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/family/add_family.js"></script>
+</body>
+</html>

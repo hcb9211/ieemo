@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>选择联系人</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div class="top_nof" name="header">
+     <div class="backbox" onclick="closeWin()">
+		<img src="../../image/back.png"  alt="" class="top_nof_return"/>
+     </div>
+		选择联系人
+		<span class="top_font_right" id="ok">确定</span>
+    </div>
+    <div class="top top_red" style="display: none;"><img src="../../image/back.png" alt="" class="top_return" onclick="closeWin();">选择联系人<span class="top_font_right" id="ok">确定</span></div>
+    <div class="addfriend_sousuo addfriend_choose_sousuo">
+        <input type="text" class="addfriend_sousuo_input color_01" placeholder="搜索">
+        <ul class="addfriend_sousuo_xzimg">
+        </ul>
+    </div>
+    <ul style="height: 40px; display: none;" id="tempUl"></ul>
+    <div class="main_dynamic main_addfriend_txl" style="margin-top: 104px;" v-cloak>
+        <ul class="addfriend_ss_list">
+            <li>
+                <!-- <p class="addfriend_ss_list_xh">A</p> -->
+                <ul class="addfriend_ss_list_md">
+                    <li v-for="(bean,index) in list">
+                        <div class="addfriend_ss_list_tx" v-if="'' != bean.headPortrait"><img :src="bean.headPortrait" alt=""></div>
+                        <div class="addfriend_ss_list_tx" v-if="'' == bean.headPortrait"><img src="../../image/nick.png" alt=""></div>
+                        <div class="addfriend_ss_list_con">
+                            <p class="addfriend_ss_list_bz color_01">{{bean.name}}</p>
+                            <p class="addfriend_ss_list_nc color_03"></p>
+                        </div>
+                        <span class="addfriend_ss_choose"><input type="checkbox" class="addfriend_ss_choose_checkbox" :id="'addfriend_ss_choose_checkbox'+index" @click="select(bean, $event)"><label :for="'addfriend_ss_choose_checkbox'+index"></label></span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/select_friend.js"></script>
+</body>
+<script>
+    var top_height=document.getElementsByClassName("top")[0].offsetHeight;
+    var addfriend_sousuo=document.getElementsByClassName("addfriend_sousuo")[0].offsetHeight;
+    var main_dynamic=document.getElementsByClassName("main_dynamic")[0];
+    main_dynamic.style.marginTop=top_height+addfriend_sousuo+"px";
+    $(".addfriend_ss_choose").click(function(){
+        var top_height=document.getElementsByClassName("top")[0].offsetHeight;
+        var addfriend_sousuo=document.getElementsByClassName("addfriend_sousuo")[0].offsetHeight;
+        var main_dynamic=document.getElementsByClassName("main_dynamic")[0];
+        main_dynamic.style.marginTop=top_height+addfriend_sousuo+"px";
+    });
+</script>
+</html>

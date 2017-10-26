@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title></title>
+    <link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+
+<body>
+<!--<header  style="height: 20px;background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);"></header>-->
+<div class="top top_red" name="header">
+    <div  id="title" onclick="closeWin()" style="width: 10%;height:100%;float:left;">
+        <img src="../../image/back.png" alt="" class="top_return"/>
+    </div>
+    <div class="title" style="width:75%;height:100%;float:left;"></div>
+    <div class="shareBtn" style="width:15%;float:right;">
+        <img src="../../image/share.png" alt="" style="width:24px;">
+    </div>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+</body>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+        var pageParam = api.pageParam;
+        var dataurl = pageParam.url.url;
+        var dataname = pageParam.url.name;
+        var title = pageParam.url.title;
+        $(".title").append(title);
+
+        // delete pageParam.dataurl;
+        // delete pageParam.dataname;
+        var header =$("div[name=header]")[0];
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+//	        alert(headerPos.h);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name : dataname,
+            url : dataurl,
+            bounces : false,
+            rect : {
+                x : 0,
+                y : headerPos.h,
+                w : 'auto',
+                h : 'auto'
+            },
+            pageParam:pageParam.info
+        });
+        $('.shareBtn').click(function () {
+            api.sendEvent({
+                name : 'shares',
+                extra : {
+                    shares : '1'
+                }
+            })
+        })
+    }
+</script>
+</head>
+</html>

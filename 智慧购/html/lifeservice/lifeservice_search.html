@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>生活服务</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+<div id="listDiv">
+ <div class="life_jingx">
+   <ul>
+     <li v-for="bean in list">
+         <h3><img :src="bean.imgUrl"></h3>
+         <h4 @click="detail(bean.serviceNo)">
+           <p class="life_jingx_p2">{{bean.title}}</p>
+           <p class="life_jingx_p3">{{bean.createDate}}</p>
+         </h4>
+         <h5 @click="call(bean)"><img src="../../image/call_in.png"></h5>
+         <p class="life_jingx_p4">{{bean.realName}}  联系方式：{{bean.telNo}}</p>
+       </li>
+   </ul>
+ </div>
+   
+ 
+     <!--联系店家弹窗-->
+    <div class="fixed_tc" style="display: none;">
+        <div class="sjindex_lxtc" style="margin-top: -66.5px;">
+            <p class="sjindex_lxtc_con">立即拨打电话</p>
+            <p class="sjindex_lxtc_con">李师傅  15522245654</p>
+            <p class="sjindex_lxtc_btn">
+               <span class="sjindex_lxtc_btn_qx" onclick="$('.fixed_tc').hide();">取消</span>
+               <span class="sjindex_lxtc_btn_yes" onclick="callPhone()">是</span>
+            </p>
+        </div>
+    </div>
+ </div>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/lifeservice/lifeservice_search.js"></script>
+<script>
+   var sjindex_lxtc=document.getElementsByClassName("sjindex_lxtc");
+      for(var i=0;i<sjindex_lxtc.length;i++){
+        sjindex_lxtc[i].index=i;
+        sjindex_lxtc[i].style.marginTop=-sjindex_lxtc[i].offsetHeight/2 + "px"
+      }
+    </script>
+ 
+
+</body>
+</html>

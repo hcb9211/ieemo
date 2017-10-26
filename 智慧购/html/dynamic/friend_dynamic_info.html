@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>好友动态列表</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div id="body" v-cloak>
+	<div class="dynamic_bj friend_index_bj">
+        <div class="friend_index_top" @click="closeWin()"><img src="../../image/back.png" alt="" class="friend_top_return">好友主页</div>
+        <div class="dynamic_top_bj friend_index_top_bj"><img :src="rspBean.headPortrait" alt="" v-if="'' != rspBean.headPortrait">
+                        <img src="../../../image/nick.png" alt="" v-else></div>
+        <div class="dynamic_top friend_top">
+            <div class="dynamic_top_xx friend_top_xx">
+                <div class="dynamic_top_tx"><img :src="rspBean.headPortrait" alt="" v-if="'' != rspBean.headPortrait">
+                        <img src="../../../image/nick.png" alt="" v-else></div>
+                <div class="dynamic_top_xx_con friend_index_top_xx_con">
+                    <p class="dynamic_top_name color_06">{{rspBean.nickName}}</p>
+                    <p class="dynamic_top_qm color_06">{{rspBean.signAture}}</p>
+                </div>
+                <div class="friend_index_address" v-if="'' != rspBean.communityName && null != rspBean.communityName">{{rspBean.communityName}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="dynamic_con friend_index_con" style="margin-bottom: 0px">
+        <ul class="dynamic_con_list">
+           <li v-for="rspBean in list">
+                <div class="dynamic_con_tx"><img :src="rspBean.headPortrait" alt=""></div>
+                <div class="dynamic_con_xq">
+                    <p class="dynamic_con_name color_01">{{rspBean.createName}}</p>
+                    <p class="dynamic_con_content color_02">{{rspBean.content}}</p>
+                    <ul class="dynamic_con_pic">
+                        <li v-for="(img,imgindex) in rspBean.imageArr" @click="imgclick(rspBean,imgindex)"><img :src="img" alt=""></li>
+                    </ul>
+                    <p class="dynamic_con_cz">
+                        <span class="dynamic_con_time color_03">{{rspBean.createDate}}</span>
+                        <img src="../../image/dynamic_pl.png" alt="" class="dynamic_con_pl" @click="showcomment(rspBean, 1)">
+                        <img src="../../image/dynamic_zan.png" alt="" v-if="'0' == rspBean.isPushed" class="dynamic_con_zan1" @click="likes(rspBean)">
+                        <img src="../../image/dynamic_zan1.png" alt="" v-if="'1' == rspBean.isPushed" class="dynamic_con_zan1" @click="likes(rspBean)">
+                        <img src="../../image/jubao.png" alt="" class="dynamic_con_jubao" @click="reportPage(bean)" v-if="userNo != friendUserNo"/>
+                    </p>
+                    <p class="dynamic_con_dzr" v-if="rspBean.pusher"><img src="../../image/dynamic_zan2.png" alt="">{{rspBean.pusher}}</p>
+                    <p class="dynamic_con_pinlun color_02" v-for="pl in rspBean.dynamicCommentList" @click="showcomment(rspBean, 2, pl)" v-if="'' == pl.targetUserNo"><span>{{pl.createName}}：</span>{{pl.content}}</p>
+                    <p class="dynamic_con_pinlun color_02"  @click="showcomment(rspBean, 2, pl)" v-else-if="'' != pl.targetUserNo"><span>{{pl.createName}}</span>&nbsp;回复&nbsp;<span>{{pl.targetName}}：</span>{{pl.content}}</p>
+                </div>
+            </li>
+        </ul>
+        
+        <div id="comDiv" class="fixed_tc fixed_tc_zIndex" style="display: none;">
+	        <div class="friend_index_tc">
+	            <p class="friend_index_tc_font">评论</p>
+	            <textarea placeholder="请输入你想评论的内容！" id="content" class="icart_xq_tc_tx" v-model="bean.content"></textarea>
+	            <div class="friend_index_tc_btn" @click="comment()" style="width:50%; float:left;">确定</div>
+	            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('#comDiv').hide();">取消</div>
+	        </div>
+	    </div>
+    </div>
+    <ul class="friend_index_bottom" v-if="isHide == '0'">
+        <!-- <li>发私信</li> -->
+        <li @click="showAddFamily()">添加为家庭成员</li>
+    </ul>
+    
+    <div class="fixed_tc" id="addFamilyDiv" style="display:none;">
+        <div class="friend_index_tc">
+            <p class="friend_index_tc_font">请填写家庭成员角色</p>
+            <input type="text" class="friend_index_tc_input" v-model="addBean.remarks"/>
+            <div class="friend_index_tc_btn" @click="addFamily()" style="width:50%; float:left;">确定</div>
+            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('.fixed_tc').hide();">取消</div>
+        </div>
+    </div>
+
+    <div id="reportDiv" class="fixed_tc fixed_tc_zIndex" style="display: none;">
+                <div class="friend_index_tc">
+                    <p class="friend_index_tc_font">举报</p>
+                    <textarea placeholder="请输入你想举报的内容！"  class="icart_xq_tc_tx" id="report" v-model="report"></textarea>
+                    <div class="friend_index_tc_btn" @click="reportsave()" style="width:50%; float:left;">确定</div>
+                    <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('#reportDiv').hide();">取消</div>
+                </div>
+            </div>
+    </div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/friend_dynamic_info.js"></script>
+</body>
+</html>

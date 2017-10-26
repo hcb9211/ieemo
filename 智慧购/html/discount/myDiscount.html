@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>领取到的优惠券</title>
+    <link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="../../css/discount/discount.css">
+</head>
+<body>
+    <div id="myDiscount">
+        <ul class="getcountBox">
+            <li v-for="bean in list" @click="coupondetail(bean)">
+                <div class="countImg">
+                    <img :src="bean.img" v-if="bean.img && bean.img != ''" alt="" >
+                    <img  src="../../image/discount/countImg.png" alt="" v-else class="activeImg">
+                </div>
+                <div class="getcountTitle">
+                    <div class="getcounttype text_ellipsis">{{bean.couponName}}</div>
+                    <div class="getcounttime text_ellipsis">有效期 :{{bean.endDate}}</div>
+                    <div class="getcountstorelimit text_ellipsis" v-if="bean.type=='1'">门店通用券</div>
+                    <div class="getcountstorelimit text_ellipsis" v-else>{{bean.storeName}}使用</div>
+                </div>
+                <div class="getcountPrice">
+                    <div class="pricesBox">&yen;<span class="prices">{{bean.value}}</span></div>
+                    <div class="getcountCon text_ellipsis" v-if="bean.rule == 1">满{{bean.beginPrice}}元可用</div>
+                    <div class="getcountCon text_ellipsis"v-else-if="bean.rule == 2">{{bean.beginPrice}折优惠</div>
+                    <div class="getcountCon text_ellipsis"v-else="bean.rule == 3">满{{bean.beginPrice}}元可用</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/discount/myDiscount.js"></script>
+</html>

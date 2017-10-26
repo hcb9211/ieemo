@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/Aliicon/iconfont.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div id="simplification">
+		<template>
+			<div class="mine_top">
+				<div class="mine_top_first" style="margin-top: 15px;margin-bottom: 5px;">
+					<div class="backbox" onclick="closeWin()">
+						<img src="../../../image/back.png" alt="" class="top_return">
+					</div>
+					<div class="top_title">我的生活圈</div>
+				</div>
+				<div class="mine_top_con">
+					<!--判断值是否存在 在进行判断！-->
+					<div class="mine_top_con_tx" v-if="simplificationList.headpic && simplificationList.headpic != ''"><img :src="simplificationList.headpic" alt="" /></div>
+					<!--不存在或是空则显示-->
+					<div class="mine_top_con_tx" v-else><img src="../../../image/nick.png" alt="" /></div>
+					<div class="mine_top_content">
+						<p class="mine_top_content_name">{{simplificationList.nickname}}</p>
+						<p class="mine_top_content_dj"><img src="../../../image/mine_dj_img.png" alt="" class="mine_top_content_djimg"/>1</p>
+					</div>
+				</div>
+		   </div>
+		    <div class="main_myshq">
+		    	<ul class="myshq_list">
+		            <li @click="pagejumps('mylife_watchingme_men','我的关注')"><span class="myshq_list_font">我的关注</span><span class="myshq_list_number">{{simplificationList.focusnum}}</span></li>   
+		            <li @click="pagejumps('mylife_watchingme','关注我的人')"><span class="myshq_list_font">关注我的人</span><span class="myshq_list_number">{{simplificationList.fansnum}}</span></li>   
+		            <li @click="pagejumps('mylife_answer','我的回答')"><span class="myshq_list_font">我的回答</span><span class="myshq_list_number">{{simplificationList.answernum}}</span></li>   
+		            <li @click="pagejumps('mylife_question','我的提问')"><span class="myshq_list_font">我的提问</span><span class="myshq_list_number">{{simplificationList.qusetionnum}}</span></li>   
+		            <li @click="pagejumps('mylife_enshrine','我的收藏')"><span class="myshq_list_font">我的收藏</span><span class="myshq_list_number">{{simplificationList.collectnum}}</span></li>   
+		            <li @click="pagejumps('mylife_experience','我的经验 ')"><span class="myshq_list_font">我的经验</span><span class="myshq_list_number">{{simplificationList.expnum}}</span></li>   
+		        </ul>
+		    </div>
+		</template>
+	</div>
+</body>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/mylife/mylifeindex.js"></script>
+</html>

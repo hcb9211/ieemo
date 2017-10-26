@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>提现页面</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.2.0.css" />
+    <link rel="stylesheet" href="../../css/wallet/cash_frm.css">
+</head>
+<body>
+    <main>
+        <div class="aui-list-item updatePay">
+            <div class="nickNamePay">
+                <div class="iconPay"></div>
+            </div>
+                <div class="aui-list-item-input promptPay ">
+                    <input  type="text" placeholder="请输入支付宝账户" class="payInput payInput1">
+                </div>
+            <div class="payRight aui-iconfont aui-icon-right aui-hide"></div>
+        </div>
+        <div class="aui-list-item">
+                <div class="nickNamePay">姓名:</div>
+                <div class="aui-list-item-input promptPay cashName">
+                    <input  type="text" placeholder="请输入姓名" class="payInput payInput2">
+                </div>
+            <div class="payRight aui-iconfont aui-icon-right aui-hide"></div>
+        </div>
+        <div class="cashNum">
+            <div class="cash_num" >金额:</div>
+            <div class="aui-list-item-input promptPays" >
+                <input  type="number" placeholder="请输入提现金额" class="payInput payInput3">
+            </div>
+            <div class="nickNamePays">(满10元可提现)</div>
+        </div>
+        <div class="AvailableCredit">
+            可用余额: <span class="credit">0元</span>
+        </div>
+        <div class="VerificationCode">
+            <div class="codeInput">
+                <input type="number" placeholder="请输入验证码" class="payInput4">
+            </div>
+            <div class="codeBtn">获取验证码</div>
+        </div>
+        <div class="bindPhone">
+            绑定手机: <span class="phone"></span>
+        </div>
+        <div class="withdrawalBtn">申请提现</div>
+        <div class="reminder">
+            <div class="reminderTitle">
+                <div class="imgReminder"></div>
+                <span>温馨提示</span>
+            </div>
+            <div class="reminderMsg">
+                <div class="reminderMsg1">1.提现姓名需正确才能打款成功</div>
+                <div class="reminderMsg1">2.申请将在1-5个工作日完成</div>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/control/wallet/cash_frm.js"></script>
+</html>

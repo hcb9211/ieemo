@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>搜索商家</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/index.css" />
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"  />
+</head>
+<body>
+<!-- 商品展示页面--str -->
+    <ul class="icart_con_list" id="app" v-cloak style="background: #F6F6F6;">
+        <li v-for="todo in todos" @click="getData(todo)" style="margin-bottom: 10px;">
+            <div class="icart_con_tx">
+                <img :src="todo.picture" alt="" />
+            </div>
+            <div class="icart_con_xq">
+                <p class="icart_con_name color_01">
+                    {{todo.name}}
+                    <span>{{todo.distance}}KM</span>
+                </p>
+                <p class="icart_con_content color_03">
+                    <span class="bg_color03">满减</span>
+                    是想脱胎换骨还是随岁月成长，每个人的想
+                </p>
+                <p class="icart_con_content color_03">
+                    <span class="bg_color03">满减</span>
+                    是想脱胎换骨还是随岁月成长，每个人的想
+                </p>
+                <ul class="icart_con_pic">
+                    <li v-for="goods in todo.ShopSalesAdvertiselist" @click="getGoods(goods)">
+                        <span>
+                            <img :src="goods.picture" alt="" />
+                        </span>
+                        <p class="color_02">{{goods.name}}</p>
+                        <h3>¥{{goods.nowPrice}}</h3>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+<!-- 商品展示页面--end -->
+</body>
+<script type="text/javascript" src="../../script/api.js" ></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script src="../../script/zepto.min.js"></script>
+<script src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/search/searchStore_frm.js"></script>
+</html>

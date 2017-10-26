@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>用户信息</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<style type="text/css">
+    .finishBtn{
+        width:80%;height:50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius:10px;
+        background-color:#D0302F ;
+        color:white;
+        margin:20px auto;
+    }
+    .head-portrait{position: fixed;top: 0;left: 0;width: 100%;height: 100%; }
+    .head-portrait .portrait{width: 100%;height: 92%;}
+    .head-portrait .button{width: 100%;height: 8%;background-color: ghostwhite;display: flex;justify-content: space-between;}
+    .cancel,.save{width: 50%;height: 100%;display: flex; align-items: center;justify-content: center;color: #FFF}
+    .cancel{background-color: #AAAAAA;}
+    .save{box-sizing: border-box;background-color: #D02E2E;}
+</style>
+</head>
+<body style="background:#fff;">
+    <!--<div class="top top_red"><img src="../../image/back.png" alt="" class="top_return" onclick="closeWin()"/>个人信息</div>-->
+    <div id="maindiv">
+    <div class="main_dynamic" style="margin-top:0px;" >
+        <ul class="person_information" id='app' v-cloak>
+        	<li class="person_information_pic">
+        		<span class="person_information_title person_information_pic_title color_02">头像</span>
+        		<div class="person_information_tx" onclick='getPicture()'>
+                    <img :src="userMsgTodo.headPortrait" alt="" class="myImg" v-if="userMsgTodo.headPortrait"/>
+                    <img src="../../image/active.png" alt="" class="myImg" v-else/>
+                </div>
+        	</li>
+        	<li class="nicknameBox">
+        		<span class="person_information_title color_02">昵称</span>
+        		<p class="person_information_con color_01 nickname">{{userMsgTodo.nickName}}</p>
+        	</li>
+            <li>
+                <span class="person_information_title color_02">手机号</span>
+                <p class="person_information_con color_01 phone">{{userMsgTodo.phone}}</p>
+            </li>
+            <li class="nameBox">
+            <span class="person_information_title color_02">姓名</span>
+            <p class="person_information_con color_01 name">{{userMsgTodo.name}}</p>
+            </li>
+        	<li onclick="openWin('../userMsg/reCode')">
+        		<span class="person_information_title color_02">二维码</span>
+        		<img src="../../image/person_information_ewm.png" alt="" class="person_information_ewm_img"/>
+        	</li>
+        	<li onclick='getSex()'>
+        		<span class="person_information_title color_02">性别</span>
+        		<p class="person_information_con color_01 sex" v-if="userMsgTodo.gender == 0">男</p>
+        		<p class="person_information_con color_01 sex" v-else>女</p>
+        	</li>
+            <li class="weightBox">
+                <span class="person_information_title color_02">体重</span>
+                <p class="person_information_con color_01 weight">{{userMsgTodo.weight}}</p>
+            </li>
+        	<li>
+        		<span class="person_information_title color_02">所属社区</span>
+        		<p class="person_information_con color_01 communityName">{{userMsgTodo.communityName}}</p>
+        	</li>
+        	<li class="qianmingBox">
+        		<span class="person_information_title color_02 ">个性签名</span>
+        		<p class="person_information_con color_01 qianming signAture">{{userMsgTodo.signAture}}</p>
+        	</li>
+        </ul>
+    </div>
+    
+    <div class="finishBtn" onclick="updateOk()" >确认修改</div>
+    </div>
+    <div  style="display: none;" id="headupdate">
+    <div class="head-portrait">
+        <div class="portrait"></div>
+        <div class="button"><div class="cancel" onclick="updateheadback()">取消</div><div class="save" onclick="updateheadsure()">保存</div></div>
+    </div>
+    </div>
+   <!-- <div class="fixed_tc">
+        <div class="mine_xx_choose_sex">
+            <ul class="mine_xx_choose">
+                <li>
+                    <span class="mine_xx_choose_sex_span">
+                        <input type="radio" class="mine_xx_choose_sex_radio" id="mine_xx_choose_sex1" name="mine_xx_choose_sex"/><label for="mine_xx_choose_sex1"><b>男</b></label>
+                    </span>
+                </li>
+                <li>
+                    <span class="mine_xx_choose_sex_span">
+                        <input type="radio" class="mine_xx_choose_sex_radio" id="mine_xx_choose_sex2" name="mine_xx_choose_sex"/><label for="mine_xx_choose_sex2"><b>女</b></label>
+                    </span>
+                </li>
+            </ul>
+            <div class="mine_xx_choose_sex_btn">
+                <span class="mine_xx_choose_sex_btn_qx color_03">取消</span>
+                <span class="mine_xx_choose_sex_btn_yes color_06">是</span>
+            </div>
+        </div>
+    </div>-->
+    <script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src="../../script/common/path.js"></script>
+    <script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="../../script/vue.min.js"></script>
+    <script type="text/javascript" src="../../script/common/common.js"></script>
+	<script type="text/javascript" src='../../script/control/userMsg/userMsg.js'></script>
+</body>
+</html>

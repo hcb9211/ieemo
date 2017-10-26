@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>钱包收支明细</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff;">
+<div id="app" v-cloak>
+    <!--<div class="top top_red"><img src="../../image/back.png" alt="" class="top_return" onclick="closeWin()"/>我的钱包</div>-->
+    <div class="main_dynamic main_myjf" style="margin-top: 0px;">
+            <div class="myjf_box">
+            <div class="myjf_con">
+                <p class="myjf_con_top"><span class="myjf_con_top_dqjf">我的总金额</span></p>
+                <p class="myjf_con_number myqb_con_number payVal" v-if="userTotal.total">{{userTotal.total}}</p>
+                <p class="myjf_con_number myqb_con_number" v-else>0</p>
+            </div>
+        </div>
+        <ul class="myjf_list" v-if="type ==1">
+            <p class="myjf_list_ts">总额明细</p>
+            <li v-for="incomedetail in incomedetails" @click="shareWallet(incomedetail.amount)">
+                <div class="myjf_list_left">
+                    <p class="myjf_list_left_title" style="width:200px;">{{incomedetail.transType}}</p>
+                    <p class="myjf_list_left_time" style="width:200px;">{{incomedetail.transTime}}</p>
+                </div>
+                <div class="myjf_list_number">+{{incomedetail.amount}}</div>
+            </li>
+        </ul>
+        <ul class="myjf_list" v-else>
+            <p class="myjf_list_ts">总额明细</p>
+            <li v-for="spendingdetail in spendingdetails">
+                <div class="myjf_list_left">
+                    <p class="myjf_list_left_title" style="width:200px;">{{spendingdetail.transType}}</p>
+                    <p class="myjf_list_left_time" style="width:200px;">{{spendingdetail.transTime}}</p>
+                </div>
+                <div class="myjf_list_number">-{{spendingdetail.amount}}</div>
+            </li>
+        </ul>       
+    </div>
+    <ul class="myjf_bottom">
+        <li class="myjf_bottom_click" @touchend="incomedetailss()">收入明细</li>
+        <li @touchend="spendingdetailss()">支出明细</li>
+    </ul>
+</div>
+
+
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src="../../script/common/path.js"></script>
+    <script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+    <script type="text/javascript" src="../../script/common/common.js"></script>
+    <script type="text/javascript" src="../../script/vue.min.js"></script>
+    <script type="text/javascript" src="../../script/control/wallet/wallet.js"></script>
+    <script>
+        $(".myjf_bottom").children("li").click(function(){
+            $(this).addClass("myjf_bottom_click").siblings().removeClass("myjf_bottom_click");
+        });
+    </script>
+</body>
+</html>

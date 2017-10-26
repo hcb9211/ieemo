@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>添加好友</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div id="bodyDiv" v-cloak>
+    <div class="main_dynamic" style="margin-top:0px;">
+        <ul class="addfriend_cx" id="searchUl">
+            <li>
+                <div class="addfrient_cximg"><img src="../../image/add_friend_sousuo.png" alt=""></div>
+                <input type="text" placeholder="用户名/手机号码" class="addfriend_cx_input color_01">
+            </li>
+        </ul>
+        <ul class="addfriend_cx">
+            <li id="phoneLi">
+                <div class="addfrient_cximg"><img src="../../image/add_friend_tel.png" alt=""></div>
+                <div class="addfriend_list_con">
+                    <p class="addfriend_list_con_font1 color_01">手机联系人</p>
+                    <p class="addfriend_list_con_font2 color_03">添加或邀请通讯录中的朋友</p>
+                </div>
+            </li>
+            <li id="scannerLi">
+                <div class="addfrient_cximg"><img src="../../image/add_friend_sys.png" alt=""></div>
+                <div class="addfriend_list_con">
+                    <p class="addfriend_list_con_font1 color_01">扫一扫</p>
+                    <p class="addfriend_list_con_font2 color_03">扫描二维码添加好友</p>
+                </div>
+            </li>
+            <li id="nearbyLi" >
+                <div class="addfrient_cximg"><img src="../../image/add_friend_gps.png" alt=""></div>
+                <div class="addfriend_list_con">
+                    <p class="addfriend_list_con_font1 color_01">附近</p>
+                    <p class="addfriend_list_con_font2 color_03">查看附近有哪些人</p>
+                </div>
+            </li>
+        </ul>
+        
+    </div>
+    
+     <div class="fixed_tc fixed_tc_zIndex" style="display:none;">
+        <div class="friend_index_tc">
+            <p class="friend_index_tc_font">添加好友</p>
+            <div class="main_dynamic" style="margin-top:0; text-align:center;">
+                <ul class="addfriend_fj_list">
+                    <li style="height:auto;">
+                        <div class="addfriend_fj_tx" style="position: relative;left: 50%;margin-left: -25px;margin-bottom: 5px;"><img :src="bean.headportrait" alt="" /></div>
+                        <p class="addfriend_fj_name color_01">{{bean.nickname}}</p>
+                    </li>
+                   </ul>
+                </div>
+            <div class="friend_index_tc_btn" style="width:50%; float:left;" @click="ok();">确定</div>
+            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" @click="cancel();">取消</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/friend_add.js"></script>
+</body>
+</html>

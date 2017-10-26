@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>个性签名</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff;">
+    <div class="top_nof" name="header">
+        <div class="backbox" onclick="closeWin()" >
+            <img src="../../image/back.png" alt=""class="top_nof_return">
+        </div>
+            个性签名
+         <span class="top_font_right">保存</span>
+
+    </div>
+    <div class="main_dynamic" >
+        <div class="mine_xx_gxqm">
+            <!--<textarea class="mine_xx_gxqm_con"></textarea>-->
+            <textarea maxlength="50" style="width:80%;float:left;height:25px;" class="texts"></textarea>
+            <div class="limit" style="width:10%;text-align: center;float:right"></div>
+        </div>
+        <p class="mine_xx_gxqm_con_ts">说点什么吧~</p>
+    </div>
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../script/common/common.js"></script>
+    <script type="text/javascript">
+        apiready = function () {
+            var height = 0;
+            var header =$("div[name=header]")[0];
+            if (api.systemType == "ios") {
+                height = 20;
+                
+            } else {
+                 height = 25;
+            }
+            $(".top_nof").css({
+                height: $(".top_nof").height() + height
+            });
+            $api.fixStatusBar(header);
+            var qianming = api.pageParam.param;
+            $('.texts').val(qianming);
+            var lens =  $('.texts').val().length;
+            $('.limit').html(50 - lens);
+            $('.texts').focus();
+        }
+
+       $('.texts').keyup(function () {
+           if($(this).val() !=' '){
+               var lens = $(this).val().length;
+               $('.limit').html(50 - lens);
+               if($('.limit').html() == 0){
+                   api.alert({
+                       title : '提示',
+                       msg : '您已经超出字数限制哦~'
+                   })
+               }
+           }
+       })
+
+    $('.top_font_right').click(function () {
+        var texts = $('textarea').val();
+        texts = texts.replace(/ /g,'');
+        if(texts.length!=0){
+           api.sendEvent({
+               name : 'qianming',
+               extra :{
+                   qianming : texts
+               }
+           });
+           api.closeWin();
+        }else{
+            api.alert({
+                title : '提示',
+                msg : '您好像什么都没写哦~'
+            })
+        }
+    })
+    </script>
+</body>
+</html>

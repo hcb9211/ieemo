@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>登录页面</title>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+<link rel="stylesheet" type="text/css"  href="../../css/public.css" />
+</head>
+<body>
+    <div class="login_bj">
+        <img src="../../image/login_logo.png" alt="" class="login_logo" />
+        <div class="loginbox">
+            <input type="tel" placeholder="用户名" class="login_zh" id="loginName" value="" />
+            <input type="password" placeholder="密码" value="" class="login_pwd" id="loginPassword"/>
+            <div class="login_btn" onclick="login_phone()">登录<img src="../../image/login_btn_img.png" alt="" class="login_btn_img" /></div>
+            <p class="login_font">
+                <span class="login_font_ksdl" onclick="enterreg()">注册</span>
+                <span class="login_font_forget" onclick="enterForgetPassword()">忘记密码</span>
+            </p>
+        </div>
+
+        <!--<div class="otherlogin">
+            <ul>
+                <li  class="wxIconBox display">
+                    <div class="icon" onclick="wxLogin()"></div>
+                </li>
+                <li  class="qqIconBox display">
+                    <div class="icon" onclick="qqLogin()"></div>
+                </li>
+            </ul>
+        </div>-->
+        <div class="login_third_party display">
+            <img src="../../image/wx.png" alt="" class="wxIconBox" onclick="wxLogin()"/>
+            <img src="../../image/qq.png" alt="" class="qqIconBox" onclick="qqLogin()"/>
+            <!--<img src="../../image/zpay.png" alt="" />-->
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/md5.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-alert.js"></script>
+<script type="text/javascript" src="../../script/control/login.js"></script>
+
+</html>

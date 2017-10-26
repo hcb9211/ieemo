@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+	<meta name="MobileOptimized" content="320"/>
+	<title>ICART</title>
+	<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+	<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+	<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+	<!--<link href="../../css/mui.min.css"  rel="stylesheet" type="text/css"  />-->
+	<!--<link href="../../css/app.css"  rel="stylesheet" type="text/css"  />-->
+</head>
+<body>
+<div style="height:20px;width:100%;background:-webkit-radial-gradient(#F67856, #F76157);"></div>
+<div id="app" v-cloak>  <!--v-cloak-->
+	<div class="spfl_top">
+		<div class="spfl_top_cx" >
+			<img src="../../image/back.png" alt="" class="top_return" onclick="closeWin()"/>
+			<li onclick="entersearch()">
+				<img src="../../image/search-white.png" alt=""  class="spfl_top_cximg"/>
+				<input type="text" placeholder="请输入想要的商品" class="spfl_top_cx_input"/>
+			</li>
+			<!--<span><img src="../../image/spfl_top_fx.png" />分享</span>-->
+			<div>
+				<span v-if="ischeck == false" @click="clickCheckStore()"><img src="../../image/spfl_top_sc.png"/>关注</span>
+				<span v-else style="color:#fff" @click="clickCannleStore()"><img src="../../image/sjxq_sc2.png" />关注</span>
+			</div>
+		</div>
+		<div class="spfl_top_sp" style="padding:5px 3%">
+				<h3><img :src="storeInfo.picture" /></h3>
+				<h4>
+					<p class="font_05 spfl_top_sp_mag">{{storeInfo.name}}</p>
+					<p class="font_01">营业时间：{{storeInfo.shopHours}}</p>
+					<p class="font_01 spfl_top_sp_mag pglyphicon-hone" style="margin-bottom:2px;">联系电话：{{storeInfo.phone}}</p>
+					<p class="font_01"><img src="../../image/top_dizi.png"/>{{storeInfo.address}}</p>
+				</h4>
+		</div>
+	</div>
+	<!--分类左侧内容-->
+	<ul class="spfl_left" id="leftBox" style="top:152px; -webkit-overflow-scrolling: touch;">
+		<li  v-for="icartDetail in icartDetailList" @click="clickGetgoods(icartDetail.catalogId,$event)">
+			{{icartDetail.catalogName}}
+		</li>
+	</ul>
+	<!--分类右侧内容-->
+	<div class="spfl_right" style="top:152px; -webkit-overflow-scrolling: touch;">
+		<ul class="spfl_right_con">
+			<li v-for="goodsMsg in shopSaleList[typeid]" @click="clickGoodsDetail(goodsMsg.code)">
+				<div class="spfl_right_con_pic"><img :src="goodsMsg.picture" alt=""/></div>
+				<div class="spfl_right_con_name">{{goodsMsg.name}}</div>
+				<div class="list_lineH_hcb list_lineH_hcbs">
+					<div class="promotionType" v-if="goodsMsg.type == '0'">满减</div>
+					<div class="promotionType" v-else-if="goodsMsg.type=='1'">促销</div>
+					<div v-else></div>
+					<div class="promotionCon">{{goodsMsg.themeName}}</div>
+				</div>
+				<div class="spfl_right_con_load"><small>&yen;</small>{{goodsMsg.nowPrice}}<small></small><span>{{goodsMsg.addIcartNum}}人<img src="../../image/list_shopcat.png"></span></div>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../script/mui.min.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/icart/icartGoods.js"></script>
+<script>
+
+    $(".spfl_left").children("li").click(function(){
+        $(this).addClass("spfl_left_li_onclick").siblings().removeClass("spfl_left_li_onclick");
+    })
+    var spfl_right_con_pic=document.getElementsByClassName("spfl_right_con_pic");
+    for(var i=0;i<spfl_right_con_pic.length;i++){
+        spfl_right_con_pic[i].index=i;
+        spfl_right_con_pic[i].style.height=spfl_right_con_pic[i].offsetHeight+"px";
+    }
+
+</script>
+</html>

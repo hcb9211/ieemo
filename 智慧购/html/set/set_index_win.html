@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>消息</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+    <style>
+        .userLoginIng,.userLogin{
+            width:120px;height:40px;
+            color:white;
+        }
+        .userLogin div,.userLoginIng div{
+            float: left;
+            width:50%;
+        }
+        .signOutBtn{
+            width:100px;height:50px;
+            background-color:#FF5954;
+            border-radius:4px ;
+            margin:20px auto;
+            text-align:center;
+            line-height:50px;
+            color:white;
+        }
+        .maskBox{
+            width:100%;height:100%;
+            background:rgba(0,0,0,0.3);
+            position:fixed;
+            left:0;top:0;
+            z-index:10;
+        }
+        .tishibox{
+            width:90%;height:25%;
+            background:white;
+            position:absolute;
+            left:0;top:0;
+            right:0;bottom:10%;
+            margin:auto;
+            border-radius:10px;
+            padding:.8rem;
+        }
+        .loginOutText{
+            width:100%;height:20%;
+            font-size:20px;
+            margin-bottom:15px;
+            /*font-weight:bold;*/
+            text-align:center;
+        }
+        .tsText{
+            width:100%;height:50%;
+            font-size:14px;
+            margin-bottom:.4rem;;
+            text-align: center;
+            /*line-height: 2rem;*/
+        }
+        .tsBtn{
+            width:40%;height:30%;
+            font-size:14px;
+            float:right;
+            text-align:center;
+            line-height:10px;
+        }
+        .tsBtn li{
+            width:50%;height:100%;
+            float: left;
+            color:#ff5954;
+        }
+        .hides{
+            display:none;
+            /*height:0;*/
+        }
+        .shows{
+            display: block;
+        }
+        .bindphone{
+            float: right;
+            display: block;
+        }
+        .bgchange{
+            background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);
+        }
+    </style>
+</head>
+<body>
+    <!--<div class="top_nof" name="header">-->
+        <!--<div class="backbox" onclick="closeWin()">-->
+            <!--<img src="../../image/back.png"  alt="" class="top_nof_return"/>-->
+        <!--</div>-->
+        <!--设置-->
+    <!--</div>-->
+
+    <div class="main_dynamic main_mine_set">
+        <ul class="mine_set_list">
+            <li onclick="enterForgetword()" >
+                <span>修改密码</span>
+                <img src="../../image/mine_set_into.png" alt="" class="mine_set_into"/>
+            </li>
+            <li onclick="enterBindphone()" class="bindphoneBox">
+                <span>绑定手机号</span>
+                <span class="bindphone"></span>
+                <img src="../../image/mine_set_into.png" alt="" class="mine_set_into rightBtn" />
+            </li>
+        </ul>
+       <!-- <ul class="mine_set_list">
+            <li>
+                <span>消息免打扰</span>
+                <div class="checkbox_zy_box mine_set_list_checkbox">
+                    <input type="checkbox" class="checkbox_zy" id="checkbox_zy1"><label for="checkbox_zy1"></label>
+                </div>
+            </li>
+            <li>
+                <span>关于我们</span>
+                <img src="../../image/mine_set_into.png" alt="" class="mine_set_into"/>
+            </li>
+            <li>
+                <span>清除缓存</span>
+                <img src="../../image/mine_set_into.png" alt="" class="mine_set_into"/>
+            </li>
+            <li>
+                <span>版本更新</span>
+                <img src="../../image/mine_set_into.png" alt="" class="mine_set_into"/>
+            </li>
+        </ul>-->
+    </div>
+    <div class="mine_set_bottom loginOut hides" onclick="loginOut()">注销账户</div>
+
+    <script type="text/javascript" src='../../script/api.js'></script>
+    <script type="text/javascript" src='../../script/jquery-3.1.1.js'></script>
+    <script type="text/javascript" src='../../script/common/path.js'></script>
+    <script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src='../../script/common/common.js'></script>
+    <script>
+		function back() {
+			api.historyBack(function(ret, err) {
+				if (ret.status) {
+				} else {
+					api.closeWin();
+				}
+			});
+		}
+        function loginOut() {
+            var dialogBox = api.require('dialogBox');
+            dialogBox.alert({
+                texts: {
+                    title: '温馨提示',
+                    content: '确定退出吗?',
+                    leftBtnTitle: '取消',
+                    rightBtnTitle: '确认'
+                },
+                styles: {
+                    bg: '#fff',
+                    w: 300,
+                    title: {
+                        marginT: 20,
+                        titleSize: 14,
+                        titleColor: '#000',
+                    },
+                    content: {
+                        color: '#000',
+                        size: 14
+                    },
+                    left: {
+                        marginB: 7,
+                        marginL: 20,
+                        w: 130,
+                        h: 35,
+                        corner: 2,
+                        bg: '#D0302F',
+                        size: 12,
+                        color:'#fff'
+                    },
+                    right: {
+                        marginB: 7,
+                        marginL: 10,
+                        w: 130,
+                        h: 35,
+                        corner: 2,
+                        bg: '#D0302F',
+                        size: 12,
+                        color:'#fff'
+                    }
+                }
+            }, function(ret) {
+                if (ret.eventType == 'left') {
+//                    var dialogBox = api.require('dialogBox');
+                    dialogBox.close({
+                        dialogName: 'alert'
+                    });
+                }else{
+                    user.clearuser();
+                    api.sendEvent({
+                        name : 'loginOut',
+                        extra : {
+                            login : 'yes'
+                        }
+                    });
+                    dialogBox.close({
+                        dialogName: 'alert'
+                    });
+                    api.closeWin();
+                }
+            });
+        };
+		function enterForgetword() {
+            var data = {
+                url: {
+                    url: api.wgtRootDir + '/html/forgetPassword/forgetPassword.html',
+                    name: 'forgetword',
+                    title: "修改密码"
+                },
+                islogin: '1',
+                info: {}
+            }
+            openWinFrame('forgetPassword',api.wgtRootDir + '/html/comm/head_back.html',data);
+        };
+		function enterBindphone() {
+            var data = {
+                url: {
+                    url: api.wgtRootDir + '/html/bindphone/bindphone.html',
+                    name: 'bindphone',
+                    title: "绑定手机号"
+                },
+                islogin: '1',
+                info: {}
+            }
+            openWinFrame('bindphone',api.wgtRootDir + '/html/comm/head_back.html',data);
+        }
+
+		apiready = function () {
+		    // 监听绑定手机号
+		    api.addEventListener({
+                name : 'bindphone'
+            },function (ret,err) {
+                if(ret){
+                    var bindphone = ret.value.bindphone;
+                    $('.bindphone').text(bindphone);
+                    $('.rightBtn').addClass('hides');
+                    $('.bindphoneBox').css(
+                        'pointer-events' , 'none'
+                    )
+                }
+            });
+		    //  查询绑定手机号
+            var userinfo = user.getuserinfo();
+            if(userinfo && userinfo!=''){
+                var bindphone = userinfo.mobile;
+                if(bindphone && bindphone!=''){
+                    $('.bindphone').text(bindphone);
+                    $('.rightBtn').addClass('hides');
+                    $('.bindphoneBox').css(
+                        'pointer-events' , 'none'
+                    )
+                }
+            }
+            // 监听登陆绑定手机号
+            api.addEventListener({
+                name : 'userLogin'
+            },function (ret,err) {
+                if(ret){
+                    var bindphone = ret.value.mobile;
+                    $('.bindphone').text(bindphone);
+                    $('.rightBtn').addClass('hides');
+                    $('.bindphoneBox').css(
+                        'pointer-events' , 'none'
+                    )
+                }
+            });
+
+		    if(user.islogin()){
+		        $('.loginOut').removeClass('hides');
+            }else{
+                $('.loginOut').addClass('hides')
+            }
+
+        }
+    </script>
+</body>
+</html>

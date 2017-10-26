@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>生活圈</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<link rel="stylesheet" type="text/css" href="../../script/tool/swiper/swiper.min.css">
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script//api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/tool/swiper/swiper.min.js"></script>
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+
+
+<!-- <script src="js/index.js"></script> -->
+</head>
+<body>
+
+    <div class="sj_list_box" id="typeswiper">
+       <ul class="sj_list color_01 swiper-wrapper" id="typeli" style="margin-top: 0px;"  v-cloak>
+          <!-- <li class="sj_list_li_click swiper-slide">推荐</li> -->
+           <li class="sj_list_li_click swiper-slide" v-for="(bean,index) in typelist" :data-no="bean.coterieNo" v-if="index == 0">{{bean.coterieName}}</li> 
+          <li class="swiper-slide" v-else>{{bean.coterieName}}</li> 
+      </ul>
+    </div>
+
+    <div class="main_dynamic main_shq swiper-container" style="margin-top: 40px;" id="contentSwiper" >
+        <div class="dynamic_con_xxtz main_shq_xxtz color_06" style="display: none;"><p class="dynamic_con_xxtz_content"><img src="../../image/dynamic_xx_tz.png" alt="" />3条新消息</p></div>
+        <div class="swiper-wrapper" style="height: auto;" id="content" v-cloak>
+       
+        <ul class="main_shq_list swiper-slide" style="height: auto;" v-for="beaninfo in list">
+            <li v-for="contentbean in beaninfo.info"  @click="experiecepage(contentbean)" v-if="contentbean.srcId == '0'">
+                <div class="main_shq_list_category">
+                    <p class="main_shq_list_category_font">来自：{{contentbean.communityName}}</p>
+                    <img src="../../image/shq_close_img.png" alt="" class="main_shq_list_category_close display" />
+                </div>
+                <div class="main_shq_list_pic"><img :src="contentbean.coverPic" alt="" /></div>
+                <p class="main_shq_list_title">{{contentbean.srcTitle}}</p>
+                <div class="main_shq_list_con" style="display: none;"><p>{{contentbean.content}}</p></div>
+                <ul class="main_shq_list_xq">
+                    <li>赞：{{contentbean.praisenum}}</li>
+                    <li>评论：{{contentbean.commentnum}}</li>
+                </ul>
+            </li>
+            <li v-else-if="contentbean.srcId == '1'" @click="questionpage(contentbean)">
+                <div class="main_shq_list_category">
+                    <p class="main_shq_list_category_font">来自：{{contentbean.communityName}}</p>
+                    <img src="../../image/shq_close_img.png" alt="" class="main_shq_list_category_close display" />
+                    <div class="main_shq_list_category_close_reason" style="display: none;">不喜欢</div>
+                </div>
+                <p class="main_shq_list_title">{{contentbean.srcTitle}}</p>
+                <div class="main_shq_list_con"><p>{{contentbean.content}}</p></div>
+                <ul class="main_shq_list_xq">
+                    <li>赞：{{contentbean.praisenum}}</li>
+                    <li>评论：{{contentbean.commentnum}}</li>
+                </ul>
+            </li>
+            
+
+        </ul>
+        </div>
+    </div>
+    <!--生活圈-弹出按钮-->
+    <div class="shq_bottom_box">
+        <ul class="shq_bottom_list">
+            <li onclick="addexperience()">
+                <div class="shq_bottom_list_img"><img src="../../image/shq_bottom_xjy.png" alt="" /></div>
+                <p class="shq_bottom_list_font">写经验</p>
+            </li>
+            <li onclick="questionaddpage()">
+                <div class="shq_bottom_list_img"><img src="../../image/shq_bottom_question.png" alt="" /></div>
+                <p class="shq_bottom_list_font">提问</p>
+            </li>
+            <li onclick="answerpage()">
+                <div class="shq_bottom_list_img"><img src="../../image/shq_bottom_answer.png" alt="" /></div>
+                <p class="shq_bottom_list_font">回答</p>
+            </li>
+        </ul>
+    </div>
+
+   <script type="text/javascript" src="../../script/control/lifecircle/circleindex.js"></script>
+	
+	<script>
+		$(".ex_addsp_ss").focus(function(){
+			$(this).removeClass("shq_top_ss_bj");
+			$(this).attr({"placeholder":""});
+		});
+		$(".ex_addsp_ss").blur(function(){
+			if($(this).val() == ""){
+				$(this).addClass("shq_top_ss_bj");
+				$(this).attr({"placeholder":"搜索话题"});
+			}		
+		});
+
+        $(".sj_list").children("li").click(function(){
+          $(this).addClass("sj_list_li_click").siblings().removeClass("sj_list_li_click");
+        });
+
+
+
+         //    多行文本溢出
+        $(".main_shq_list_con").each(function(){
+            var box_height = $(this).height();
+            var $p = $("p", $(this)).eq(0);
+            while ($p.outerHeight() > box_height) {
+                $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+            };
+        });
+    </script>
+</body>
+</html>

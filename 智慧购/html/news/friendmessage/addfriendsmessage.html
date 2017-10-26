@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>消息列表</title>
+<link href="../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/control/news/friendmessage/addfrendsmessage.js"></script>
+</head>
+<body>
+	<!-- main_dynamic -->
+	<div class="" id="info" v-cloak>
+        <ul class="addfriend_fj_list newaddfriend_fj_list">
+            <li v-for="bean in list">
+                <div class="addfriend_fj_tx">
+                <img :src="bean.friendHeadPortrait" alt="" v-if="bean.friendHeadPortrait && bean.friendHeadPortrait != ''"/>
+                <img src="../../../image/nick.png" alt="" v-else/>
+                </div>
+                <div class="addfriend_fj_con">
+                    <p class="addfriend_fj_name color_01">{{bean.friendNickName}}</p>
+                    <p class="addfriend_fj_qm color_03"></p>
+                </div>
+                <div class="addfriend_fj_add color_06" v-if="bean.status == '0' && bean.requestType == '1'" @click="agree(bean)">接受</div>
+                <div class="addfriend_fj_add addfriend_fj_ytj" v-else-if="bean.status == '1' && bean.requestType == '1'">已拒绝</div>
+                <div class="addfriend_fj_add addfriend_fj_ytj" v-else-if="bean.status == '2' && bean.requestType == '1'">已同意</div>
+                 <div class="addfriend_fj_add addfriend_fj_ytj" v-else-if="bean.status == '0' && bean.requestType == '0'">处理中</div>
+                 <div class="addfriend_fj_add addfriend_fj_ytj" v-else-if="bean.status == '1' && bean.requestType == '0'">已拒绝</div>
+                <div class="addfriend_fj_add addfriend_fj_ytj" v-else-if="bean.status == '2' && bean.requestType == '0'">已同意</div>
+            </li>
+           
+        </ul>
+    </div>
+</body>
+</html>

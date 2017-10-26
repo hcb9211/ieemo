@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>生活圈</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script//api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/control/lifecircle/question/answer/answerinfo.js"></script>
+</head>
+<body style="overflow:visible;background:#fff;">
+    <div id="info" v-cloak>
+    <!--main_dynamic -->
+    <div class=" main_hdxqy">
+        <div class="shq_hdxqy_header">
+            <p class="shq_hdxqy_header_title">{{bean.quesName}}</p>
+            <div class="shq_hdxqy_header_person">
+                <div class="shq_hdxqy_header_person_tx">
+                <img :src="bean.headpic"alt= v-if="bean.headpic"/>
+                <img src="../../../../image/nick.png" alt="" v-else-if="bean.headpic==''"/>
+                <img src="../../../../image/nick.png" alt="" v-else/>
+                </div>
+                <div class="shq_hdxqy_header_person_con">
+                    <p class="shq_hdxqy_header_person_name">{{bean.nickname}}</p>
+                    <p class="shq_hdxqy_header_person_qm">{{bean.signature}}</p>
+                </div>
+                <div class="shq_jy_person_gz shq_hdxqy_header_person_gz" v-if="bean.isFans == '0'">
+
+                <img src="../../../../image/gzwdr_gz_img.png" alt="" class="shq_jy_person_gz_img" @click="saveUserToFans(bean)"/>关注</div>
+                <div class="shq_jy_person_gz shq_hdxqy_header_person_gz shq_hdxqy_header_person_ygz" v-else-if="bean.isFans = '1'" @click="updateUserToFans(bean)">已关注</div>
+            </div>
+        </div>
+        <div class="shq_hdxqy_con">
+            <p class="shq_hdxqy_con_dl">
+                {{bean.answContent}}
+            </p>
+        </div>
+    </div>
+
+    <div class="shq_jy_bottom">
+        <div class="shq_jy_bottom_dz" @click="praisenumclick()"><img src="../../../../image/shq_quertion_select.png" alt="" class="shq_jy_bottom_select" />{{bean.praisenum}}</div>
+        <div class="shq_jy_bottom_btn" @click="commentpage(bean)">
+            <div class="shq_jy_bottom_img"><img src="../../../../image/shq_jy_pl.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">评论</p>
+        </div>
+        <div class="shq_jy_bottom_btn display" >
+            <div class="shq_jy_bottom_img"><img src="../../../../image/shq_jy_ds.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">打赏</p>
+        </div>
+        <div class="shq_jy_bottom_btn" v-if="bean.isCollect == '0'" @click="saveCoterieCollect()">
+            <div class="shq_jy_bottom_img"><img src="../../../../image/shq_jy_sc1.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">收藏</p>
+        </div>
+        <div class="shq_jy_bottom_btn" v-else-if="bean.isCollect == '1'" @click="updateCoterieCollect()">
+            <div class="shq_jy_bottom_img"><img src="../../../../image/shq_jy_sc2.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">已收藏</p>
+        </div>
+        <div class="shq_jy_bottom_btn" style="display: none;">
+            <div class="shq_jy_bottom_img"><img src="../../../../image/shq_jy_thanks.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">感谢</p>
+        </div>
+        <div class="shq_jy_bottom_btn" @click="reportPage()">
+            <div class="shq_jy_bottom_img"><img src="../../../../image/jubao.png" alt="" /></div>
+            <p class="shq_jy_bottom_font">举报</p>
+        </div>
+    </div>
+
+    <!--同意或反对-->
+    <ul class="shq_jy_agree_or_no display">
+        <li><img src="../../../../image/shq_jy_agree.png" alt="" class="shq_jy_agree_or_no_img" @click="pushed('0')"/>同意</li>
+        <li><img src="../../../../image/shq_jy_no.png" alt="" class="shq_jy_agree_or_no_img" @click="pushed('1')"/>拍砖</li>
+    </ul>
+
+    <div id="reportDiv" class="fixed_tc fixed_tc_zIndex" style="display: none;">
+        <div class="friend_index_tc">
+            <p class="friend_index_tc_font">举报</p>
+            <textarea placeholder="请输入你想举报的内容！"  class="icart_xq_tc_tx" id="report" v-model="report"></textarea>
+            <div class="friend_index_tc_btn" @click="reportsave()" style="width:50%; float:left;">确定</div>
+            <div class="friend_index_tc_btn" style="width:50%; float:left; background:#f0ab00;" onclick="$('#reportDiv').hide();">取消</div>
+        </div>
+    </div>
+
+
+    <!--打赏弹窗-->
+    <div class="fixed_tc display">
+        <div class="friend_index_tc">
+            <p class="friend_index_tc_font shq_jy_tc_font">请输入您的打赏积分数</p>
+            <input type="text" class="friend_index_tc_input shq_jy_tc_input" placeholder="可用积分100分" />
+            <div class="friend_index_tc_btn">确定</div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

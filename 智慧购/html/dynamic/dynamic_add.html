@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>发动态</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/Aliicon/iconfont.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+	<div class="top_nof" name="header">
+     <div class="backbox" onclick="closeWin()">
+		<img src="../../image/back.png" alt="" class="top_nof_return"/>
+	</div>
+		发表状态
+		<span class="top_font_right" id="ok">发布</span>
+    </div>
+    <div id="info">
+    	
+	    <!--<div class="top top_red" style="background: -webkit-linear-gradient(left,#ff7a7a 0%,#e02323 100%);"><img src="../../image/back.png" alt="" class="top_return" onclick="closeWin();">发表状态<span class="top_font_right" id="ok">发布</span></div>-->
+	    <div class="main_dynamic">
+	        <textarea placeholder="说点什么吧~~~" class="dynamic_fbss_content color_01" v-model="bean.content"></textarea>
+	        <ul class="dynamic_fbss_photo">
+	            <li v-for="(imgbean, index) in imgbase64"><img :src="imgbean"><span  @click="deleteimg(index)"><img src="../../image/shq_close_img.png" style="width: 10px;height: 10px;margin-top: 2px;"/></span></li>
+	            <li id="defImg" @click="caramer()" v-if="imgbase64.length < 6"><img src="../../image/dynamic_scphoto.png" alt=""></li>
+	        </ul>
+	        <p class="dynamic_gps"><img src="../../image/dynamic_fbzt_gps.png" alt=""><label id="locationLabel">添加位置</label></p>
+	        <ul class="dynamic_fbdt_choose">
+	            <li id="canseeLi">
+	                <div class="dynamic_fbdt_choose_pic">
+	                    <img src="../../image/dynamic_skyk.png" alt="" class="dynamic_fbdt_choose_img1">
+	                    <img src="../../image/dynamic_skyk2.png" alt="" class="dynamic_fbdt_choose_img1 display">
+	                </div>
+	                <span class="dynamic_fbdt_choose_font color_01">谁可以看</span>
+	                <span class="dynamic_fbdt_choose_name color_03 color_07"></span>
+	            </li>
+	            <li id="inviteLi">
+	                <div class="dynamic_fbdt_choose_pic">
+	                    <img src="../../image/dynamic_txsk.png" alt="" class="dynamic_fbdt_choose_img2">
+	                    <img src="../../image/dynamic_txsk2.png" alt="" class="dynamic_fbdt_choose_img2 display">
+	                </div>
+	                <span class="dynamic_fbdt_choose_font color_01">邀请谁看</span>
+	                <ul class="dynamic_fbdt_yqr">
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+    </div>
+<!-- <script type="text/javascript" src="../../script/tool/lry/lrz.bundle.js"></script> -->
+
+<script type="text/javascript" src="../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/tool/twemoji/twemoji.min.js"></script>
+<script type="text/javascript" src="../../script/zepto.min.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/common/path.js"></script>
+<script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+<script type="text/javascript" src="../../script/control/dynamic/dynamic_add.js"></script>
+</body>
+</html>

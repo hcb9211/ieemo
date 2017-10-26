@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="overflow:visible;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>商家页面</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <!--<div class="top top_red"><img src="images/back.png" alt="" class="top_return"/>关注我的人    </div>-->
+    <div class="main_dynamic" id="watchingme">
+        <ul class="myshq_gzwdr">
+            <li v-for="bean in list">
+                <div class="myshq_gzwdr_tx" v-if="bean.fansHeadpic != ''"><img :src="bean.fansHeadpic" alt="" /></div>
+                <div class="myshq_gzwdr_tx" v-else-if="bean.fansHeadpic == ''"><img src="../../../../image/nick.png"alt="" /></div>
+                <div class="myshq_gzwdr_con">
+                    <p class="myshq_gzwdr_name">{{bean.fansNickname}}</p>
+                    <p class="myshq_gzwdr_qm">{{bean.fansSignature}}</p>
+                </div>
+                <div class="myshq_gzwdr_btn" v-if="bean.isFans == 0" @click="attention(bean)"><img src="../../../../image/gzwdr_gz_img.png" class="myshq_gzwdr_btn_img" alt="" />关注</div>
+                <div class="myshq_gzwdr_btn myshq_gzwdr_btn_ygz" v-else-if="bean.isFans == 1" @click="cancel(bean)"><img src="../../../../image/gzwdr_gz_img.png" class="myshq_gzwdr_btn_img display" alt="" />已关注</div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js" ></script>
+<script type="text/javascript" src="../../../../script/api.js" ></script>
+<script type="text/javascript" src="../../../../script/vue.min.js" ></script>
+<script type="text/javascript" src="../../../../script/common/common.js" ></script>
+<script type="text/javascript" src="../../../../script/control/usercenter/mylife/mylife_watchingme.js" ></script>
+</html>

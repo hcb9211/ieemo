@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>管理提现账户</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.2.0.css" />
+    <link rel="stylesheet" href="../../css/wallet/updatePay_frm.css">
+</head>
+<body>
+<div class="delPayName">
+    <header>
+        <div class="nickNamePay">
+            <div class="iconPay"></div>
+        </div>
+        <div class="promptPay">
+            <div style="width:20%;float:left;"> 账户:</div>
+            <input type="text" value="" class="payName" style="width:80%;float:right;min-height:100%;" oninput="myInputOnchange(this)">
+        </div>
+        <div class="payRight">
+            <div class="closeBox" onclick="closeInput($(this))">
+                <div class=" aui-iconfont aui-icon-close" ></div>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <div class="saveBtn">保存</div>
+        <div class="backBtn">返回</div>
+    </main>
+</div>
+
+</body>
+</html>
+<script src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script src="../../script/common/common.js"></script>
+<script src="../../script/jquery-3.1.1.js"></script>
+<script src="../../script/control/wallet/updatePay_frm.js"></script>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>购物车</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+
+</head>
+<body>
+<div id="app" v-cloak>
+    <ul class="sj_gz_list color_01" style="top:0">
+        <li class="sj_gz_list_border" @click="shopCart()">我的</li>
+        <li @click="familyIcart()">家庭</li>
+    </ul>
+    <div class="mind_shopcat" style="margin-top:44px;">
+        <div class="bj_shopcart mycart" v-if="type == 1">
+            <div v-for="todo in todos" style="margin-bottom:10px;">
+                <h2 class="color_02 font_05" @click="enterStore(todo)">
+                    <img src="../../image/ico_shop.png"/>{{todo.storeName}}
+                    <span><!--1.2km--></span>
+                    <span class="f_right"><!--2017.04.01--></span>
+                </h2>
+                <ul style="width:100%;margin:0;padding-left:10px;">
+                    <li class="bj_li_wc" v-for='goods in todo.icartList' @click="enterGoods(goods)">
+                        <h3><img :src="goods.picture"/></h3>
+                        <h4 style="height:30px;">{{goods.name}}</h4>
+                        <div class="list_lineH_hcb list_lineH_hcbss">
+                            <div class="promotionType" v-if="goods.type == '0'">满减</div>
+                            <div class="promotionType" v-else-if="goods.type=='1'">促销</div>
+                            <div class="promotionType" v-else></div>
+                            <div class="promotionCon">{{goods.themeName}}</div>
+                        </div>
+                        <h5>
+                            <p><small>￥</small>{{goods.nowPrice}}</p><span class="color_05 font_02">原价：￥{{goods.price}}</span>
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bj_shopcart familyicart" v-else>
+            <div style="margin-bottom:10px;" v-for="familycart in familytodos.store">
+                <h2 class="color_02 font_05" @click="enterStore(familycart)"><img src="../../image/ico_shop.png"/>{{familycart.name}}<span> {{familycart.distance}} km</span></h2>
+                <ul style="width:100%;margin:0;padding-left:10px;">
+                    <li class="bj_li_wc" v-for="goodscart in familytodos.goodsIcart[familycart.storeId]" @click="enterGoods(goodscart)">
+                        <h3><img :src="goodscart.picture"/></h3>
+                        <h6 style="width:45px;float:right;margin-top: 32px;"><span class="font_01">{{goodscart.remarks}}</span></h6>
+                        <div style="width:55%!important;height:25px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;padding-left:5px;box-sizing:border-box">{{goodscart.name}}</div>
+                        <div class="list_lineH_hcb list_lineH_hcbss" style="width:55%;">
+                            <div class="promotionType" v-if="goodscart.promType == '0'">满减</div>
+                            <div class="promotionType" v-else-if="goodscart.promType == '1'">促销</div>
+                            <div v-else></div>
+                            <div class="promotionCon">{{goodscart.themeName}}</div>
+                        </div>
+                        <h5 style="width:55%;float:left;">
+                            <div>
+                                <p><small>￥</small>{{goodscart.nowPrice}}</p><span class="color_05 font_02">原价：￥{{goodscart.oldPrice}}</span>
+                            </div>
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--备注信息-->
+        <!--<div class="bz_shopcat"><span>爸爸：</span>千万记得要给我买啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>-->
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../script/common/common.js"></script>
+<script type="text/javascript" src="../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../script/control/icartBox/shopCart.js"></script>
+<script>
+    $(".sj_gz_list").children("li").click(function(){
+        $(this).addClass("sj_gz_list_border").siblings().removeClass("sj_gz_list_border");
+    })
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>品论详情</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/control/lifecircle/experience/comment/experiececomment_frm.js"></script>
+</head>
+<body>
+	<div id="info" v-cloak>
+	<!-- main_pinlun -->
+	<div class="main_dynamic" style="margin-top: 10px;">
+		<template>
+        <ul class="shq_pl_list">
+            <li v-for="bean in list" @click="collectclick(bean)" v-if="!bean.toUserNo">
+                <div class="shq_pl_list_tx">
+                	<img :src="bean.headpic" alt="" v-if="bean.headpic"/>
+                	<img src="../../../../image/nick.png" alt="" v-else/>
+
+                </div>
+                <div class="shq_pl_list_xq">
+                    <p class="shq_pl_list_name">{{bean.userName}}</p>
+                    <p class="shq_pl_list_con">{{bean.commentContent}}</p>
+                    <div class="shq_pl_list_other"><p class="shq_pl_list_time">{{bean.margindata}}</p><p class="shq_pl_list_dz">
+                    <img src="../../../../image/shq_pl_dz_img.png" alt="" class="shq_pl_dz_img" v-if="bean.isPraise == '0'"  @click="pushed(bean,$event)"/>
+                     <img src="../../../../image/dynamic_zan_read.png" alt="" class="shq_pl_dz_img" v-else/>
+                    
+                    {{bean.praisenum}}</p></div>
+                </div>
+            </li>
+            <li v-else>
+                <div class="shq_pl_list_tx">
+                <img :src="bean.headpic" alt="" v-if="bean.headpic"/>
+                	<img src="../../../../image/nick.png" alt="" v-else/>
+                </div>
+                <div class="shq_pl_list_xq">
+                    <p class="shq_pl_list_name">{{bean.toUserName}}<span class="shq_pl_list_name_font">回复</span>{{bean.userName}}</p>
+                    <p class="shq_pl_list_con">{{bean.commentContent}}</p>
+                    <div class="shq_pl_list_other"><p class="shq_pl_list_time">13.21</p><p class="shq_pl_list_dz">
+                    <img src="../../../../image/shq_pl_dz_img.png" alt="" class="shq_pl_dz_img" v-if="bean.isPraise == '0'" @click="pushed(bean,$event)"/>
+                     <img src="../../../../image/dynamic_zan_read.png" alt="" class="shq_pl_dz_img"  v-else/>
+                    {{bean.praisenum}}</p></div>
+                </div>
+            </li>
+          
+        </ul>
+        </template>
+    </div>
+
+    <div class="shq_pl_bottom" v-if="commenttype == '0'">
+        <input type="text" :placeholder="placeholder" v-bind:class="{'shq_pl_bottom_input_text':true ,'shq_pl_bottom_input_text_focus':addcolor}" @focus="addColor()" @blur="delColor()" v-model="content"/>
+        <img src="../../../../image/shq_pl_send.png" alt="" class="shq_pl_send_img" @click="saveCoterieCollect()" />
+    </div>
+     <div class="shq_pl_bottom" v-else-if="commenttype == '1'">
+        <input type="text" :placeholder="placeholder" v-bind:class="{'shq_pl_bottom_input_text':true ,'shq_pl_bottom_input_text_focus':addcolor}" @focus="addColor()" @blur="delColor()" v-model="content"/>
+        <img src="../../../../image/shq_pl_send.png" alt="" class="shq_pl_send_img" @click="saveOtherCoterieCollect()" />
+    </div>
+
+    <div class="fixed_tc display">
+      <div class="sj_sctc">
+        <ul class="sj_sctc_ul">
+          <li @click="collectuser()">回复评论</li>
+          <li class="display">举报</li>
+        </ul>
+        <p class="sj_sctc_qx" @click="back()">取消</p>
+      </div>
+    </div>
+
+    </div>
+
+    
+
+</body>
+
+</html>

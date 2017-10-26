@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>自由亿猫客</title>
+    <link href="../../../css/index.css"  rel="stylesheet" type="text/css"  />
+    <link href="../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<body>
+<div id="info" v-cloak><!---->
+    <div class="topBgbox">
+        <div class="headPortrit">
+            <img v-if="userinfo.headPortrait && userinfo.headPortrait!='' " :src="userinfo.headPortrait" alt=""/>
+            <img v-else src="../../../image/active.png" alt=""/>
+        </div>
+        <div class="yimaonickname">
+            <span class="nick">{{userinfo.nickName}}</span>
+            <span class="major">自由亿猫客</span>
+        </div>
+        <div class="income">
+            <span class="incometitle">当前收入</span>
+            <div class="line"></div>
+            <div class="incomenum">
+                &yen; <span class="price">{{info.userTotal.guestAmount}}</span>
+            </div>
+        </div>
+        <div class="incomeBottom">
+            <div class="incomeDetail">累计收入 <span class="minfontsize">&yen; <span class="maxfontsize">{{info.userTotal.totalGuestAmount}}</span></span></div>
+            <div class="incomeDetail" onclick="tixianBtn()">已提现 <span class="minfontsize">&yen; <span class="maxfontsize">{{info.userTotal.withdrawAmount}}</span></span></div>
+        </div>
+    </div>
+    <div class="yimaoCode">
+        <div class="yimaocodetitle">您的亿猫客代号</div>
+        <div class="yimaocodenum freeyimaocodenum">{{referralCode}}</div>  <!--{{referralCode}}-->
+        <div class="yimaocodeshare" onclick="shareyimaoke()">分享出去</div>
+    </div>
+    <div class="incomedetailbox">
+        <div class="incomedetailtitle">收益日记</div>
+        <div class="incomedetailtitle float_right" id="moredetail" onclick="clickBtn()">更多 <img src="../../../image/yimaoke/more.png" alt=""></div>
+    </div>
+    <div class="profitBox" style="margin-bottom:0;">
+        <div class="profitlist">
+            <div class="profitLi">日期</div>
+            <div class="profitLi">单数</div>
+            <div class="profitLi">收益</div>
+        </div>
+    </div>
+    <div class="toasttitle">
+        <span>做满十单，就可以申请成为专业亿猫客了哟!{{info.userTotal.auditStatus}}</span>
+        <div v-if="info.userTotal.auditStatus && info.userTotal.auditStatus == 0">
+            <div class="yimaocodeshare yimaocodesharess">审核中</div>
+        </div>
+        <div v-else-if="info.userTotal.auditStatus == 2">
+            <div class="yimaocodeshare yimaocodeshares" onclick="applyyimaoke()">审核驳回</div>
+        </div>
+        <div v-else>
+            <div class="yimaocodeshare yimaocodesharess" v-if="info.userTotal.recommendNum && info.userTotal.recommendNum < 10">您还差{{10 - info.userTotal.recommendNum}}单</div>
+            <div class="yimaocodeshare yimaocodeshares" onclick="applyyimaoke()" v-else>立即申请</div>
+        </div>
+    </div>
+    <div class="incomeBtn">
+        <div class="incomeLeft" onclick='getoutWallet()'>转入钱包</div>
+        <div class="incomeLeft incomeRight" @click="cashpage(info.userTotal.guestAmount)">提现</div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../script/vue.min.js"></script>
+<script type="text/javascript" src="../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../script/control/usercenter/yimaoke/yimaoke_frm.js"></script>
+</body>
+</head>
+</html>

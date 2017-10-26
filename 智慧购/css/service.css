@@ -1,0 +1,110 @@
+header{
+    width:100%;height:6.5rem;
+    background:url("../image/kfrx_img.png") no-repeat 0 0;
+    background-size:cover;
+}
+.listBox{
+    width:100%;height:100%;
+}
+.listBox li{
+    width:100%;height:3rem;
+    padding:.5rem .5rem;
+    margin-bottom:.5rem;
+    background:white;
+}
+.listBox li:last-child{
+    margin-bottom:0;
+}
+.listBox li:first-child{
+    margin-bottom:0;
+    height:2.5rem;
+    line-height:2.5rem;
+}
+.listBox li:nth-child(2){
+    padding-left:4.2rem;
+    height:2.5rem;
+    line-height:2.5rem;
+}
+.listBox li span{
+    line-height:2rem;
+    display: block;
+    float: left;
+}
+.fen{
+    /*float: right;*/
+    font-style: normal;
+}
+.fontIcon{
+    font-size:24px;
+    margin-right:.3rem;
+    float: left;
+    line-height:2rem;
+}
+.mobile{
+    color:#fa5938;
+    line-height:2rem;
+}
+.email{
+    color: #ffb94c !important;;
+    line-height: 1.7rem !important;;
+}
+.weis{
+    color: #17c9ae !important;
+    line-height: 2rem !important;
+}
+.qqs{
+    color:#8198f6;
+    line-height:2rem !important;
+}
+.erweima{
+    color:#bec0c0;
+    float: right;
+    transition:all 1s ease;
+}
+.phoneBtn{
+    width:3.5rem;
+    height:1.5rem;
+    background:#76dadc;
+    color:white;
+    text-align:center;
+    line-height:1.5rem;
+    float: right;
+    border-radius:4px;
+    font-size:14px;
+    margin-top:1.5rem;
+}
+.copy{
+    margin-top:7px !important;
+}
+.qrCodeMask{
+    width:100%;height:0;
+    transition:all .5s ease;
+    opacity:0;
+}
+.imgQrCode{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.downImgBox{
+    width:100%;height:0;
+    background:white;
+    position:fixed;
+    bottom:0;
+    opacity:0;
+    z-index:2;
+    transition:all .5s ease;
+}
+.downImgBox li{
+    width:100%;
+    height:50%;
+    text-align:center;
+    line-height:2.5rem;
+    border-bottom:1px solid #f2f2f2;
+
+}

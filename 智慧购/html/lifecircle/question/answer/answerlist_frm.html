@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>生活圈</title>
+<link href="../../../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../../../css/public.css"  rel="stylesheet" type="text/css"  />
+<script type="text/javascript" src="../../../../script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../script/tool/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../../../../script//api.js"></script>
+<script type="text/javascript" src="../../../../script/common/common.js"></script>
+<script type="text/javascript" src="../../../../script/common/path.js"></script>
+<script type="text/javascript" src="../../../../script/tool/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../../../script/control/lifecircle/question/answer/answerlist.js"></script>
+
+</head>
+	<div id="info" v-cloak>
+	<ul class="sj_gz_list color_01" style="top:0px;" >
+      <li class="sj_gz_list_border" @click="hot()">热门</li>
+      <li @click="neartime()">最新</li>
+    </ul>
+
+    <!--生活圈-回答-热门-->
+    <div class="main_dynamic" v-if="index == 0"  style="margin-top: 40px;">
+        <ul class="shq_answer_list">
+            <li v-for="bean in list[0].info" @click="answerinfopage(bean)">
+                <div class="shq_answer_list_title"><span class="shq_answer_list_title_form">来自：{{bean.coterieName}}</span></div>
+                <div class="shq_answer_list_qusetion color_01"><p>{{bean.quesTitle}}</p></div>
+                <div class="shq_answer_list_choose">
+                    <p class="shq_answer_list_choose_ll"><img src="../../../../image/shq_answer_new_ll_img.png" alt="" />{{bean.readnum}}人浏览</p>
+                    <p class="shq_answer_list_choose_hd"><img src="../../../../image/shq_answer_new_hf_img.png" alt="" />{{bean.answernum}}人回答</p>
+                    <p class="shq_answer_list_choose_xhd"><img src="../../../../image/shq_answer_new_pen_img.png" alt="" />写回答</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--生活圈-回答-最新 main_shq_answer-->
+    <div class="main_dynamic " v-else-if="index == 1" style="margin-top: 40px;">
+        <ul class="shq_answer_list">
+        	<li v-for="bean in list[1].info" @click="answerinfopage(bean)">
+                <div class="shq_answer_list_title"><span class="shq_answer_list_title_form">来自：{{bean.coterieName}}</span></div>
+                <div class="shq_answer_list_qusetion color_01"><p>{{bean.quesTitle}}</p></div>
+                <div class="shq_answer_list_choose">
+                    <p class="shq_answer_list_choose_ll"><img src="../../../../image/shq_answer_new_ll_img.png" alt="" />{{bean.readnum}}人浏览</p>
+                    <p class="shq_answer_list_choose_hd"><img src="../../../../image/shq_answer_new_hf_img.png" alt="" />{{bean.answernum}}人回答</p>
+                    <p class="shq_answer_list_choose_xhd"><img src="../../../../image/shq_answer_new_pen_img.png" alt="" />写回答</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    </div>
+    
+</body>
+<script>
+        
+        //    多行文本溢出
+        $(".shq_answer_list_qusetion").each(function(){
+            var box_height = $(this).height();
+            var $p = $("p", $(this)).eq(0);
+            while ($p.outerHeight() > box_height) {
+                $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+            };
+        });
+    </script>
+</html>

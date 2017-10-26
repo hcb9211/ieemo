@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="radio" name="check">男
+<input type="radio" name="check">女
+</body>
+<script src="jquery-3.1.1.js"></script>
+<script>
+
+        var flag = 0;
+        $("input[name='check']").each(function(){
+            if(this.checked){
+                flag = this;
+            }
+            this.onclick = function(){
+                if(this == flag){
+                    this.checked = false;
+                    flag = 0;
+                } else{
+                    flag = this;
+                }
+            }
+        });
+
+</script>
+</html>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html style="background:#fff;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+<meta name="MobileOptimized" content="320"/>
+<title>我的积分</title>
+<link href="../../css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/index.css"  rel="stylesheet" type="text/css"  />
+<link href="../../css/public.css"  rel="stylesheet" type="text/css"  />
+</head>
+<body style="background:#fff;">
+    <!--<div class="top top_red"><img src="../../image/back.png" alt="" class="top_return"/>我的积分</div>-->
+    <div class="main_dynamic main_myjf" style="margin-top: 0px;">
+        <div class="myjf_box">
+            <div class="myjf_con">
+                <ul class="myjf_con_top" style="width:100%;height: 30px;line-height:30px;">
+                    <li class="myjf_con_top_dqjf" style="width:22%;float:left;">当前积分</li>
+                    <li class="myjf_con_number" style="width:17%;margin:0;padding:0;float:left;text-align: left;font-size:16px;">0</li>
+                    <li class="myjf_con_top_dqjf" style="width:28%;margin:0;padding:0;float:left;">节约碳排放</li>
+                    <li class="myjf_con_number getCal" style="width:25%;margin:0;padding:0;float:left;text-align:left;font-size:16px;"></li>
+                </ul>
+                <div style="width:100%;height:30px;margin:10px auto;padding:0  10px;text-align: left">亿猫购物车已累计节约碳排放 <span class="totalCal" style="color:#6600A0;font-size:16px;">0</span></div>
+            </div>
+        </div>
+        <div  id="integral" v-cloak>
+            <ul class="myjf_list" v-if="type=='1'">
+                    <p class="myjf_list_ts">最近30天积分记录</p>
+                        <li v-for="integraltodo in integraltodos">
+                        <div class="myjf_list_left">
+                            <p class="myjf_list_left_title">{{integraltodo.integralDesc}}</p>
+                            <p class="myjf_list_left_time" style="width:200px;">{{integraltodo.createTime}}</p>
+                        </div>
+                        <div class="myjf_list_number">+{{integraltodo.integralValue}}</div>
+                    </li>
+            </ul>
+            <div class="main_dynamic main_myjf_lc" v-else style="margin-bottom:0!important;">
+                <div class="myjf_lc_rotate" >
+                    <div class="myjf_lc_rotate_con">
+                        <p class="myjf_lc_rotate_con_font">总里程</p>
+                        <p class="myjf_lc_rotate_con_number">
+                            <span v-if="mileage.totalMileage">{{mileage.totalMileage}}</span>
+                            <span v-else>0</span>
+                        </p>
+                        <div style="text-align:center;margin-top:3px;">猫步</div>
+                    </div>
+                </div>
+
+                <ul class="myjf_lc_con">
+                    <li>
+                        <p class="myjf_lc_con_font">总消耗卡路里</p>
+                        <p class="myjf_lc_con_number">
+                            <span v-if="mileage.totalCalorie">{{mileage.totalCalorie}}</span>
+                            <span v-else>0</span>
+                            千卡
+                        </p>
+                    </li>
+                    <li>
+                        <p class="myjf_lc_con_font">可兑换积分</p>
+                        <p class="myjf_lc_con_number">
+                            <span v-if="mileage.totalIntegral">{{mileage.totalIntegral}}</span>
+                            <span v-else>0</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <ul class="myjf_bottom">
+                <li class="myjf_bottom_click" @click="clickintegral()">积分</li>
+                <li @click="clickmileage()">里程</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/tool/fastclick/fastclick.js"></script>
+    <script type="text/javascript" src="../../script/common/path.js"></script>
+    <script type="text/javascript" src="../../script/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../script/tool/aui_js/aui-dialog.js"></script>
+    <script type="text/javascript" src="../../script/common/common.js"></script>
+    <script type="text/javascript" src="../../script/vue.min.js"></script>
+    <script type="text/javascript" src="../../script/control/integral/integral.js"></script>
+    <script>
+        $(".myjf_bottom").children("li").click(function(){
+            $(this).addClass("myjf_bottom_click").siblings().removeClass("myjf_bottom_click");
+        });
+    </script>
+</body>
+</html>

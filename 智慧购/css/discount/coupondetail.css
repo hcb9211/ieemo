@@ -1,0 +1,83 @@
+.couponbg{
+    width:335px;
+    height:317.5px;
+    background: url("../../image/discount/coupondetailbg.png") no-repeat 0 0;
+    background-size:100% 100%;
+    margin:50px auto;
+    position: relative;
+}
+.topcoupon{
+    width:100%;
+    height:132px;
+    position: absolute;
+    left:0;top:41px;
+}
+.titlecoupon{
+    width:50%;
+    height:40px;
+    margin:41px auto;
+}
+.titlecoupon p{
+    text-align: center;
+    color:#fffed0;
+    font-size:12px;
+}
+.titlecoupon h2{
+    text-align:center;
+    color:#ffff00;
+    font-size:16px;
+    line-height:20px;
+}
+.validity{
+    width:60%;
+    height:40px;
+    position: absolute;
+    bottom:8px;
+    left:20px;
+}
+.validity p{
+    color:#fffed0;
+    font-size:12px;
+}
+.validity h2{
+    color:#ffff00;
+    font-size:14px;
+}
+.bottomcoupon{
+    width:100%;height:145px;
+    position: absolute;
+    bottom:0;
+    padding:10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.textcoupon{
+    width:100%;
+    height:100%;
+    padding-left:10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.coupontitle{
+    text-align:left;
+    color:#999;
+    font-size:12px;
+}
+.textcoupon p{
+    color:#333;
+    font-size:13px;
+}
+.shareBtn{
+    width:195px;
+    height:45px;
+    background:url("../../image/discount/button.png") no-repeat 0 0;
+    background-size:100% 100%;
+    text-align:center;
+    line-height:45px;
+    color:white;
+    position: fixed;
+    bottom:50px;
+    left: calc(50% - 97px);
+}
